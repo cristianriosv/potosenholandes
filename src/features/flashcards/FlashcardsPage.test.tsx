@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MantineProvider } from '@mantine/core';
 import { db } from '../../db/db';
@@ -48,5 +48,32 @@ describe('FlashcardsPage', () => {
     expect(await screen.findByText('nieuw')).toBeInTheDocument();
     expect(screen.queryByText('moeilijk')).not.toBeInTheDocument();
     expect(await db.flashcardReviews.where('vocabularyItemId').equals(due.id).count()).toBe(0);
+  });
+
+  it('jumps to a different random card and hides the previous answer', async () => {
+    const user = userEvent.setup();
+    await Promise.all([
+      vocabularyItems.save({ id: 'word-one', categoryIds: [], dutchWord: 'woord een', englishTranslation: 'word one' }),
+      vocabularyItems.save({ id: 'word-two', categoryIds: [], dutchWord: 'woord twee', englishTranslation: 'word two' }),
+      vocabularyItems.save({ id: 'word-three', categoryIds: [], dutchWord: 'woord drie', englishTranslation: 'word three' }),
+    ]);
+    render(<MantineProvider><FlashcardsPage /></MantineProvider>);
+
+    expect(await screen.findByText('woord een')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Reveal' }));
+    expect(screen.getByText('word one')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Random card' }));
+
+    const firstRandom = await waitFor(() => {
+      const word = ['woord twee', 'woord drie'].find((candidate) => screen.queryByText(candidate));
+      if (!word) throw new Error('No different random card was shown.');
+      return word;
+    });
+    expect(screen.queryByText('word one')).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Random card' }));
+    await waitFor(() => {
+      expect(screen.queryByText(firstRandom)).not.toBeInTheDocument();
+    });
   });
 });

@@ -42,6 +42,16 @@ export function FlashcardsPage() {
 
   const card = deck[index % Math.max(deck.length, 1)];
 
+  const showRandomCard = () => {
+    if (deck.length <= 1) return;
+    const currentIndex = index % deck.length;
+    const choices = Array.from({ length: deck.length }, (_, candidate) => candidate).filter((candidate) => candidate !== currentIndex);
+    const nextIndex = choices[Math.floor(Math.random() * choices.length)];
+    if (nextIndex === undefined) return;
+    setIndex(nextIndex);
+    setRevealed(false);
+  };
+
   const answer = async (rating: 'again' | 'hard' | 'easy') => {
     if (!card) return;
     await flashcardReviews.record(card.id, rating);
@@ -83,6 +93,9 @@ export function FlashcardsPage() {
         <Text c="dimmed" role="status">No cards match this review filter.</Text>
       ) : (
         <>
+          <Group justify="end">
+            <Button variant="default" disabled={deck.length < 2} onClick={showRandomCard}>Random card</Button>
+          </Group>
           <Card withBorder padding="xl" onClick={() => setRevealed(true)} style={{ cursor: 'pointer' }}>
             <Stack align="center" gap="xs" mih={140} justify="center">
               {card.localImageRef && <Image src={card.localImageRef} alt={card.dutchWord} h={96} fit="contain" />}
