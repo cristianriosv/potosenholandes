@@ -5,13 +5,12 @@ Status date: 2026-10-19
 | Milestone | Status | Evidence and remaining work |
 | --- | --- | --- |
 | 1. Offline foundation | Partial | Vite PWA, manifest, generated service worker, Dexie, sample content, required navigation, Home links, loading/error states, and a browser online/offline indicator exist. Manual installation and offline startup have not been verified on a device. |
-| 2. Domain model and repositories | Complete | Canonical Zod model, Dexie v1-to-v2 migration, validated repositories, category/passage referential checks, four exercise variants, event-based attempts/reviews, canonical seed data, and a v1 upgrade regression test are implemented. |
-| 3. Reading experience | Partial | Browse by category and CEFR level, three A2 passages with linked stored questions, immediate per-option explanations, correct-answer reveal, score, retry, and per-question attempt history are implemented. Reading flow tests cover correct/incorrect feedback, duplicate submission, scoring, retry, empty content, and IndexedDB reopen. Manual offline/device behavior remains unverified. |
-| 4. Content manager | Partial | Searchable/filterable library, validated editors for all four entity types, passage-linked questions, per-option explanations, exercise preview, draft/reviewed/published states, optimistic stale-edit detection, dirty-draft confirmations, referenced-record deletion protection, and duplication are implemented. Tests cover create/edit/duplicate/delete, invalid content, linked-question practice, preview, and draft preservation. |
-| 5. Flashcards and sentence exercises | Partial | Flashcards reveal translations and write Again/Easy review events with next-due timestamps. Hard rating in the UI, due-card scheduling, difficult-card review, and interactive sentence modes are missing. |
-| 4. Content manager | Partial | Searchable/filterable library, typed editors for categories, vocabulary, passages, and all exercise types, passage-linked questions, per-option explanations, exercise preview, review states, atomic stale-write detection, dirty-draft confirmations, reference-protected deletion, and content duplication are implemented. Vocabulary editing includes local images and verb forms. Tests cover CRUD, validation, preview, linked-question practice, and preserving cancelled drafts. |
-| 5. Flashcards and sentence exercises | Partial | Flashcards support Again/Hard/Easy ratings, stored review history and due times, due/difficult filters, and local images. Missing-word selection, word-order tokens with alternatives/repeated words, and matching are interactive and save attempts locally. Broader scheduling and manual offline verification remain. |
-| 6. Backup and offline readiness | Partial | Versioned JSON export/import, schema and reference validation, additions/updates/duplicates/conflict preview, conflict-safe merge, explicit full restore, legacy progress/seed-state preservation, and atomic rollback tests are implemented in Settings. Production/device offline testing remains unverified. |
+| 2. Domain model and repositories | Complete | Canonical Zod model, Dexie v1-to-v2 migration, validated repositories, referential checks, four exercise variants, event-based attempts/reviews, canonical seeds, and a v1 upgrade regression test are implemented. |
+| 3. Reading experience | Partial | Browse/filter, three A2 passages with linked questions, immediate explanations, correct-answer reveal, score, retry, and local attempt history are implemented and tested. Manual offline/device behavior remains unverified. |
+| 4. Content manager | Complete | Searchable/filterable library, typed editors, linked questions, per-option explanations, previews, review states, atomic stale-write detection, dirty-draft confirmation, protected deletion, duplication, and local image/verb-form fields are implemented and tested. |
+| 5. Flashcards and sentence exercises | Partial | Again/Hard/Easy review scheduling, due/difficult filters, local images, and all three sentence modes are implemented and tested. Manual offline behavior remains unverified. |
+| 6. Backup and offline readiness | Partial | Versioned export/import, validation, change preview, conflict-safe merge, explicit full restore, legacy-progress/seed-state preservation, and atomic rollback tests are implemented. Cross-device and offline checks remain. |
+| Progress summary | Not started | Attempts and review history are stored locally, but the Progress navigation tab still displays a placeholder. |
 | Final engineering review | Not started | No final review has been performed. |
 
 ## Canonical Data Model
@@ -20,13 +19,13 @@ Use standalone Exercise records, with `passageId` linking reading questions to t
 
 ## Verification
 
-`npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 16 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
 `npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 31 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
 
 ## Recommended Next Steps
 
-1. Manually verify the production app and all practice flows offline on a supported device.
-2. Complete the remaining shell states, run manual offline/device checks, and perform the final engineering review.
+1. Implement the Progress summary screen using existing local attempt/review records.
+2. Manually verify PWA installation, offline startup, every practice flow, and backup transfer/restore.
+3. Perform the final engineering review and address any reproduced issues.
 
 The overall milestone order is sound. The important correction is to finish the data model before implementing Reading. The initial "Your first task" section in `General_implementation.md` is historical; the approved plan and initial scaffold work are complete.
 
