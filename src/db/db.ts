@@ -48,7 +48,7 @@ export class AppDatabase extends Dexie {
         passages: 'id, title, *categoryIds, cefrLevel, updatedAt, reviewStatus',
         progress: 'id, itemType, itemId, lastSeenAt',
         meta: 'key',
-        practiceAttempts: 'id, exerciseId, sessionId, attemptedAt',
+        practiceAttempts: 'id, &[sessionId+exerciseId], exerciseId, sessionId, attemptedAt',
         flashcardReviews: 'id, vocabularyItemId, reviewedAt, nextDueAt',
       })
       .upgrade(async (transaction) => {

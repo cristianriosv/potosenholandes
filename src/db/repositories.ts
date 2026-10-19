@@ -180,12 +180,17 @@ export const exercises = {
 
 export const practiceAttempts = {
   async record(input: Omit<PracticeAttempt, 'id' | 'attemptedAt'>): Promise<PracticeAttempt> {
-    if (!(await db.exercises.get(input.exerciseId))) {
-      throw new Error(`Exercise "${input.exerciseId}" does not exist.`);
-    }
-    const attempt = PracticeAttemptSchema.parse({ ...input, id: crypto.randomUUID(), attemptedAt: Date.now() });
-    await db.practiceAttempts.add(attempt);
-    return attempt;
+    return db.transaction('rw', [db.exercises, db.practiceAttempts], async () => {
+      if (!(await db.exercises.get(input.exerciseId))) {
+        throw new Error(`Exercise "${input.exerciseId}" does not exist.`);
+      }
+      const id = `attempt:${input.sessionId}:${input.exerciseId}`;
+      const existing = await db.practiceAttempts.get(id);
+      if (existing) return existing;
+      const attempt = PracticeAttemptSchema.parse({ ...input, id, attemptedAt: Date.now() });
+      await db.practiceAttempts.add(attempt);
+      return attempt;
+    });
   },
   list: () => db.practiceAttempts.toArray(),
   forExercise: (exerciseId: string) => db.practiceAttempts.where('exerciseId').equals(exerciseId).toArray(),
