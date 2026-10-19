@@ -206,6 +206,35 @@ describe('seedIfNeeded', () => {
     await seedIfNeeded();
     expect(await categories.get('seed-cat-greetings')).toMatchObject({ name: 'My category', source: 'user' });
   });
+
+  it('does not overwrite edits to imported vocabulary on a later seed run', async () => {
+    await seedIfNeeded();
+    await vocabularyItems.save({ id: 'seed-vocab-duren', englishTranslation: 'to take a long time' });
+    await seedIfNeeded();
+    expect(await vocabularyItems.get('seed-vocab-duren')).toMatchObject({
+      englishTranslation: 'to take a long time',
+      source: 'user',
+    });
+  });
+
+  it('imports all 111 vocabulary entries as draft records with the supplied examples and forms', async () => {
+    await seedIfNeeded();
+    const [allVocabulary, allCategories] = await Promise.all([db.vocabularyItems.toArray(), db.categories.toArray()]);
+    const imported = allVocabulary.filter((item) => item.source === 'imported');
+    expect(imported).toHaveLength(111);
+    expect(allCategories.filter((category) => category.source === 'imported')).toHaveLength(20);
+    expect(imported.every((item) => item.reviewStatus === 'draft')).toBe(true);
+    expect(await db.vocabularyItems.get('seed-vocab-duren')).toMatchObject({
+      dutchWord: 'duren',
+      englishTranslation: 'to last; to take time',
+      exampleDutch: 'Het duurt een uur.',
+      verbForms: { presentSingular: 'duurt', pastSingular: 'duurde', pastParticiple: 'geduurd' },
+    });
+    expect(await db.vocabularyItems.get('seed-vocab-maaltijd')).toMatchObject({
+      article: 'de',
+      plural: 'maaltijden',
+    });
+  });
 });
 
 describe('v1 database migration', () => {

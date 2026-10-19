@@ -1,0 +1,2047 @@
+{
+  "categories": [
+    {
+      "id": "seed-cat-word-list-verb",
+      "name": "verb",
+      "description": "Part of speech from the supplied vocabulary list: verb. Refine as needed.",
+      "sortOrder": 2,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-noun",
+      "name": "noun",
+      "description": "Part of speech from the supplied vocabulary list: noun. Refine as needed.",
+      "sortOrder": 3,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-adjective-ordinal",
+      "name": "adjective/ordinal",
+      "description": "Part of speech from the supplied vocabulary list: adjective/ordinal. Refine as needed.",
+      "sortOrder": 4,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-adjective-adverb",
+      "name": "adjective/adverb",
+      "description": "Part of speech from the supplied vocabulary list: adjective/adverb. Refine as needed.",
+      "sortOrder": 5,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-adjective",
+      "name": "adjective",
+      "description": "Part of speech from the supplied vocabulary list: adjective. Refine as needed.",
+      "sortOrder": 6,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-preposition-adverb",
+      "name": "preposition/adverb",
+      "description": "Part of speech from the supplied vocabulary list: preposition/adverb. Refine as needed.",
+      "sortOrder": 7,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-determiner-pronoun",
+      "name": "determiner/pronoun",
+      "description": "Part of speech from the supplied vocabulary list: determiner/pronoun. Refine as needed.",
+      "sortOrder": 8,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-reflexive-verb",
+      "name": "reflexive verb",
+      "description": "Part of speech from the supplied vocabulary list: reflexive verb. Refine as needed.",
+      "sortOrder": 9,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-adjective-pronoun",
+      "name": "adjective/pronoun",
+      "description": "Part of speech from the supplied vocabulary list: adjective/pronoun. Refine as needed.",
+      "sortOrder": 10,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-adverb",
+      "name": "adverb",
+      "description": "Part of speech from the supplied vocabulary list: adverb. Refine as needed.",
+      "sortOrder": 11,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-preposition-conjunction",
+      "name": "preposition/conjunction",
+      "description": "Part of speech from the supplied vocabulary list: preposition/conjunction. Refine as needed.",
+      "sortOrder": 12,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-adverb-conjunction",
+      "name": "adverb/conjunction",
+      "description": "Part of speech from the supplied vocabulary list: adverb/conjunction. Refine as needed.",
+      "sortOrder": 13,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-adverb-particle",
+      "name": "adverb/particle",
+      "description": "Part of speech from the supplied vocabulary list: adverb/particle. Refine as needed.",
+      "sortOrder": 14,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-plural-noun",
+      "name": "plural noun",
+      "description": "Part of speech from the supplied vocabulary list: plural noun. Refine as needed.",
+      "sortOrder": 15,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-determiner",
+      "name": "determiner",
+      "description": "Part of speech from the supplied vocabulary list: determiner. Refine as needed.",
+      "sortOrder": 16,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-adverb-adjective",
+      "name": "adverb/adjective",
+      "description": "Part of speech from the supplied vocabulary list: adverb/adjective. Refine as needed.",
+      "sortOrder": 17,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-noun-adjective",
+      "name": "noun/adjective",
+      "description": "Part of speech from the supplied vocabulary list: noun/adjective. Refine as needed.",
+      "sortOrder": 18,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-verb-phrase",
+      "name": "verb phrase",
+      "description": "Part of speech from the supplied vocabulary list: verb phrase. Refine as needed.",
+      "sortOrder": 19,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-noun-verb",
+      "name": "noun/verb",
+      "description": "Part of speech from the supplied vocabulary list: noun/verb. Refine as needed.",
+      "sortOrder": 20,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-word-list-noun-verb-stem",
+      "name": "noun/verb stem",
+      "description": "Part of speech from the supplied vocabulary list: noun/verb stem. Refine as needed.",
+      "sortOrder": 21,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    }
+  ],
+  "vocabularyItems": [
+    {
+      "id": "seed-vocab-duren",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "duren",
+      "englishTranslation": "to last; to take time",
+      "exampleDutch": "Het duurt een uur.",
+      "exampleEnglish": "It takes an hour.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "duurt",
+        "pastSingular": "duurde",
+        "pastParticiple": "geduurd"
+      }
+    },
+    {
+      "id": "seed-vocab-blijven",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "blijven",
+      "englishTranslation": "to stay; to remain",
+      "exampleDutch": "Ik blijf vandaag thuis.",
+      "exampleEnglish": "I am staying home today.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "blijft",
+        "pastSingular": "bleef",
+        "pastParticiple": "gebleven"
+      }
+    },
+    {
+      "id": "seed-vocab-maaltijd",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "maaltijd",
+      "englishTranslation": "meal",
+      "exampleDutch": "De maaltijd is klaar.",
+      "exampleEnglish": "The meal is ready.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "maaltijden"
+    },
+    {
+      "id": "seed-vocab-bewegen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "bewegen",
+      "englishTranslation": "to move; to exercise",
+      "exampleDutch": "Ik beweeg elke dag.",
+      "exampleEnglish": "I exercise every day.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "beweegt",
+        "pastSingular": "bewoog",
+        "pastParticiple": "bewogen"
+      }
+    },
+    {
+      "id": "seed-vocab-hoed",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "hoed",
+      "englishTranslation": "hat",
+      "exampleDutch": "De hoed is zwart.",
+      "exampleEnglish": "The hat is black.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "hoeden"
+    },
+    {
+      "id": "seed-vocab-rivier",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "rivier",
+      "englishTranslation": "river",
+      "exampleDutch": "De rivier is breed.",
+      "exampleEnglish": "The river is wide.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "rivieren"
+    },
+    {
+      "id": "seed-vocab-vergeten",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "vergeten",
+      "englishTranslation": "to forget",
+      "exampleDutch": "Ik vergeet soms mijn sleutels.",
+      "exampleEnglish": "I sometimes forget my keys.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "vergeet",
+        "pastSingular": "vergat",
+        "pastParticiple": "vergeten"
+      }
+    },
+    {
+      "id": "seed-vocab-zenden",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "zenden",
+      "englishTranslation": "to send; to transmit",
+      "exampleDutch": "Wij zenden het pakket vandaag.",
+      "exampleEnglish": "We send the package today.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "zendt",
+        "pastSingular": "zond",
+        "pastParticiple": "gezonden"
+      }
+    },
+    {
+      "id": "seed-vocab-sturen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "sturen",
+      "englishTranslation": "to send; to steer",
+      "exampleDutch": "Ik stuur je een bericht.",
+      "exampleEnglish": "I send you a message.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "stuurt",
+        "pastSingular": "stuurde",
+        "pastParticiple": "gestuurd"
+      }
+    },
+    {
+      "id": "seed-vocab-menen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "menen",
+      "englishTranslation": "to mean; to be serious",
+      "exampleDutch": "Ik meen het.",
+      "exampleEnglish": "I mean it.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "meent",
+        "pastSingular": "meende",
+        "pastParticiple": "gemeend"
+      }
+    },
+    {
+      "id": "seed-vocab-betekenen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "betekenen",
+      "englishTranslation": "to mean; to signify",
+      "exampleDutch": "Wat betekent dit woord?",
+      "exampleEnglish": "What does this word mean?",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "betekent",
+        "pastSingular": "betekende",
+        "pastParticiple": "betekend"
+      }
+    },
+    {
+      "id": "seed-vocab-derde",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-ordinal"
+      ],
+      "dutchWord": "derde",
+      "englishTranslation": "third",
+      "exampleDutch": "Dit is de derde vraag.",
+      "exampleEnglish": "This is the third question.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-warmte",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "warmte",
+      "englishTranslation": "warmth; heat",
+      "exampleDutch": "De warmte is aangenaam.",
+      "exampleEnglish": "The warmth is pleasant.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de"
+    },
+    {
+      "id": "seed-vocab-theoretisch",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-adverb"
+      ],
+      "dutchWord": "theoretisch",
+      "englishTranslation": "theoretical; theoretically",
+      "exampleDutch": "Theoretisch is dat mogelijk.",
+      "exampleEnglish": "Theoretically, that is possible.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-heet",
+      "categoryIds": [
+        "seed-cat-word-list-adjective"
+      ],
+      "dutchWord": "heet",
+      "englishTranslation": "hot",
+      "exampleDutch": "De soep is heet.",
+      "exampleEnglish": "The soup is hot.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-lukken",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "lukken",
+      "englishTranslation": "to succeed; to work out",
+      "exampleDutch": "Het lukt me vandaag.",
+      "exampleEnglish": "I manage it today.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "lukt",
+        "pastSingular": "lukte",
+        "pastParticiple": "gelukt"
+      }
+    },
+    {
+      "id": "seed-vocab-kiezen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "kiezen",
+      "englishTranslation": "to choose; to select",
+      "exampleDutch": "Ik kies de blauwe jas.",
+      "exampleEnglish": "I choose the blue coat.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "kiest",
+        "pastSingular": "koos",
+        "pastParticiple": "gekozen"
+      }
+    },
+    {
+      "id": "seed-vocab-langs",
+      "categoryIds": [
+        "seed-cat-word-list-preposition-adverb"
+      ],
+      "dutchWord": "langs",
+      "englishTranslation": "along; past",
+      "exampleDutch": "We lopen langs de weg.",
+      "exampleEnglish": "We walk along the road.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-schoen",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "schoen",
+      "englishTranslation": "shoe",
+      "exampleDutch": "Mijn schoen is nat.",
+      "exampleEnglish": "My shoe is wet.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "schoenen"
+    },
+    {
+      "id": "seed-vocab-oor",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "oor",
+      "englishTranslation": "ear",
+      "exampleDutch": "Mijn oor doet pijn.",
+      "exampleEnglish": "My ear hurts.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "het",
+      "plural": "oren"
+    },
+    {
+      "id": "seed-vocab-kleur",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "kleur",
+      "englishTranslation": "colour",
+      "exampleDutch": "Welke kleur vind je mooi?",
+      "exampleEnglish": "Which colour do you like?",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "kleuren"
+    },
+    {
+      "id": "seed-vocab-beide",
+      "categoryIds": [
+        "seed-cat-word-list-determiner-pronoun"
+      ],
+      "dutchWord": "beide",
+      "englishTranslation": "both",
+      "exampleDutch": "Beide antwoorden zijn goed.",
+      "exampleEnglish": "Both answers are correct.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-verdienen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "verdienen",
+      "englishTranslation": "to earn; to deserve",
+      "exampleDutch": "Zij verdient genoeg geld.",
+      "exampleEnglish": "She earns enough money.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "verdient",
+        "pastSingular": "verdiende",
+        "pastParticiple": "verdiend"
+      }
+    },
+    {
+      "id": "seed-vocab-zich-interesseren-voor",
+      "categoryIds": [
+        "seed-cat-word-list-reflexive-verb"
+      ],
+      "dutchWord": "zich interesseren voor",
+      "englishTranslation": "to be interested in",
+      "exampleDutch": "Ik interesseer me voor muziek.",
+      "exampleEnglish": "I am interested in music.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "interesseert zich",
+        "pastSingular": "interesseerde zich",
+        "pastParticiple": "zich geïnteresseerd"
+      }
+    },
+    {
+      "id": "seed-vocab-risico",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "risico",
+      "englishTranslation": "risk",
+      "exampleDutch": "Dat is een groot risico.",
+      "exampleEnglish": "That is a big risk.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "het",
+      "plural": "risico's"
+    },
+    {
+      "id": "seed-vocab-ander",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-pronoun"
+      ],
+      "dutchWord": "ander",
+      "englishTranslation": "other; different",
+      "exampleDutch": "Ik neem een andere bus.",
+      "exampleEnglish": "I take a different bus.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-mond",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "mond",
+      "englishTranslation": "mouth",
+      "exampleDutch": "Doe je mond open.",
+      "exampleEnglish": "Open your mouth.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "monden"
+    },
+    {
+      "id": "seed-vocab-soms",
+      "categoryIds": [
+        "seed-cat-word-list-adverb"
+      ],
+      "dutchWord": "soms",
+      "englishTranslation": "sometimes",
+      "exampleDutch": "Ik drink soms thee.",
+      "exampleEnglish": "I sometimes drink tea.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-wakker",
+      "categoryIds": [
+        "seed-cat-word-list-adjective"
+      ],
+      "dutchWord": "wakker",
+      "englishTranslation": "awake",
+      "exampleDutch": "Ik ben al wakker.",
+      "exampleEnglish": "I am already awake.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-sinds",
+      "categoryIds": [
+        "seed-cat-word-list-preposition-conjunction"
+      ],
+      "dutchWord": "sinds",
+      "englishTranslation": "since",
+      "exampleDutch": "Ik woon hier sinds 2020.",
+      "exampleEnglish": "I have lived here since 2020.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-vuur",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "vuur",
+      "englishTranslation": "fire",
+      "exampleDutch": "Het vuur brandt.",
+      "exampleEnglish": "The fire is burning.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "het",
+      "plural": "vuren"
+    },
+    {
+      "id": "seed-vocab-hongerig",
+      "categoryIds": [
+        "seed-cat-word-list-adjective"
+      ],
+      "dutchWord": "hongerig",
+      "englishTranslation": "hungry",
+      "exampleDutch": "Ik ben hongerig.",
+      "exampleEnglish": "I am hungry.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-vullen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "vullen",
+      "englishTranslation": "to fill",
+      "exampleDutch": "Ik vul de fles met water.",
+      "exampleEnglish": "I fill the bottle with water.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "vult",
+        "pastSingular": "vulde",
+        "pastParticiple": "gevuld"
+      }
+    },
+    {
+      "id": "seed-vocab-laten",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "laten",
+      "englishTranslation": "to let; to leave; to have something done",
+      "exampleDutch": "Laat de deur open.",
+      "exampleEnglish": "Leave the door open.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "laat",
+        "pastSingular": "liet",
+        "pastParticiple": "gelaten"
+      }
+    },
+    {
+      "id": "seed-vocab-soort",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "soort",
+      "englishTranslation": "kind; type; sort",
+      "exampleDutch": "Wat voor soort muziek luister je?",
+      "exampleEnglish": "What kind of music do you listen to?",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "soorten"
+    },
+    {
+      "id": "seed-vocab-neus",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "neus",
+      "englishTranslation": "nose",
+      "exampleDutch": "Mijn neus is koud.",
+      "exampleEnglish": "My nose is cold.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "neuzen"
+    },
+    {
+      "id": "seed-vocab-dom",
+      "categoryIds": [
+        "seed-cat-word-list-adjective"
+      ],
+      "dutchWord": "dom",
+      "englishTranslation": "stupid; foolish",
+      "exampleDutch": "Dat was een domme fout.",
+      "exampleEnglish": "That was a stupid mistake.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-bespreken",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "bespreken",
+      "englishTranslation": "to discuss",
+      "exampleDutch": "We bespreken het probleem morgen.",
+      "exampleEnglish": "We will discuss the problem tomorrow.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "bespreekt",
+        "pastSingular": "besprak",
+        "pastParticiple": "besproken"
+      }
+    },
+    {
+      "id": "seed-vocab-discussie",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "discussie",
+      "englishTranslation": "discussion",
+      "exampleDutch": "De discussie duurt lang.",
+      "exampleEnglish": "The discussion is taking a long time.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "discussies"
+    },
+    {
+      "id": "seed-vocab-klimmen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "klimmen",
+      "englishTranslation": "to climb",
+      "exampleDutch": "Wij klimmen de berg op.",
+      "exampleEnglish": "We climb the mountain.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "klimt",
+        "pastSingular": "klom",
+        "pastParticiple": "geklommen"
+      }
+    },
+    {
+      "id": "seed-vocab-ster",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "ster",
+      "englishTranslation": "star",
+      "exampleDutch": "Ik zie een ster.",
+      "exampleEnglish": "I see a star.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "sterren"
+    },
+    {
+      "id": "seed-vocab-toen",
+      "categoryIds": [
+        "seed-cat-word-list-adverb-conjunction"
+      ],
+      "dutchWord": "toen",
+      "englishTranslation": "then; at that time (past)",
+      "exampleDutch": "Toen woonde ik in Amsterdam.",
+      "exampleEnglish": "At that time, I lived in Amsterdam.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-beinvloeden",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "beïnvloeden",
+      "englishTranslation": "to influence; to affect",
+      "exampleDutch": "Het weer beïnvloedt mijn humeur.",
+      "exampleEnglish": "The weather affects my mood.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "beïnvloedt",
+        "pastSingular": "beïnvloedde",
+        "pastParticiple": "beïnvloed"
+      }
+    },
+    {
+      "id": "seed-vocab-invloed",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "invloed",
+      "englishTranslation": "influence",
+      "exampleDutch": "Dit heeft veel invloed op mij.",
+      "exampleEnglish": "This has a big influence on me.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "invloeden"
+    },
+    {
+      "id": "seed-vocab-wensen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "wensen",
+      "englishTranslation": "to wish",
+      "exampleDutch": "Ik wens je veel succes.",
+      "exampleEnglish": "I wish you lots of success.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "wenst",
+        "pastSingular": "wenste",
+        "pastParticiple": "gewenst"
+      }
+    },
+    {
+      "id": "seed-vocab-krijgen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "krijgen",
+      "englishTranslation": "to get; to receive",
+      "exampleDutch": "Ik krijg een brief.",
+      "exampleEnglish": "I receive a letter.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "krijgt",
+        "pastSingular": "kreeg",
+        "pastParticiple": "gekregen"
+      }
+    },
+    {
+      "id": "seed-vocab-feit",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "feit",
+      "englishTranslation": "fact",
+      "exampleDutch": "Dat is een bekend feit.",
+      "exampleEnglish": "That is a well-known fact.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "het",
+      "plural": "feiten"
+    },
+    {
+      "id": "seed-vocab-schaduw",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "schaduw",
+      "englishTranslation": "shadow",
+      "exampleDutch": "We zitten in de schaduw.",
+      "exampleEnglish": "We are sitting in the shade.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "schaduwen"
+    },
+    {
+      "id": "seed-vocab-vechten",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "vechten",
+      "englishTranslation": "to fight",
+      "exampleDutch": "Ze vechten om de bal.",
+      "exampleEnglish": "They fight over the ball.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "vecht",
+        "pastSingular": "vocht",
+        "pastParticiple": "gevochten"
+      }
+    },
+    {
+      "id": "seed-vocab-wachten",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "wachten",
+      "englishTranslation": "to wait",
+      "exampleDutch": "Ik wacht op de bus.",
+      "exampleEnglish": "I am waiting for the bus.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "wacht",
+        "pastSingular": "wachtte",
+        "pastParticiple": "gewacht"
+      }
+    },
+    {
+      "id": "seed-vocab-karakter",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "karakter",
+      "englishTranslation": "character; personality",
+      "exampleDutch": "Hij heeft een rustig karakter.",
+      "exampleEnglish": "He has a calm personality.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "het",
+      "plural": "karakters"
+    },
+    {
+      "id": "seed-vocab-dun",
+      "categoryIds": [
+        "seed-cat-word-list-adjective"
+      ],
+      "dutchWord": "dun",
+      "englishTranslation": "thin",
+      "exampleDutch": "Het papier is dun.",
+      "exampleEnglish": "The paper is thin.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-realiseren",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "realiseren",
+      "englishTranslation": "to realize",
+      "exampleDutch": "Ik realiseer me dat ik te laat ben.",
+      "exampleEnglish": "I realize that I am late.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "realiseert",
+        "pastSingular": "realiseerde",
+        "pastParticiple": "gerealiseerd"
+      }
+    },
+    {
+      "id": "seed-vocab-bodem",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "bodem",
+      "englishTranslation": "bottom; soil; ground",
+      "exampleDutch": "De bodem van de doos is nat.",
+      "exampleEnglish": "The bottom of the box is wet.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "bodems"
+    },
+    {
+      "id": "seed-vocab-verliezen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "verliezen",
+      "englishTranslation": "to lose",
+      "exampleDutch": "Ik verlies soms mijn sleutels.",
+      "exampleEnglish": "I sometimes lose my keys.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "verliest",
+        "pastSingular": "verloor",
+        "pastParticiple": "verloren"
+      }
+    },
+    {
+      "id": "seed-vocab-houden",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "houden",
+      "englishTranslation": "to keep; to hold",
+      "exampleDutch": "Ik houd mijn paspoort hier.",
+      "exampleEnglish": "I keep my passport here.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "houdt",
+        "pastSingular": "hield",
+        "pastParticiple": "gehouden"
+      }
+    },
+    {
+      "id": "seed-vocab-bezig",
+      "categoryIds": [
+        "seed-cat-word-list-adjective"
+      ],
+      "dutchWord": "bezig",
+      "englishTranslation": "busy; occupied",
+      "exampleDutch": "Ik ben bezig met mijn huiswerk.",
+      "exampleEnglish": "I am busy with my homework.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-veranderen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "veranderen",
+      "englishTranslation": "to change",
+      "exampleDutch": "Het weer verandert snel.",
+      "exampleEnglish": "The weather changes quickly.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "verandert",
+        "pastSingular": "veranderde",
+        "pastParticiple": "veranderd"
+      }
+    },
+    {
+      "id": "seed-vocab-te",
+      "categoryIds": [
+        "seed-cat-word-list-adverb-particle"
+      ],
+      "dutchWord": "te",
+      "englishTranslation": "too; to (in infinitive constructions)",
+      "exampleDutch": "Het is te warm om te lopen.",
+      "exampleEnglish": "It is too hot to walk.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-relatief",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-adverb"
+      ],
+      "dutchWord": "relatief",
+      "englishTranslation": "relatively; relative",
+      "exampleDutch": "Het huis is relatief klein.",
+      "exampleEnglish": "The house is relatively small.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-los",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-adverb"
+      ],
+      "dutchWord": "los",
+      "englishTranslation": "loose; separate",
+      "exampleDutch": "De knop zit los.",
+      "exampleEnglish": "The button is loose.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-vertrekken",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "vertrekken",
+      "englishTranslation": "to leave; to depart",
+      "exampleDutch": "De trein vertrekt om negen uur.",
+      "exampleEnglish": "The train leaves at nine o'clock.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "vertrekt",
+        "pastSingular": "vertrok",
+        "pastParticiple": "vertrokken"
+      }
+    },
+    {
+      "id": "seed-vocab-verspreiden",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "verspreiden",
+      "englishTranslation": "to spread; to distribute",
+      "exampleDutch": "De wind verspreidt de geur.",
+      "exampleEnglish": "The wind spreads the smell.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "verspreidt",
+        "pastSingular": "verspreidde",
+        "pastParticiple": "verspreid"
+      }
+    },
+    {
+      "id": "seed-vocab-eindigen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "eindigen",
+      "englishTranslation": "to end; to finish",
+      "exampleDutch": "De film eindigt om tien uur.",
+      "exampleEnglish": "The film ends at ten o'clock.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "eindigt",
+        "pastSingular": "eindigde",
+        "pastParticiple": "geëindigd"
+      }
+    },
+    {
+      "id": "seed-vocab-veld",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "veld",
+      "englishTranslation": "field",
+      "exampleDutch": "De kinderen spelen op het veld.",
+      "exampleEnglish": "The children are playing in the field.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "het",
+      "plural": "velden"
+    },
+    {
+      "id": "seed-vocab-goederen",
+      "categoryIds": [
+        "seed-cat-word-list-plural-noun"
+      ],
+      "dutchWord": "goederen",
+      "englishTranslation": "goods",
+      "exampleDutch": "De goederen worden morgen geleverd.",
+      "exampleEnglish": "The goods will be delivered tomorrow.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "goederen"
+    },
+    {
+      "id": "seed-vocab-lachen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "lachen",
+      "englishTranslation": "to laugh",
+      "exampleDutch": "We lachen om de grap.",
+      "exampleEnglish": "We laugh at the joke.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "lacht",
+        "pastSingular": "lachte",
+        "pastParticiple": "gelachen"
+      }
+    },
+    {
+      "id": "seed-vocab-verbieden",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "verbieden",
+      "englishTranslation": "to forbid; to prohibit",
+      "exampleDutch": "Roken is hier verboden.",
+      "exampleEnglish": "Smoking is forbidden here.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "verbiedt",
+        "pastSingular": "verbood",
+        "pastParticiple": "verboden"
+      }
+    },
+    {
+      "id": "seed-vocab-liefde",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "liefde",
+      "englishTranslation": "love",
+      "exampleDutch": "Liefde is belangrijk.",
+      "exampleEnglish": "Love is important.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de"
+    },
+    {
+      "id": "seed-vocab-steen",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "steen",
+      "englishTranslation": "stone",
+      "exampleDutch": "Er ligt een steen op de weg.",
+      "exampleEnglish": "There is a stone on the road.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "stenen"
+    },
+    {
+      "id": "seed-vocab-worden",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "worden",
+      "englishTranslation": "to become; to be (passive/future auxiliary)",
+      "exampleDutch": "Ik word later arts.",
+      "exampleEnglish": "I will become a doctor later.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "wordt",
+        "pastSingular": "werd",
+        "pastParticiple": "geworden"
+      }
+    },
+    {
+      "id": "seed-vocab-sommige",
+      "categoryIds": [
+        "seed-cat-word-list-determiner"
+      ],
+      "dutchWord": "sommige",
+      "englishTranslation": "some; certain",
+      "exampleDutch": "Sommige mensen komen te laat.",
+      "exampleEnglish": "Some people arrive late.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-formuleren",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "formuleren",
+      "englishTranslation": "to formulate; to phrase",
+      "exampleDutch": "Kun je de vraag anders formuleren?",
+      "exampleEnglish": "Can you phrase the question differently?",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "formuleert",
+        "pastSingular": "formuleerde",
+        "pastParticiple": "geformuleerd"
+      }
+    },
+    {
+      "id": "seed-vocab-gast",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "gast",
+      "englishTranslation": "guest",
+      "exampleDutch": "De gast komt om acht uur.",
+      "exampleEnglish": "The guest arrives at eight o'clock.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "gasten"
+    },
+    {
+      "id": "seed-vocab-alleen",
+      "categoryIds": [
+        "seed-cat-word-list-adverb-adjective"
+      ],
+      "dutchWord": "alleen",
+      "englishTranslation": "only; alone",
+      "exampleDutch": "Ik woon alleen.",
+      "exampleEnglish": "I live alone.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-wapen",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "wapen",
+      "englishTranslation": "weapon",
+      "exampleDutch": "Het wapen ligt in de kluis.",
+      "exampleEnglish": "The weapon is in the safe.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "het",
+      "plural": "wapens"
+    },
+    {
+      "id": "seed-vocab-zeggen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "zeggen",
+      "englishTranslation": "to say; to tell",
+      "exampleDutch": "Wat zeg je?",
+      "exampleEnglish": "What are you saying?",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "zegt",
+        "pastSingular": "zei",
+        "pastParticiple": "gezegd"
+      }
+    },
+    {
+      "id": "seed-vocab-ontbreken",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "ontbreken",
+      "englishTranslation": "to be missing; to lack",
+      "exampleDutch": "Er ontbreekt één pagina.",
+      "exampleEnglish": "One page is missing.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "ontbreekt",
+        "pastSingular": "ontbrak",
+        "pastParticiple": "ontbroken"
+      }
+    },
+    {
+      "id": "seed-vocab-voor",
+      "categoryIds": [
+        "seed-cat-word-list-preposition-adverb"
+      ],
+      "dutchWord": "voor",
+      "englishTranslation": "before; in front of; for",
+      "exampleDutch": "Ik wacht voor de deur.",
+      "exampleEnglish": "I am waiting in front of the door.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-westers",
+      "categoryIds": [
+        "seed-cat-word-list-adjective"
+      ],
+      "dutchWord": "westers",
+      "englishTranslation": "Western",
+      "exampleDutch": "Dit is een westers land.",
+      "exampleEnglish": "This is a Western country.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-psycholoog",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "psycholoog",
+      "englishTranslation": "psychologist",
+      "exampleDutch": "De psycholoog luistert naar mij.",
+      "exampleEnglish": "The psychologist listens to me.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "psychologen"
+    },
+    {
+      "id": "seed-vocab-licht",
+      "categoryIds": [
+        "seed-cat-word-list-noun-adjective"
+      ],
+      "dutchWord": "licht",
+      "englishTranslation": "light; lamp; not heavy",
+      "exampleDutch": "Het licht is aan.",
+      "exampleEnglish": "The light is on.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "plural": "lichten"
+    },
+    {
+      "id": "seed-vocab-zorgen-voor",
+      "categoryIds": [
+        "seed-cat-word-list-verb-phrase"
+      ],
+      "dutchWord": "zorgen voor",
+      "englishTranslation": "to take care of",
+      "exampleDutch": "Ik zorg voor de hond.",
+      "exampleEnglish": "I take care of the dog.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "zorgt voor",
+        "pastSingular": "zorgde voor",
+        "pastParticiple": "gezorgd voor"
+      }
+    },
+    {
+      "id": "seed-vocab-leven",
+      "categoryIds": [
+        "seed-cat-word-list-noun-verb"
+      ],
+      "dutchWord": "leven",
+      "englishTranslation": "life; to live",
+      "exampleDutch": "Ik leef graag in Nederland.",
+      "exampleEnglish": "I like living in the Netherlands.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "plural": "levens (noun)",
+      "verbForms": {
+        "presentSingular": "leeft",
+        "pastSingular": "leefde",
+        "pastParticiple": "geleefd"
+      }
+    },
+    {
+      "id": "seed-vocab-officieel",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-adverb"
+      ],
+      "dutchWord": "officieel",
+      "englishTranslation": "official; officially",
+      "exampleDutch": "Dit is een officiële brief.",
+      "exampleEnglish": "This is an official letter.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-diep",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-adverb"
+      ],
+      "dutchWord": "diep",
+      "englishTranslation": "deep; deeply",
+      "exampleDutch": "Het water is diep.",
+      "exampleEnglish": "The water is deep.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-patroon",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "patroon",
+      "englishTranslation": "pattern",
+      "exampleDutch": "Ik herken het patroon.",
+      "exampleEnglish": "I recognize the pattern.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "het",
+      "plural": "patronen"
+    },
+    {
+      "id": "seed-vocab-zien",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "zien",
+      "englishTranslation": "to see",
+      "exampleDutch": "Ik zie een vogel.",
+      "exampleEnglish": "I see a bird.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "ziet",
+        "pastSingular": "zag",
+        "pastParticiple": "gezien"
+      }
+    },
+    {
+      "id": "seed-vocab-pers",
+      "categoryIds": [
+        "seed-cat-word-list-noun-verb-stem"
+      ],
+      "dutchWord": "pers",
+      "englishTranslation": "press; squeeze; press (context-dependent)",
+      "exampleDutch": "De pers stelt vragen.",
+      "exampleEnglish": "The press asks questions.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-kust",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "kust",
+      "englishTranslation": "coast",
+      "exampleDutch": "We wandelen langs de kust.",
+      "exampleEnglish": "We walk along the coast.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "kusten"
+    },
+    {
+      "id": "seed-vocab-lenen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "lenen",
+      "englishTranslation": "to borrow; to lend",
+      "exampleDutch": "Mag ik je pen lenen?",
+      "exampleEnglish": "May I borrow your pen?",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "leent",
+        "pastSingular": "leende",
+        "pastParticiple": "geleend"
+      }
+    },
+    {
+      "id": "seed-vocab-pijnlijk",
+      "categoryIds": [
+        "seed-cat-word-list-adjective"
+      ],
+      "dutchWord": "pijnlijk",
+      "englishTranslation": "painful",
+      "exampleDutch": "Mijn knie is pijnlijk.",
+      "exampleEnglish": "My knee is painful.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-kennen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "kennen",
+      "englishTranslation": "to know; to be familiar with",
+      "exampleDutch": "Ik ken deze stad goed.",
+      "exampleEnglish": "I know this city well.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "kent",
+        "pastSingular": "kende",
+        "pastParticiple": "gekend"
+      }
+    },
+    {
+      "id": "seed-vocab-deze",
+      "categoryIds": [
+        "seed-cat-word-list-determiner-pronoun"
+      ],
+      "dutchWord": "deze",
+      "englishTranslation": "this; these (de-words/plural)",
+      "exampleDutch": "Deze stoel is nieuw.",
+      "exampleEnglish": "This chair is new.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-dit",
+      "categoryIds": [
+        "seed-cat-word-list-determiner-pronoun"
+      ],
+      "dutchWord": "dit",
+      "englishTranslation": "this (het-words)",
+      "exampleDutch": "Dit huis is groot.",
+      "exampleEnglish": "This house is big.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-voelen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "voelen",
+      "englishTranslation": "to feel",
+      "exampleDutch": "Ik voel me goed.",
+      "exampleEnglish": "I feel good.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "voelt",
+        "pastSingular": "voelde",
+        "pastParticiple": "gevoeld"
+      }
+    },
+    {
+      "id": "seed-vocab-helft",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "helft",
+      "englishTranslation": "half; half of something",
+      "exampleDutch": "De helft van de taart is op.",
+      "exampleEnglish": "Half of the cake is gone.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "helften"
+    },
+    {
+      "id": "seed-vocab-enorm",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-adverb"
+      ],
+      "dutchWord": "enorm",
+      "englishTranslation": "enorm; enormous",
+      "exampleDutch": "Dat is een enorm verschil.",
+      "exampleEnglish": "That is an enormous difference.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-gemeen",
+      "categoryIds": [
+        "seed-cat-word-list-adjective"
+      ],
+      "dutchWord": "gemeen",
+      "englishTranslation": "mean; nasty; common (depending on context)",
+      "exampleDutch": "Dat was een gemene opmerking.",
+      "exampleEnglish": "That was a mean comment.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-ver",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-adverb"
+      ],
+      "dutchWord": "ver",
+      "englishTranslation": "far",
+      "exampleDutch": "De supermarkt is niet ver.",
+      "exampleEnglish": "The supermarket is not far away.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-wijd",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-adverb"
+      ],
+      "dutchWord": "wijd",
+      "englishTranslation": "wide; wide open",
+      "exampleDutch": "De deur staat wijd open.",
+      "exampleEnglish": "The door is wide open.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-reden",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "reden",
+      "englishTranslation": "reason",
+      "exampleDutch": "Wat is de reden?",
+      "exampleEnglish": "What is the reason?",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "redenen"
+    },
+    {
+      "id": "seed-vocab-groeien",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "groeien",
+      "englishTranslation": "to grow",
+      "exampleDutch": "De planten groeien snel.",
+      "exampleEnglish": "The plants grow quickly.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "groeit",
+        "pastSingular": "groeide",
+        "pastParticiple": "gegroeid"
+      }
+    },
+    {
+      "id": "seed-vocab-eindeloos",
+      "categoryIds": [
+        "seed-cat-word-list-adjective-adverb"
+      ],
+      "dutchWord": "eindeloos",
+      "englishTranslation": "endless; endlessly",
+      "exampleDutch": "We hebben eindeloos gepraat.",
+      "exampleEnglish": "We talked endlessly.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-leveren",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "leveren",
+      "englishTranslation": "to deliver; to supply",
+      "exampleDutch": "De winkel levert morgen het pakket.",
+      "exampleEnglish": "The shop delivers the package tomorrow.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "levert",
+        "pastSingular": "leverde",
+        "pastParticiple": "geleverd"
+      }
+    },
+    {
+      "id": "seed-vocab-meestal",
+      "categoryIds": [
+        "seed-cat-word-list-adverb"
+      ],
+      "dutchWord": "meestal",
+      "englishTranslation": "mostly; usually",
+      "exampleDutch": "Ik reis meestal met de trein.",
+      "exampleEnglish": "I usually travel by train.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-vorming",
+      "categoryIds": [
+        "seed-cat-word-list-noun"
+      ],
+      "dutchWord": "vorming",
+      "englishTranslation": "formation; development",
+      "exampleDutch": "De vorming van ijs duurt lang.",
+      "exampleEnglish": "The formation of ice takes a long time.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "article": "de",
+      "plural": "vormingen"
+    },
+    {
+      "id": "seed-vocab-vliegen",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "vliegen",
+      "englishTranslation": "to fly",
+      "exampleDutch": "De vogels vliegen naar het zuiden.",
+      "exampleEnglish": "The birds fly south.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "vliegt",
+        "pastSingular": "vloog",
+        "pastParticiple": "gevlogen"
+      }
+    },
+    {
+      "id": "seed-vocab-gouden",
+      "categoryIds": [
+        "seed-cat-word-list-adjective"
+      ],
+      "dutchWord": "gouden",
+      "englishTranslation": "golden; gold (adjective)",
+      "exampleDutch": "Ze draagt een gouden ring.",
+      "exampleEnglish": "She wears a golden ring.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-vocab-rusten",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "rusten",
+      "englishTranslation": "to rest",
+      "exampleDutch": "Ik rust na het werk.",
+      "exampleEnglish": "I rest after work.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "rust",
+        "pastSingular": "rustte",
+        "pastParticiple": "gerust"
+      }
+    },
+    {
+      "id": "seed-vocab-praten",
+      "categoryIds": [
+        "seed-cat-word-list-verb"
+      ],
+      "dutchWord": "praten",
+      "englishTranslation": "to talk; to speak",
+      "exampleDutch": "We praten Nederlands.",
+      "exampleEnglish": "We speak Dutch.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "verbForms": {
+        "presentSingular": "praat",
+        "pastSingular": "praatte",
+        "pastParticiple": "gepraat"
+      }
+    }
+  ]
+}

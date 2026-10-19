@@ -1,5 +1,6 @@
 import { db } from './db';
 import type { Category, Exercise, ReadingPassage, VocabularyItem } from './schema';
+import vocabularySeed from './vocabularySeed.json';
 
 const stamp = {
   source: 'seed' as const,
@@ -8,12 +9,12 @@ const stamp = {
   updatedAt: 0,
 };
 
-const categories: Category[] = [
+const baseCategories: Category[] = [
   { ...stamp, id: 'seed-cat-greetings', name: 'Begroetingen', description: 'Polite greetings', sortOrder: 0 },
   { ...stamp, id: 'seed-cat-daily', name: 'Dagelijks leven', description: 'Everyday words', sortOrder: 1 },
 ];
 
-const vocabularyItems: VocabularyItem[] = [
+const baseVocabularyItems: VocabularyItem[] = [
   {
     ...stamp,
     id: 'seed-fc-hallo',
@@ -43,6 +44,9 @@ const vocabularyItems: VocabularyItem[] = [
     exampleEnglish: 'I have an appointment with the GP.',
   },
 ];
+
+const categories = [...baseCategories, ...(vocabularySeed.categories as Category[])];
+const vocabularyItems = [...baseVocabularyItems, ...(vocabularySeed.vocabularyItems as VocabularyItem[])];
 
 const readingPassages: ReadingPassage[] = [
   {

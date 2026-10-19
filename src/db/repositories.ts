@@ -44,10 +44,10 @@ function createRepo<T extends Managed>(
         throw new Error('This item changed after you opened it. Close and reopen it to avoid overwriting newer content.');
       }
       const item = schema.parse({
-        source: 'user',
         reviewStatus: 'draft',
         ...existing,
         ...draft,
+        source: existing ? 'user' : draft.source ?? 'user',
         id: draft.id ?? crypto.randomUUID(),
         createdAt: existing?.createdAt ?? now,
         updatedAt: Math.max(now, (existing?.updatedAt ?? 0) + 1),
