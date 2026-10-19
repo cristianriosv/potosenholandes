@@ -3,108 +3,234 @@ import type { z } from 'zod';
 import { db } from './db';
 import {
   CategorySchema,
-  FlashcardSchema,
-  PassageSchema,
-  ProgressSchema,
-  SentenceExerciseSchema,
+  ExerciseSchema,
+  FlashcardReviewSchema,
+  LegacyProgressSchema,
+  PracticeAttemptSchema,
+  ReadingPassageSchema,
+  VocabularyItemSchema,
   type Category,
-  type Flashcard,
-  type Passage,
-  type Progress,
-  type SentenceExercise,
+  type Exercise,
+  type FlashcardReview,
+  type LegacyProgress,
+  type PracticeAttempt,
+  type ReadingPassage,
+  type VocabularyItem,
 } from './schema';
 
-type Managed = { id: string; createdAt: number; updatedAt: number; source: 'seed' | 'user' };
-type AutoKeys = 'id' | 'createdAt' | 'updatedAt' | 'source';
-// Distributes over unions so discriminated unions keep their shape.
-export type Draft<T extends Managed> = T extends unknown
-  ? Omit<T, AutoKeys> & Partial<Pick<T, AutoKeys>>
-  : never;
+type Managed = {
+  id: string;
+  createdAt: number;
+  updatedAt: number;
+  source: 'seed' | 'user' | 'imported';
+  reviewStatus: 'draft' | 'reviewed' | 'published';
+};
+export type Draft<T extends Managed> = T extends unknown ? Partial<T> : never;
+type ReferenceCheck<T> = (item: T) => Promise<void>;
 
-function createRepo<T extends Managed>(entityTable: EntityTable<T, 'id'>, schema: z.ZodType<T>) {
-  // EntityTable's key type can't be resolved for a generic T.
+function createRepo<T extends Managed>(
+  entityTable: EntityTable<T, 'id'>,
+  schema: z.ZodType<T>,
+  referenceTables: Table[] = [],
+  checkReferences?: ReferenceCheck<T>,
+) {
   const table = entityTable as unknown as Table<T, string>;
+
+  const save = async (draft: Draft<T>): Promise<T> => {
+    const now = Date.now();
+    const existing = draft.id ? await table.get(draft.id) : undefined;
+    const item = schema.parse({
+      source: 'user',
+      reviewStatus: 'draft',
+      ...existing,
+      ...draft,
+      id: draft.id ?? crypto.randomUUID(),
+      createdAt: existing?.createdAt ?? now,
+      updatedAt: now,
+    });
+
+    await db.transaction('rw', [entityTable, ...referenceTables], async () => {
+      await checkReferences?.(item);
+      await table.put(item);
+    });
+    return item;
+  };
+
   return {
     list: () => table.toArray(),
     get: (id: string) => table.get(id),
-
-    // Validates before writing; throws ZodError on invalid content.
-    async save(draft: Draft<T>): Promise<T> {
-      const now = Date.now();
-      const existing = draft.id ? await table.get(draft.id) : undefined;
-      const item = schema.parse({
-        source: 'user',
-        ...existing,
-        ...draft,
-        id: draft.id ?? crypto.randomUUID(),
-        createdAt: existing?.createdAt ?? now,
-        updatedAt: now,
-      });
-      await table.put(item);
-      return item;
-    },
-
+    save,
     async duplicate(id: string): Promise<T | undefined> {
       const original = await table.get(id);
       if (!original) return undefined;
-      const now = Date.now();
-      const copy = schema.parse({
-        ...original,
-        id: crypto.randomUUID(),
-        source: 'user',
-        createdAt: now,
-        updatedAt: now,
-      });
-      await table.add(copy);
-      return copy;
+      const draft = { ...original, source: 'user' } as unknown as Draft<T>;
+      delete draft.id;
+      delete draft.createdAt;
+      delete draft.updatedAt;
+      return save(draft);
     },
-
-    // Removes the item and its progress records atomically.
     async remove(id: string): Promise<void> {
-      await db.transaction('rw', table, db.progress, async () => {
-        await table.delete(id);
-        await db.progress.where('itemId').equals(id).delete();
-      });
+      await table.delete(id);
     },
   };
 }
 
-export const flashcards = createRepo<Flashcard>(db.flashcards, FlashcardSchema);
-export const exercises = createRepo<SentenceExercise>(db.exercises, SentenceExerciseSchema);
-export const passages = createRepo<Passage>(db.passages, PassageSchema);
-const categoryBase = createRepo<Category>(db.categories, CategorySchema);
+async function requireCategories(ids: string[]): Promise<void> {
+  for (const categoryId of ids) {
+    if (!(await db.categories.get(categoryId))) {
+      throw new Error(`Category "${categoryId}" does not exist.`);
+    }
+  }
+}
 
+export const categoryBase = createRepo<Category>(db.categories, CategorySchema);
 export const categories = {
   ...categoryBase,
-  // Deleting a category deletes its flashcards and their progress.
   async remove(id: string): Promise<void> {
-    await db.transaction('rw', db.categories, db.flashcards, db.progress, async () => {
-      const cardIds = await db.flashcards.where('categoryId').equals(id).primaryKeys();
-      await db.progress.where('itemId').anyOf(cardIds).delete();
-      await db.flashcards.bulkDelete(cardIds);
-      await db.progress.where('itemId').equals(id).delete();
-      await db.categories.delete(id);
+    await db.transaction(
+      'rw',
+      [db.categories, db.vocabularyItems, db.readingPassages, db.exercises],
+      async () => {
+        const [vocabularyCount, passageCount, exerciseCount] = await Promise.all([
+          db.vocabularyItems.where('categoryIds').equals(id).count(),
+          db.readingPassages.where('categoryIds').equals(id).count(),
+          db.exercises.where('categoryIds').equals(id).count(),
+        ]);
+        if (vocabularyCount + passageCount + exerciseCount > 0) {
+          throw new Error(`Category "${id}" is still referenced by learning content.`);
+        }
+        await db.categories.delete(id);
+      },
+    );
+  },
+};
+
+export const vocabularyItems = {
+  ...createRepo<VocabularyItem>(db.vocabularyItems, VocabularyItemSchema, [db.categories], (item) =>
+    requireCategories(item.categoryIds),
+  ),
+  async remove(id: string): Promise<void> {
+    await db.transaction('rw', db.vocabularyItems, db.flashcardReviews, async () => {
+      await db.vocabularyItems.delete(id);
+      await db.flashcardReviews.where('vocabularyItemId').equals(id).delete();
     });
   },
 };
 
-export const progress = {
-  async record(itemType: Progress['itemType'], itemId: string, wasCorrect: boolean) {
-    const key = `${itemType}:${itemId}`;
+export const readingPassages = {
+  ...createRepo<ReadingPassage>(
+    db.readingPassages,
+    ReadingPassageSchema,
+    [db.categories],
+    (item) => requireCategories(item.categoryIds),
+  ),
+  async remove(id: string): Promise<void> {
+    await db.transaction('rw', [db.readingPassages, db.exercises], async () => {
+      if (await db.exercises.where('passageId').equals(id).count()) {
+        throw new Error(`Passage "${id}" is still referenced by exercises. Remove or reassign those exercises first.`);
+      }
+      await db.readingPassages.delete(id);
+    });
+  },
+};
+
+const exerciseRepo = createRepo<Exercise>(
+    db.exercises,
+    ExerciseSchema,
+    [db.categories, db.readingPassages],
+    async (item) => {
+      await requireCategories(item.categoryIds);
+      if (item.passageId && !(await db.readingPassages.get(item.passageId))) {
+        throw new Error(`Passage "${item.passageId}" does not exist.`);
+      }
+    },
+  );
+
+export const exercises = {
+  ...exerciseRepo,
+  async duplicate(id: string): Promise<Exercise | undefined> {
+    const original = await db.exercises.get(id);
+    if (!original) return undefined;
+    const draft = { ...original, source: 'user' } as unknown as Record<string, unknown>;
+    delete draft.id;
+    delete draft.createdAt;
+    delete draft.updatedAt;
+    if (original.passageId) {
+      const siblings = await db.exercises.where('passageId').equals(original.passageId).toArray();
+      draft.sortOrder = Math.max(...siblings.map((exercise) => exercise.sortOrder ?? -1)) + 1;
+    }
+    if (original.type === 'multiple-choice') {
+      draft.options = original.options.map((option) => ({ ...option, id: crypto.randomUUID() }));
+    }
+    if (original.type === 'matching') {
+      draft.pairs = original.pairs.map((pair) => ({ ...pair, id: crypto.randomUUID() }));
+    }
+    return exerciseRepo.save(draft as Draft<Exercise>);
+  },
+  async remove(id: string): Promise<void> {
+    await db.transaction('rw', db.exercises, db.practiceAttempts, async () => {
+      await db.exercises.delete(id);
+      await db.practiceAttempts.where('exerciseId').equals(id).delete();
+    });
+  },
+  listForPassage(passageId: string): Promise<Exercise[]> {
+    return db.exercises.where('passageId').equals(passageId).sortBy('sortOrder');
+  },
+};
+
+export const practiceAttempts = {
+  async record(input: Omit<PracticeAttempt, 'id' | 'attemptedAt'>): Promise<PracticeAttempt> {
+    if (!(await db.exercises.get(input.exerciseId))) {
+      throw new Error(`Exercise "${input.exerciseId}" does not exist.`);
+    }
+    const attempt = PracticeAttemptSchema.parse({ ...input, id: crypto.randomUUID(), attemptedAt: Date.now() });
+    await db.practiceAttempts.add(attempt);
+    return attempt;
+  },
+  list: () => db.practiceAttempts.toArray(),
+  forExercise: (exerciseId: string) => db.practiceAttempts.where('exerciseId').equals(exerciseId).toArray(),
+};
+
+export const flashcardReviews = {
+  async record(vocabularyItemId: string, rating: FlashcardReview['rating']): Promise<FlashcardReview> {
+    if (!(await db.vocabularyItems.get(vocabularyItemId))) {
+      throw new Error(`Vocabulary item "${vocabularyItemId}" does not exist.`);
+    }
+    const reviewedAt = Date.now();
+    const intervalMs = { again: 10 * 60_000, hard: 24 * 60 * 60_000, easy: 4 * 24 * 60 * 60_000 }[rating];
+    const review = FlashcardReviewSchema.parse({
+      id: crypto.randomUUID(),
+      vocabularyItemId,
+      rating,
+      reviewedAt,
+      nextDueAt: reviewedAt + intervalMs,
+    });
+    await db.flashcardReviews.add(review);
+    return review;
+  },
+  list: () => db.flashcardReviews.toArray(),
+  forVocabularyItem: (id: string) => db.flashcardReviews.where('vocabularyItemId').equals(id).toArray(),
+};
+
+export const legacyProgress = {
+  async record(itemType: LegacyProgress['itemType'], itemId: string, wasCorrect: boolean): Promise<void> {
+    const id = `${itemType}:${itemId}`;
     await db.transaction('rw', db.progress, async () => {
-      const prev = await db.progress.get(key);
+      const previous = await db.progress.get(id);
       await db.progress.put(
-        ProgressSchema.parse({
-          id: key,
+        LegacyProgressSchema.parse({
+          id,
           itemType,
           itemId,
-          attempts: (prev?.attempts ?? 0) + 1,
-          correct: (prev?.correct ?? 0) + (wasCorrect ? 1 : 0),
+          attempts: (previous?.attempts ?? 0) + 1,
+          correct: (previous?.correct ?? 0) + (wasCorrect ? 1 : 0),
           lastSeenAt: Date.now(),
         }),
       );
     });
   },
-  get: (itemType: Progress['itemType'], itemId: string) => db.progress.get(`${itemType}:${itemId}`),
+  get: (itemType: LegacyProgress['itemType'], itemId: string) => db.progress.get(`${itemType}:${itemId}`),
   list: () => db.progress.toArray(),
 };
+
+export const progress = legacyProgress;

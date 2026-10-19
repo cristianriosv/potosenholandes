@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MantineProvider } from '@mantine/core';
 import { db } from '../../db/db';
-import { categories, flashcards } from '../../db/repositories';
+import { categories, vocabularyItems } from '../../db/repositories';
 import { FlashcardsPage } from './FlashcardsPage';
 
 beforeEach(async () => {
@@ -13,7 +13,7 @@ beforeEach(async () => {
 describe('FlashcardsPage', () => {
   it('reveals a card and records progress', async () => {
     const cat = await categories.save({ name: 'Eten' });
-    const card = await flashcards.save({ categoryId: cat.id, dutch: 'brood', english: 'bread' });
+    const card = await vocabularyItems.save({ categoryIds: [cat.id], dutchWord: 'brood', englishTranslation: 'bread' });
 
     render(
       <MantineProvider>
@@ -28,6 +28,6 @@ describe('FlashcardsPage', () => {
     expect(screen.getByText('bread')).toBeInTheDocument();
 
     await userEvent.click(screen.getByRole('button', { name: 'Got it' }));
-    expect(await db.progress.get(`flashcard:${card.id}`)).toMatchObject({ attempts: 1, correct: 1 });
+    expect(await db.flashcardReviews.where('vocabularyItemId').equals(card.id).count()).toBe(1);
   });
 });

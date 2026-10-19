@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { Button, Card, Group, Select, Stack, Text, Title } from '@mantine/core';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
-import { progress } from '../../db/repositories';
+import { flashcardReviews } from '../../db/repositories';
 
 const ALL = 'all';
 
@@ -14,7 +14,7 @@ export function FlashcardsPage() {
   const [revealed, setRevealed] = useState(false);
 
   const deck = useMemo(
-    () => (cards ?? []).filter((c) => category === ALL || c.categoryId === category),
+    () => (cards ?? []).filter((c) => category === ALL || c.categoryIds.includes(category)),
     [cards, category],
   );
 
@@ -24,7 +24,7 @@ export function FlashcardsPage() {
 
   const answer = async (known: boolean) => {
     if (!card) return;
-    await progress.record('flashcard', card.id, known);
+    await flashcardReviews.record(card.id, known ? 'easy' : 'again');
     setRevealed(false);
     setIndex((i) => i + 1);
   };
@@ -50,13 +50,13 @@ export function FlashcardsPage() {
           <Card withBorder padding="xl" onClick={() => setRevealed(true)} style={{ cursor: 'pointer' }}>
             <Stack align="center" gap="xs" mih={140} justify="center">
               <Text size="xl" fw={700}>
-                {card.dutch}
+                {card.article ? `${card.article} ` : ''}{card.dutchWord}
               </Text>
               {revealed ? (
                 <>
-                  <Text>{card.english}</Text>
-                  {card.exampleNl && <Text size="sm" fs="italic">{card.exampleNl}</Text>}
-                  {card.exampleEn && <Text size="sm" c="dimmed">{card.exampleEn}</Text>}
+                  <Text>{card.englishTranslation}</Text>
+                  {card.exampleDutch && <Text size="sm" fs="italic">{card.exampleDutch}</Text>}
+                  {card.exampleEnglish && <Text size="sm" c="dimmed">{card.exampleEnglish}</Text>}
                 </>
               ) : (
                 <Text size="sm" c="dimmed">Tap to reveal</Text>
