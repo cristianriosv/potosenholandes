@@ -53,6 +53,7 @@ export const ReadingPassageSchema = z.object({
   categoryIds,
   cefrLevel: CEFRLevelSchema,
   context: text,
+  reviewNotes: z.array(text).optional(),
 });
 
 const ExerciseBase = {

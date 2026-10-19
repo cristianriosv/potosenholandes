@@ -94,7 +94,7 @@ function initialForm(kind: ContentKind, item?: ContentItem, preset?: FormValues)
     };
   }
   if (kind === 'passage') {
-    return { ...common, categoryIds: [], title: '', dutchText: '', cefrLevel: 'A2', context: 'everyday life' };
+    return { ...common, categoryIds: [], title: '', dutchText: '', cefrLevel: 'A2', context: 'everyday life', reviewNotes: [] };
   }
   return {
     ...common,
@@ -199,6 +199,11 @@ function EditorFields({
             <Select label="CEFR level" value={stringValue(form, 'cefrLevel', 'A2')} onChange={(value) => set('cefrLevel', value ?? 'A2')} data={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']} />
             <TextInput label="Context" value={stringValue(form, 'context')} onChange={(event) => set('context', event.currentTarget.value)} required />
           </Group>
+            <Textarea
+              label="Review notes (internal)"
+              value={stringArray(form, 'reviewNotes').join('\n')}
+              onChange={(event) => set('reviewNotes', event.currentTarget.value.split('\n').map((note) => note.trim()).filter(Boolean))}
+            />
           {editor.id && (
             <Paper withBorder p="sm">
               <Stack gap="xs">
@@ -507,6 +512,7 @@ export function ContentManagerPage() {
           categoryIds: stringArray(form, 'categoryIds'),
           cefrLevel: stringValue(form, 'cefrLevel', 'A2'),
           context: stringValue(form, 'context'),
+          reviewNotes: stringArray(form, 'reviewNotes'),
         }), expectedUpdatedAt);
       } else {
         const common = {

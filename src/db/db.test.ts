@@ -232,7 +232,7 @@ describe('seedIfNeeded', () => {
     const [allVocabulary, allCategories] = await Promise.all([db.vocabularyItems.toArray(), db.categories.toArray()]);
     const imported = allVocabulary.filter((item) => item.source === 'imported');
     expect(imported).toHaveLength(111);
-    expect(allCategories.filter((category) => category.source === 'imported')).toHaveLength(20);
+    expect(allCategories.filter((category) => category.source === 'imported')).toHaveLength(26);
     expect(imported.every((item) => item.reviewStatus === 'reviewed')).toBe(true);
     expect(await db.vocabularyItems.get('seed-vocab-duren')).toMatchObject({
       dutchWord: 'duren',
@@ -244,6 +244,24 @@ describe('seedIfNeeded', () => {
       article: 'de',
       plural: 'maaltijden',
     });
+  });
+
+  it('seeds six reviewed passages and 17 linked questions with explanations and editorial notes', async () => {
+    await seedIfNeeded();
+    const passages = (await db.readingPassages.toArray()).filter((passage) => passage.id.startsWith('seed-reading-text-'));
+    const questions = (await db.exercises.toArray()).filter((exercise) => exercise.id.startsWith('seed-reading-text-'));
+    expect(passages).toHaveLength(6);
+    expect(questions).toHaveLength(17);
+    expect(passages.every((passage) => passage.reviewStatus === 'reviewed' && passage.source === 'imported')).toBe(true);
+    expect(questions.every((question) => question.type === 'multiple-choice' && question.reviewStatus === 'reviewed')).toBe(true);
+    expect(passages.find((passage) => passage.id === 'seed-reading-text-05')?.reviewNotes?.some((note) => note.includes('20:45'))).toBe(true);
+
+    const duplicateOptionsQuestion = await db.exercises.get('seed-reading-text-03-q01');
+    expect(duplicateOptionsQuestion?.type).toBe('multiple-choice');
+    if (duplicateOptionsQuestion?.type === 'multiple-choice') {
+      expect(duplicateOptionsQuestion.options[0]?.text).toBe(duplicateOptionsQuestion.options[3]?.text);
+      expect(duplicateOptionsQuestion.options.filter((option) => option.isCorrect).map((option) => option.id)).toEqual(['seed-reading-text-03-q01-option-c']);
+    }
   });
 });
 
