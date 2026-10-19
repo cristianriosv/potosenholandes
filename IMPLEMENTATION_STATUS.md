@@ -4,7 +4,7 @@ Status date: 2026-10-19
 
 | Milestone | Status | Evidence and remaining work |
 | --- | --- | --- |
-| 1. Offline foundation | Partial | Vite PWA, manifest, generated service worker, Dexie v1, sample data, and basic navigation exist. The shell is missing Home and Settings navigation, an offline indicator, and explicit loading/error states. Offline startup and installation have not been manually verified. |
+| 1. Offline foundation | Partial | Vite PWA, manifest, generated service worker, Dexie, sample content, required navigation, Home links, loading/error states, and a browser online/offline indicator exist. Manual installation and offline startup have not been verified on a device. |
 | 2. Domain model and repositories | Complete | Canonical Zod model, Dexie v1-to-v2 migration, validated repositories, category/passage referential checks, four exercise variants, event-based attempts/reviews, canonical seed data, and a v1 upgrade regression test are implemented. |
 | 3. Reading experience | Partial | Browse by category and CEFR level, three A2 passages with linked stored questions, immediate per-option explanations, correct-answer reveal, score, retry, and per-question attempt history are implemented. Reading flow tests cover correct/incorrect feedback, duplicate submission, scoring, retry, empty content, and IndexedDB reopen. Manual offline/device behavior remains unverified. |
 | 4. Content manager | Partial | Searchable/filterable library, validated editors for all four entity types, passage-linked questions, per-option explanations, exercise preview, draft/reviewed/published states, optimistic stale-edit detection, dirty-draft confirmations, referenced-record deletion protection, and duplication are implemented. Tests cover create/edit/duplicate/delete, invalid content, linked-question practice, preview, and draft preservation. |
@@ -21,7 +21,7 @@ Use standalone Exercise records, with `passageId` linking reading questions to t
 ## Verification
 
 `npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 16 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
-`npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 30 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
+`npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 31 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
 
 ## Recommended Next Steps
 
