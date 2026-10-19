@@ -214,16 +214,26 @@ describe('seedIfNeeded', () => {
     expect(await vocabularyItems.get('seed-vocab-duren')).toMatchObject({
       englishTranslation: 'to take a long time',
       source: 'user',
+      reviewStatus: 'reviewed',
     });
   });
 
-  it('imports all 111 vocabulary entries as draft records with the supplied examples and forms', async () => {
+  it('promotes previously seeded unchanged vocabulary to reviewed without changing category states', async () => {
+    await seedIfNeeded();
+    await db.vocabularyItems.update('seed-vocab-duren', { reviewStatus: 'draft' });
+    await db.categories.update('seed-cat-word-list-verb', { reviewStatus: 'published' });
+    await seedIfNeeded();
+    expect(await db.vocabularyItems.get('seed-vocab-duren')).toMatchObject({ source: 'imported', reviewStatus: 'reviewed' });
+    expect(await db.categories.get('seed-cat-word-list-verb')).toMatchObject({ source: 'imported', reviewStatus: 'published' });
+  });
+
+  it('imports all 111 vocabulary entries as reviewed records with the supplied examples and forms', async () => {
     await seedIfNeeded();
     const [allVocabulary, allCategories] = await Promise.all([db.vocabularyItems.toArray(), db.categories.toArray()]);
     const imported = allVocabulary.filter((item) => item.source === 'imported');
     expect(imported).toHaveLength(111);
     expect(allCategories.filter((category) => category.source === 'imported')).toHaveLength(20);
-    expect(imported.every((item) => item.reviewStatus === 'draft')).toBe(true);
+    expect(imported.every((item) => item.reviewStatus === 'reviewed')).toBe(true);
     expect(await db.vocabularyItems.get('seed-vocab-duren')).toMatchObject({
       dutchWord: 'duren',
       englishTranslation: 'to last; to take time',

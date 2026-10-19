@@ -224,6 +224,13 @@ export async function seedIfNeeded(): Promise<void> {
       await addUnapplied('flashcards', vocabularyItems, applied);
       await addUnapplied('passages', readingPassages, applied);
       await addUnapplied('exercises', exercises, applied);
+      const existingVocabulary = await db.vocabularyItems.toArray();
+      const promotedIds = new Set(vocabularyItems.map((item) => item.id));
+      for (const item of existingVocabulary) {
+        if (promotedIds.has(item.id) && item.source === 'imported' && item.reviewStatus === 'draft') {
+          await db.vocabularyItems.update(item.id, { reviewStatus: 'reviewed' });
+        }
+      }
       await db.meta.put({ key: 'seededIds', value: [...applied] });
     },
   );
