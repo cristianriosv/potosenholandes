@@ -469,7 +469,7 @@ export function ContentManagerPage() {
       const now = Date.now();
       const base = {
         id: editor.id ?? crypto.randomUUID(),
-        source: current?.source ?? 'user',
+        source: 'user',
         reviewStatus: stringValue(form, 'reviewStatus', 'draft'),
         createdAt: current?.createdAt ?? now,
         updatedAt: now,
