@@ -4,13 +4,29 @@ import userEvent from '@testing-library/user-event';
 import { MantineProvider } from '@mantine/core';
 import { db } from '../../db/db';
 import { categories, flashcardReviews, vocabularyItems } from '../../db/repositories';
-import { FlashcardsPage } from './FlashcardsPage';
+import { filterVocabularyCategories, FlashcardsPage } from './FlashcardsPage';
 
 beforeEach(async () => {
   await Promise.all(db.tables.map((t) => t.clear()));
 });
 
 describe('FlashcardsPage', () => {
+  it('limits category choices to categories used by vocabulary', async () => {
+    const vocabularyCategory = await categories.save({ id: 'vocab-category', name: 'Vocabulary category' });
+    const passageCategory = await categories.save({ id: 'passage-category', name: 'Reading category' });
+    const grammarCategory = await categories.save({ id: 'grammar-category', name: 'Grammar category' });
+    const vocabulary = await vocabularyItems.save({
+      categoryIds: [vocabularyCategory.id],
+      dutchWord: 'fiets',
+      englishTranslation: 'bicycle',
+    });
+
+    expect(filterVocabularyCategories(
+      [vocabularyCategory, passageCategory, grammarCategory],
+      [vocabulary],
+    ).map((category) => category.id)).toEqual([vocabularyCategory.id]);
+  });
+
   it('reveals a card and stores a scheduled rating', async () => {
     const cat = await categories.save({ name: 'Eten' });
     const card = await vocabularyItems.save({ categoryIds: [cat.id], dutchWord: 'brood', englishTranslation: 'bread' });

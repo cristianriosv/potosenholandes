@@ -3,10 +3,15 @@ import { Button, Card, Group, Image, Select, SegmentedControl, Stack, Text, Titl
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { flashcardReviews } from '../../db/repositories';
-import type { FlashcardReview } from '../../db/schema';
+import type { Category, FlashcardReview, VocabularyItem } from '../../db/schema';
 
 const ALL = 'all';
 type ReviewMode = 'all' | 'due' | 'difficult';
+
+export function filterVocabularyCategories(categories: Category[], cards: VocabularyItem[]): Category[] {
+  const referencedIds = new Set(cards.flatMap((card) => card.categoryIds));
+  return categories.filter((category) => referencedIds.has(category.id));
+}
 
 export function FlashcardsPage() {
   const categories = useLiveQuery(() => db.categories.orderBy('name').toArray(), []);
@@ -25,6 +30,10 @@ export function FlashcardsPage() {
     }
     return latest;
   }, [reviews]);
+  const vocabularyCategories = useMemo(
+    () => filterVocabularyCategories(categories ?? [], cards ?? []),
+    [categories, cards],
+  );
 
   const deck = useMemo(
     () => (cards ?? [])
@@ -71,7 +80,7 @@ export function FlashcardsPage() {
           setIndex(0);
           setRevealed(false);
         }}
-        data={[{ value: ALL, label: 'All categories' }, ...categories.map((c) => ({ value: c.id, label: c.name }))]}
+        data={[{ value: ALL, label: 'All categories' }, ...vocabularyCategories.map((category) => ({ value: category.id, label: category.name }))]}
       />
       <SegmentedControl
         value={reviewMode}
