@@ -97,6 +97,21 @@ describe('ContentManagerPage', () => {
     confirm.mockRestore();
   });
 
+  it('saves selectable choices for missing-word exercises', async () => {
+    const user = userEvent.setup();
+    renderManager();
+    await chooseContentType(3);
+    await user.type(await screen.findByRole('textbox', { name: 'Prompt' }), 'Ik ___ naar huis.');
+    await user.type(screen.getByRole('textbox', { name: 'Accepted answers (one per line)' }), 'ga');
+    await user.type(screen.getByRole('textbox', { name: 'Selectable choices (one per line)' }), 'ga\ngaan\nben');
+    await user.click(screen.getByRole('button', { name: 'Save' }));
+    expect(await db.exercises.toCollection().first()).toMatchObject({
+      type: 'missing-word',
+      acceptedAnswers: ['ga'],
+      answerOptions: ['ga', 'gaan', 'ben'],
+    });
+  });
+
   it('creates three linked questions and makes them available in Reading', async () => {
     const user = userEvent.setup();
     const manager = renderManager();

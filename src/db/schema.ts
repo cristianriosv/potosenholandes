@@ -40,7 +40,7 @@ export const VocabularyItemSchema = z.object({
   localImageRef: z
     .string()
     .min(1)
-    .refine((path) => !/^(?:[a-z]+:)?\/\//i.test(path), 'Images must use a local reference')
+    .refine((path) => !path.startsWith('//') && !/^[a-z][a-z\d+.-]*:/i.test(path), 'Images must use a local reference')
     .optional(),
 });
 
@@ -83,6 +83,7 @@ const MissingWordExerciseSchema = z.object({
   type: z.literal('missing-word'),
   prompt: z.string().refine((value) => value.includes('___'), 'Prompt must contain ___'),
   acceptedAnswers: z.array(text).min(1, 'Add at least one accepted answer'),
+  answerOptions: z.array(text).min(2, 'Add at least two answer choices').optional(),
   explanationEn: z.string().optional(),
 });
 
@@ -114,6 +115,15 @@ const ExerciseUnionSchema = z.discriminatedUnion('type', [
 ]);
 
 export const ExerciseSchema = ExerciseUnionSchema.superRefine((exercise, context) => {
+  if (exercise.type === 'missing-word' && exercise.answerOptions) {
+    const choices = exercise.answerOptions.map((answer) => answer.toLocaleLowerCase());
+    if (new Set(choices).size !== choices.length) {
+      context.addIssue({ code: 'custom', path: ['answerOptions'], message: 'Answer choices must be unique' });
+    }
+    if (exercise.acceptedAnswers.some((answer) => !choices.includes(answer.toLocaleLowerCase()))) {
+      context.addIssue({ code: 'custom', path: ['answerOptions'], message: 'Every accepted answer must be an answer choice' });
+    }
+  }
   if (exercise.type === 'multiple-choice') {
     const correctCount = exercise.options.filter((option) => option.isCorrect).length;
     if (correctCount !== 1) {

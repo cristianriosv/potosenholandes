@@ -89,6 +89,8 @@ function initialForm(kind: ContentKind, item?: ContentItem, preset?: FormValues)
       exampleDutch: '',
       exampleEnglish: '',
       plural: '',
+      localImageRef: '',
+      verbForms: { presentSingular: '', pastSingular: '', pastParticiple: '' },
     };
   }
   if (kind === 'passage') {
@@ -102,6 +104,7 @@ function initialForm(kind: ContentKind, item?: ContentItem, preset?: FormValues)
     difficulty: preset?.difficulty ?? 'easy',
     prompt: preset?.prompt ?? '',
     acceptedAnswers: preset?.acceptedAnswers ?? [],
+    answerOptions: preset?.answerOptions ?? [],
   };
 }
 
@@ -138,6 +141,9 @@ function EditorFields({
   const [acceptedAnswersText, setAcceptedAnswersText] = useState(
     stringArray(form, 'acceptedAnswers').join('\n'),
   );
+  const [answerOptionsText, setAnswerOptionsText] = useState(
+    stringArray(form, 'answerOptions').join('\n'),
+  );
   const [acceptedSentencesText, setAcceptedSentencesText] = useState(
     stringArray(form, 'acceptedSentences').join('\n'),
   );
@@ -170,6 +176,17 @@ function EditorFields({
           <TextInput label="Dutch example" value={stringValue(form, 'exampleDutch')} onChange={(event) => set('exampleDutch', event.currentTarget.value)} />
           <TextInput label="English example" value={stringValue(form, 'exampleEnglish')} onChange={(event) => set('exampleEnglish', event.currentTarget.value)} />
           <TextInput label="Plural" value={stringValue(form, 'plural')} onChange={(event) => set('plural', event.currentTarget.value)} />
+          <TextInput label="Local image path" placeholder="/images/word.webp" value={stringValue(form, 'localImageRef')} onChange={(event) => set('localImageRef', event.currentTarget.value)} />
+          <Group grow>
+            {([
+              ['presentSingular', 'Present singular'],
+              ['pastSingular', 'Past singular'],
+              ['pastParticiple', 'Past participle'],
+            ] as const).map(([key, label]) => {
+              const forms = form.verbForms && typeof form.verbForms === 'object' ? form.verbForms as Record<string, string> : {};
+              return <TextInput key={key} label={label} value={forms[key] ?? ''} onChange={(event) => set('verbForms', { ...forms, [key]: event.currentTarget.value })} />;
+            })}
+          </Group>
         </>
       )}
 
@@ -294,6 +311,10 @@ function EditorFields({
                 setAcceptedAnswersText(event.currentTarget.value);
                 set('acceptedAnswers', event.currentTarget.value.split('\n').map((answer) => answer.trim()).filter(Boolean));
               }} required />
+              <Textarea label="Selectable choices (one per line)" value={answerOptionsText} onChange={(event) => {
+                setAnswerOptionsText(event.currentTarget.value);
+                set('answerOptions', event.currentTarget.value.split('\n').map((answer) => answer.trim()).filter(Boolean));
+              }} required />
               <Textarea label="English explanation" value={stringValue(form, 'explanationEn')} onChange={(event) => set('explanationEn', event.currentTarget.value)} />
             </>
           )}
@@ -359,7 +380,12 @@ function ExercisePreview({ form }: { form: FormValues }) {
         <Badge w="fit-content">{type}</Badge>
         <Text fw={600}>{stringValue(form, 'prompt')}</Text>
         {type === 'multiple-choice' && options.map((option) => <Text key={option.id}>{option.text}</Text>)}
-        {type === 'missing-word' && <Text>{stringArray(form, 'acceptedAnswers').join(' / ')}</Text>}
+        {type === 'missing-word' && (
+          <Stack gap="xs">
+            {stringArray(form, 'answerOptions').map((option) => <Text key={option}>{option}</Text>)}
+            <Text size="sm" c="dimmed">Accepted: {stringArray(form, 'acceptedAnswers').join(' / ')}</Text>
+          </Stack>
+        )}
         {type === 'word-order' && stringArray(form, 'acceptedSentences').map((sentence) => <Text key={sentence}>{sentence}</Text>)}
         {type === 'matching' && pairs.map((pair) => <Text key={pair.id}>{pair.dutch} - {pair.english}</Text>)}
       </Stack>
@@ -448,6 +474,7 @@ export function ContentManagerPage() {
         createdAt: current?.createdAt ?? now,
         updatedAt: now,
       };
+      const expectedUpdatedAt = editor.id ? editor.initialUpdatedAt : undefined;
 
       if (editor.kind === 'category') {
         await categories.save(CategorySchema.parse({
@@ -455,8 +482,11 @@ export function ContentManagerPage() {
           name: stringValue(form, 'name'),
           description: stringValue(form, 'description'),
           sortOrder: typeof form.sortOrder === 'number' ? form.sortOrder : 0,
-        }));
+        }), expectedUpdatedAt);
       } else if (editor.kind === 'vocabulary') {
+        const verbForms = form.verbForms && typeof form.verbForms === 'object'
+          ? form.verbForms as { presentSingular?: string; pastSingular?: string; pastParticiple?: string }
+          : undefined;
         await vocabularyItems.save(VocabularyItemSchema.parse({
           ...base,
           categoryIds: stringArray(form, 'categoryIds'),
@@ -466,7 +496,9 @@ export function ContentManagerPage() {
           exampleDutch: stringValue(form, 'exampleDutch'),
           exampleEnglish: stringValue(form, 'exampleEnglish'),
           plural: stringValue(form, 'plural') || undefined,
-        }));
+          localImageRef: stringValue(form, 'localImageRef') || undefined,
+          verbForms: verbForms && Object.values(verbForms).some(Boolean) ? verbForms : undefined,
+        }), expectedUpdatedAt);
       } else if (editor.kind === 'passage') {
         await readingPassages.save(ReadingPassageSchema.parse({
           ...base,
@@ -475,7 +507,7 @@ export function ContentManagerPage() {
           categoryIds: stringArray(form, 'categoryIds'),
           cefrLevel: stringValue(form, 'cefrLevel', 'A2'),
           context: stringValue(form, 'context'),
-        }));
+        }), expectedUpdatedAt);
       } else {
         const common = {
           ...base,
@@ -499,6 +531,7 @@ export function ContentManagerPage() {
             ...common,
             type,
             acceptedAnswers: stringArray(form, 'acceptedAnswers'),
+            answerOptions: stringArray(form, 'answerOptions'),
             explanationEn: stringValue(form, 'explanationEn') || undefined,
           };
         } else if (type === 'word-order') {
@@ -511,7 +544,7 @@ export function ContentManagerPage() {
         } else {
           raw = { ...common, type, pairs: (Array.isArray(form.pairs) ? form.pairs : []) as MatchingPair[] };
         }
-        await exercises.save(ExerciseSchema.parse(raw));
+        await exercises.save(ExerciseSchema.parse(raw), expectedUpdatedAt);
       }
       closeEditor(true);
     } catch (saveError) {

@@ -36,24 +36,26 @@ function createRepo<T extends Managed>(
 ) {
   const table = entityTable as unknown as Table<T, string>;
 
-  const save = async (draft: Draft<T>): Promise<T> => {
+  const save = async (draft: Draft<T>, expectedUpdatedAt?: number): Promise<T> => {
     const now = Date.now();
-    const existing = draft.id ? await table.get(draft.id) : undefined;
-    const item = schema.parse({
-      source: 'user',
-      reviewStatus: 'draft',
-      ...existing,
-      ...draft,
-      id: draft.id ?? crypto.randomUUID(),
-      createdAt: existing?.createdAt ?? now,
-      updatedAt: now,
-    });
-
-    await db.transaction('rw', [entityTable, ...referenceTables], async () => {
+    return db.transaction('rw', [entityTable, ...referenceTables], async () => {
+      const existing = draft.id ? await table.get(draft.id) : undefined;
+      if (expectedUpdatedAt !== undefined && existing?.updatedAt !== expectedUpdatedAt) {
+        throw new Error('This item changed after you opened it. Close and reopen it to avoid overwriting newer content.');
+      }
+      const item = schema.parse({
+        source: 'user',
+        reviewStatus: 'draft',
+        ...existing,
+        ...draft,
+        id: draft.id ?? crypto.randomUUID(),
+        createdAt: existing?.createdAt ?? now,
+        updatedAt: Math.max(now, (existing?.updatedAt ?? 0) + 1),
+      });
       await checkReferences?.(item);
       await table.put(item);
+      return item;
     });
-    return item;
   };
 
   return {

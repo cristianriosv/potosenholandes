@@ -9,6 +9,8 @@ Status date: 2026-10-19
 | 3. Reading experience | Partial | Browse by category and CEFR level, three A2 passages with linked stored questions, immediate per-option explanations, correct-answer reveal, score, retry, and per-question attempt history are implemented. Reading flow tests cover correct/incorrect feedback, duplicate submission, scoring, retry, empty content, and IndexedDB reopen. Manual offline/device behavior remains unverified. |
 | 4. Content manager | Partial | Searchable/filterable library, validated editors for all four entity types, passage-linked questions, per-option explanations, exercise preview, draft/reviewed/published states, optimistic stale-edit detection, dirty-draft confirmations, referenced-record deletion protection, and duplication are implemented. Tests cover create/edit/duplicate/delete, invalid content, linked-question practice, preview, and draft preservation. |
 | 5. Flashcards and sentence exercises | Partial | Flashcards reveal translations and write Again/Easy review events with next-due timestamps. Hard rating in the UI, due-card scheduling, difficult-card review, and interactive sentence modes are missing. |
+| 4. Content manager | Partial | Searchable/filterable library, typed editors for categories, vocabulary, passages, and all exercise types, passage-linked questions, per-option explanations, exercise preview, review states, atomic stale-write detection, dirty-draft confirmations, reference-protected deletion, and content duplication are implemented. Vocabulary editing includes local images and verb forms. Tests cover CRUD, validation, preview, linked-question practice, and preserving cancelled drafts. |
+| 5. Flashcards and sentence exercises | Partial | Flashcards support Again/Hard/Easy ratings, stored review history and due times, due/difficult filters, and local images. Missing-word selection, word-order tokens with alternatives/repeated words, and matching are interactive and save attempts locally. Broader scheduling and manual offline verification remain. |
 | 6. Backup and offline readiness | Not started | A backup schema is declared, but there is no import/export flow or preview. Offline behavior has not been manually tested. |
 | Final engineering review | Not started | No final review has been performed. |
 
@@ -19,11 +21,12 @@ Use standalone Exercise records, with `passageId` linking reading questions to t
 ## Verification
 
 `npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 16 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
+`npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 24 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
 
 ## Recommended Next Steps
 
-1. Manually verify the production app and Reading flow offline on a supported device.
-2. Complete manual offline/device verification, then implement sentence practice and richer flashcards, backup/import/export, and final review.
+1. Manually verify the production app and all practice flows offline on a supported device.
+2. Complete the remaining shell states, then implement backup/import/export and run the final engineering review.
 
 The overall milestone order is sound. The important correction is to finish the data model before implementing Reading. The initial "Your first task" section in `General_implementation.md` is historical; the approved plan and initial scaffold work are complete.
 

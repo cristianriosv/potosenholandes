@@ -54,6 +54,13 @@ describe('canonical repositories', () => {
     const updated = await vocabularyItems.save({ id: item.id, englishTranslation: 'loaf' });
     expect(updated.createdAt).toBe(item.createdAt);
     expect(updated.englishTranslation).toBe('loaf');
+    await expect(
+      vocabularyItems.save({ id: item.id, englishTranslation: 'stale overwrite' }, item.updatedAt),
+    ).rejects.toThrow('changed after you opened it');
+    expect((await vocabularyItems.get(item.id))?.englishTranslation).toBe('loaf');
+    await expect(
+      vocabularyItems.save({ dutchWord: 'woord', englishTranslation: 'word', categoryIds: [], localImageRef: 'https://example.com/image.jpg' }),
+    ).rejects.toBeInstanceOf(ZodError);
     const duplicate = await vocabularyItems.duplicate(item.id);
     expect(duplicate?.id).not.toBe(item.id);
     await expect(categories.remove(category.id)).rejects.toThrow('still referenced');
@@ -140,6 +147,16 @@ describe('canonical repositories', () => {
     await expect(
       exercises.save({ type: 'missing-word', categoryIds: [], difficulty: 'easy', prompt: 'No blank', acceptedAnswers: ['yes'] }),
     ).rejects.toBeInstanceOf(ZodError);
+    await expect(
+      exercises.save({
+        type: 'missing-word',
+        categoryIds: [],
+        difficulty: 'easy',
+        prompt: 'Ik ___ hier.',
+        acceptedAnswers: ['woon'],
+        answerOptions: ['ga', 'ben'],
+      }),
+    ).rejects.toThrow('Every accepted answer must be an answer choice');
   });
 
   it('records attempts and flashcard ratings with local schedules', async () => {
