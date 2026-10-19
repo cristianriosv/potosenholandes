@@ -105,6 +105,7 @@ function initialForm(kind: ContentKind, item?: ContentItem, preset?: FormValues)
     prompt: preset?.prompt ?? '',
     acceptedAnswers: preset?.acceptedAnswers ?? [],
     answerOptions: preset?.answerOptions ?? [],
+    wordTiles: preset?.wordTiles ?? [],
   };
 }
 
@@ -147,6 +148,7 @@ function EditorFields({
   const [acceptedSentencesText, setAcceptedSentencesText] = useState(
     stringArray(form, 'acceptedSentences').join('\n'),
   );
+  const [wordTilesText, setWordTilesText] = useState(stringArray(form, 'wordTiles').join('\n'));
 
   const set = (key: string, value: unknown) => setForm((current) => ({ ...current, [key]: value }));
   const options = (Array.isArray(form.options) ? form.options : []) as ExerciseOption[];
@@ -329,6 +331,10 @@ function EditorFields({
                 setAcceptedSentencesText(event.currentTarget.value);
                 set('acceptedSentences', event.currentTarget.value.split('\n').map((answer) => answer.trim()).filter(Boolean));
               }} required />
+              <Textarea label="Word tiles (one per line)" value={wordTilesText} onChange={(event) => {
+                setWordTilesText(event.currentTarget.value);
+                set('wordTiles', event.currentTarget.value.split('\n').map((tile) => tile.trim()).filter(Boolean));
+              }} />
               <Textarea label="English explanation" value={stringValue(form, 'explanationEn')} onChange={(event) => set('explanationEn', event.currentTarget.value)} />
             </>
           )}
@@ -391,7 +397,12 @@ function ExercisePreview({ form }: { form: FormValues }) {
             <Text size="sm" c="dimmed">Accepted: {stringArray(form, 'acceptedAnswers').join(' / ')}</Text>
           </Stack>
         )}
-        {type === 'word-order' && stringArray(form, 'acceptedSentences').map((sentence) => <Text key={sentence}>{sentence}</Text>)}
+        {type === 'word-order' && (
+          <>
+            {stringArray(form, 'wordTiles').length > 0 && <Text size="sm">Tiles: {stringArray(form, 'wordTiles').join(' · ')}</Text>}
+            {stringArray(form, 'acceptedSentences').map((sentence) => <Text key={sentence}>{sentence}</Text>)}
+          </>
+        )}
         {type === 'matching' && pairs.map((pair) => <Text key={pair.id}>{pair.dutch} - {pair.english}</Text>)}
       </Stack>
     </Paper>
@@ -545,6 +556,7 @@ export function ContentManagerPage() {
             ...common,
             type,
             acceptedSentences: stringArray(form, 'acceptedSentences'),
+            wordTiles: stringArray(form, 'wordTiles'),
             explanationEn: stringValue(form, 'explanationEn') || undefined,
           };
         } else {

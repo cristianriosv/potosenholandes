@@ -19,7 +19,9 @@ export function isAcceptedWordOrder(response: string, acceptedSentences: string[
   return acceptedSentences.some((sentence) => normalizeSentence(sentence) === normalized);
 }
 
-export function createWordTokens(acceptedSentences: string[]): WordToken[] {
+export function createWordTokens(acceptedSentences: string[], wordTiles?: string[]): WordToken[] {
+  if (wordTiles?.length) return wordTiles.map((text, index) => ({ id: `token-${index}`, text }));
+
   const maximumCounts = new Map<string, { count: number; text: string }>();
   for (const sentence of acceptedSentences) {
     const counts = new Map<string, { count: number; text: string }>();

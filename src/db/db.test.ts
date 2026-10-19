@@ -232,7 +232,7 @@ describe('seedIfNeeded', () => {
     const [allVocabulary, allCategories] = await Promise.all([db.vocabularyItems.toArray(), db.categories.toArray()]);
     const imported = allVocabulary.filter((item) => item.source === 'imported');
     expect(imported).toHaveLength(111);
-    expect(allCategories.filter((category) => category.source === 'imported')).toHaveLength(31);
+    expect(allCategories.filter((category) => category.source === 'imported')).toHaveLength(47);
     expect(imported.every((item) => item.reviewStatus === 'reviewed')).toBe(true);
     expect(await db.vocabularyItems.get('seed-vocab-duren')).toMatchObject({
       dutchWord: 'duren',
@@ -286,6 +286,27 @@ describe('seedIfNeeded', () => {
         expect(question.options.every((option) => option.explanationEn.trim().length > 0)).toBe(true);
       }
     }
+  });
+
+  it('imports the 83 A2 grammar exercises and keeps empty matching sets as drafts', async () => {
+    await seedIfNeeded();
+    const imported = (await db.exercises.toArray()).filter((exercise) => exercise.id.startsWith('seed-exercise-nl-a2-'));
+    expect(imported).toHaveLength(83);
+    expect(imported.every((exercise) => exercise.source === 'imported' && exercise.reviewStatus === 'draft')).toBe(true);
+    expect(imported.filter((exercise) => exercise.type === 'missing-word')).toHaveLength(50);
+    expect(imported.filter((exercise) => exercise.type === 'word-order')).toHaveLength(17);
+    const matching = imported.filter((exercise) => exercise.type === 'matching');
+    expect(matching).toHaveLength(16);
+    expect(matching.every((exercise) => exercise.type === 'matching' && exercise.pairs.length === 0 && exercise.reviewStatus === 'draft')).toBe(true);
+    expect(await db.exercises.get('seed-exercise-nl-a2-001')).toMatchObject({
+      type: 'missing-word', prompt: '___ woon in Nederland.', acceptedAnswers: ['Ik'],
+      answerOptions: ['Ik', 'Mij', 'Mijn', 'Hij'], skill: 'Subject pronouns', cefrLevel: 'A2',
+    });
+    expect(await db.exercises.get('seed-exercise-nl-a2-005')).toMatchObject({
+      type: 'word-order',
+      acceptedSentences: ['Morgen gaan wij naar de huisarts.'],
+      wordTiles: ['Morgen', 'gaan', 'wij', 'naar', 'de', 'huisarts'],
+    });
   });
 });
 

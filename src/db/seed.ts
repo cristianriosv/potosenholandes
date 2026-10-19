@@ -3,6 +3,7 @@ import type { Category, Exercise, ReadingPassage, VocabularyItem } from './schem
 import vocabularySeed from './vocabularySeed.json';
 import readingSeed from './readingSeed.json';
 import messageReadingSeed from './messageReadingSeed.json';
+import exerciseSeed from './exerciseSeed.json';
 
 const stamp = {
   source: 'seed' as const,
@@ -52,6 +53,7 @@ const categories = [
   ...(vocabularySeed.categories as Category[]),
   ...(readingSeed.categories as Category[]),
   ...(messageReadingSeed.categories as Category[]),
+  ...(exerciseSeed.categories as Category[]),
 ];
 const vocabularyItems = [...baseVocabularyItems, ...(vocabularySeed.vocabularyItems as VocabularyItem[])];
 
@@ -219,6 +221,7 @@ const exercises = [
   ...baseExercises,
   ...(readingSeed.exercises as Exercise[]),
   ...(messageReadingSeed.exercises as Exercise[]),
+  ...(exerciseSeed.exercises as Exercise[]),
 ];
 
 export const SEED_ITEMS = { categories, vocabularyItems, readingPassages, exercises };

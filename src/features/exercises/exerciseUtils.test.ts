@@ -27,6 +27,12 @@ describe('sentence exercise utilities', () => {
     expect(new Set(tokens.map((token) => token.id)).size).toBe(tokens.length);
   });
 
+  it('preserves authored word tiles for ordering practice', () => {
+    const tiles = createWordTokens(['Morgen gaan wij naar de huisarts.'], ['Morgen', 'gaan', 'wij', 'naar', 'de', 'huisarts']);
+    expect(tiles.map((token) => token.text)).toEqual(['Morgen', 'gaan', 'wij', 'naar', 'de', 'huisarts']);
+    expect(new Set(tiles.map((token) => token.id)).size).toBe(tiles.length);
+  });
+
   it('uses only stored choices and derives legacy distractors from other stored cloze answers', () => {
     const current: Exercise = { ...base, answerOptions: ['ga', 'gaan', 'ben'] };
     const distractor: Exercise = { ...base, id: 'exercise-other', acceptedAnswers: ['heeft'] };

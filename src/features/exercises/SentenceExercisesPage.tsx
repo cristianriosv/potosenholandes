@@ -74,7 +74,10 @@ export function SentenceExercisesPage() {
   const submissionLock = useRef(false);
 
   const sentenceExercises = useMemo(() => (library?.exercises ?? []).filter(
-    (exercise): exercise is Extract<Exercise, { type: SentenceType }> => sentenceTypes.includes(exercise.type as SentenceType),
+    (exercise): exercise is Extract<Exercise, { type: SentenceType }> => {
+      if (exercise.type === 'matching') return exercise.pairs.length >= 2;
+      return sentenceTypes.includes(exercise.type as SentenceType);
+    },
   ), [library]);
   const filtered = sentenceExercises.filter((exercise) =>
     (typeFilter === ALL || exercise.type === typeFilter)
@@ -95,7 +98,7 @@ export function SentenceExercisesPage() {
     setSessionId(crypto.randomUUID());
     setSelectedAnswer(null);
     const target = sentenceExercises.find((exercise) => exercise.id === id);
-    setTokens(target?.type === 'word-order' ? shuffle(createWordTokens(target.acceptedSentences)) : []);
+    setTokens(target?.type === 'word-order' ? shuffle(createWordTokens(target.acceptedSentences, target.wordTiles)) : []);
     setEnglishPairs(target?.type === 'matching' ? shuffle(target.pairs) : []);
     setOrderedTokenIds([]);
     setSelectedDutchId(null);

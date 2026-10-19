@@ -1,0 +1,2233 @@
+{
+  "categories": [
+    {
+      "id": "seed-cat-grammar-pronomen-subject",
+      "name": "PRONOMEN - Subject",
+      "description": "Grammar category from the supplied A2 exercise bank: PRONOMEN - Subject.",
+      "sortOrder": 40,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-pronomen-possessief",
+      "name": "PRONOMEN - Possessief",
+      "description": "Grammar category from the supplied A2 exercise bank: PRONOMEN - Possessief.",
+      "sortOrder": 41,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-pronomen-object",
+      "name": "PRONOMEN - Object",
+      "description": "Grammar category from the supplied A2 exercise bank: PRONOMEN - Object.",
+      "sortOrder": 42,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-verbum-regular",
+      "name": "VERBUM - Regular",
+      "description": "Grammar category from the supplied A2 exercise bank: VERBUM - Regular.",
+      "sortOrder": 43,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-verbum-hebben-zijn",
+      "name": "VERBUM - Hebben / Zijn",
+      "description": "Grammar category from the supplied A2 exercise bank: VERBUM - Hebben / Zijn.",
+      "sortOrder": 44,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-verbum-modaal-verbum",
+      "name": "VERBUM - Modaal verbum",
+      "description": "Grammar category from the supplied A2 exercise bank: VERBUM - Modaal verbum.",
+      "sortOrder": 45,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-sentence-structure",
+      "name": "Sentence structure",
+      "description": "Grammar category from the supplied A2 exercise bank: Sentence structure.",
+      "sortOrder": 46,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-inversie",
+      "name": "Inversie",
+      "description": "Grammar category from the supplied A2 exercise bank: Inversie.",
+      "sortOrder": 47,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-verbum-perfectum",
+      "name": "VERBUM - Perfectum",
+      "description": "Grammar category from the supplied A2 exercise bank: VERBUM - Perfectum.",
+      "sortOrder": 48,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-verbum-separabel",
+      "name": "VERBUM - Separabel",
+      "description": "Grammar category from the supplied A2 exercise bank: VERBUM - Separabel.",
+      "sortOrder": 49,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-conjuncties",
+      "name": "Conjuncties",
+      "description": "Grammar category from the supplied A2 exercise bank: Conjuncties.",
+      "sortOrder": 50,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-pluralis",
+      "name": "Pluralis",
+      "description": "Grammar category from the supplied A2 exercise bank: Pluralis.",
+      "sortOrder": 51,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-comperatief-superlatief",
+      "name": "Comperatief / Superlatief",
+      "description": "Grammar category from the supplied A2 exercise bank: Comperatief / Superlatief.",
+      "sortOrder": 52,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-negatie",
+      "name": "Negatie",
+      "description": "Grammar category from the supplied A2 exercise bank: Negatie.",
+      "sortOrder": 53,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-demonstratief",
+      "name": "Demonstratief",
+      "description": "Grammar category from the supplied A2 exercise bank: Demonstratief.",
+      "sortOrder": 54,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-grammar-mixed-a2-review",
+      "name": "Mixed A2 review",
+      "description": "Grammar category from the supplied A2 exercise bank: Mixed A2 review.",
+      "sortOrder": 55,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    }
+  ],
+  "exercises": [
+    {
+      "id": "seed-exercise-nl-a2-001",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-subject"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Subject pronouns",
+      "context": "Introducing yourself",
+      "prompt": "___ woon in Nederland.",
+      "explanationEn": "Use ik as the subject: the person doing the action.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "Ik"
+      ],
+      "answerOptions": [
+        "Ik",
+        "Mij",
+        "Mijn",
+        "Hij"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-002",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-subject"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Subject pronouns",
+      "context": "Work",
+      "prompt": "Sara is mijn collega. ___ werkt in Amsterdam.",
+      "explanationEn": "Use zij/ze for a female subject.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "Zij"
+      ],
+      "answerOptions": [
+        "Hij",
+        "Zij",
+        "Haar",
+        "Haarzelf"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-003",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-subject"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Subject pronouns",
+      "context": "Travel",
+      "prompt": "Mijn broer en ik? ___ gaan met de trein.",
+      "explanationEn": "Use wij/we for the subject of the sentence.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "Wij"
+      ],
+      "answerOptions": [
+        "Wij",
+        "Ons",
+        "Onze",
+        "Zij"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-004",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-subject"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Subject pronouns",
+      "context": "Home",
+      "prompt": "Waar is Peter? ___ is thuis.",
+      "explanationEn": "Use hij as the subject for a male person.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "Hij"
+      ],
+      "answerOptions": [
+        "Hij",
+        "Hem",
+        "Zijn",
+        "Het"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-005",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-subject"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "PRONOMEN - Subject",
+      "context": "Health",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "A time expression can come first; the finite verb stays in second position.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Morgen gaan wij naar de huisarts."
+      ],
+      "wordTiles": [
+        "Morgen",
+        "gaan",
+        "wij",
+        "naar",
+        "de",
+        "huisarts"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-006",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-subject"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "PRONOMEN - Subject",
+      "context": "Everyday",
+      "prompt": "Match the subject pronoun to its English meaning.",
+      "explanationEn": "Some forms have more than one meaning depending on context.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-007",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-possessief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Possessives",
+      "context": "Transport",
+      "prompt": "Dit is ___ fiets. Ik gebruik hem elke dag.",
+      "explanationEn": "Mijn means 'my' and comes before the noun.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "mijn"
+      ],
+      "answerOptions": [
+        "mijn",
+        "mij",
+        "ik",
+        "me"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-008",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-possessief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Possessives",
+      "context": "Home",
+      "prompt": "Fatima zoekt ___ sleutels.",
+      "explanationEn": "Use haar for 'her' when the possessor is female.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "haar"
+      ],
+      "answerOptions": [
+        "zijn",
+        "haar",
+        "hem",
+        "zij"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-009",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-possessief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Possessives",
+      "context": "Family",
+      "prompt": "Wij bezoeken ___ ouders op zondag.",
+      "explanationEn": "Use onze with a plural noun; ouders is plural.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "onze"
+      ],
+      "answerOptions": [
+        "ons",
+        "onze",
+        "wij",
+        "mijn"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-010",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-possessief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Possessives",
+      "context": "Travel",
+      "prompt": "Waar is ___ paspoort, meneer?",
+      "explanationEn": "Uw is the formal possessive 'your'.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "uw"
+      ],
+      "answerOptions": [
+        "u",
+        "uw",
+        "jij",
+        "jouw"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-011",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-possessief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "PRONOMEN - Possessief",
+      "context": "Work",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "The possessive comes before the noun: mijn broer.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Mijn broer werkt vandaag thuis."
+      ],
+      "wordTiles": [
+        "werkt",
+        "thuis",
+        "Mijn",
+        "vandaag",
+        "broer"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-012",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-possessief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "PRONOMEN - Possessief",
+      "context": "Everyday",
+      "prompt": "Match the possessive to its English meaning.",
+      "explanationEn": "Use ons with het-words singular and onze with de-words and plurals.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-013",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-object"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Object pronouns",
+      "context": "Asking for help",
+      "prompt": "Kun je ___ helpen? (I am the person you help.)",
+      "explanationEn": "After the verb, use the object form mij/me, not subject ik.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "mij"
+      ],
+      "answerOptions": [
+        "ik",
+        "mij",
+        "mijn",
+        "wij"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-014",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-object"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Object pronouns",
+      "context": "Everyday",
+      "prompt": "Ik zie Anna. Ik zie ___.",
+      "explanationEn": "Use haar as the object pronoun referring to Anna.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "haar"
+      ],
+      "answerOptions": [
+        "zij",
+        "haar",
+        "ze",
+        "haarzelf"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-015",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-object"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Object pronouns",
+      "context": "Education",
+      "prompt": "De docent belt Mark. De docent belt ___.",
+      "explanationEn": "Use hem as the object form for a male person.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "hem"
+      ],
+      "answerOptions": [
+        "hij",
+        "hem",
+        "zijn",
+        "het"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-016",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-object"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Object pronouns",
+      "context": "Phone",
+      "prompt": "Wil je ___ even bellen? (we)",
+      "explanationEn": "Use ons as the object form of wij/we.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "ons"
+      ],
+      "answerOptions": [
+        "wij",
+        "ons",
+        "onze",
+        "we"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-017",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-object"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "PRONOMEN - Object",
+      "context": "At school",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "A common pattern is subject + verb + indirect object + direct object; time placement can vary.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Ik geef haar morgen het boek."
+      ],
+      "wordTiles": [
+        "morgen",
+        "Ik",
+        "het",
+        "boek",
+        "haar",
+        "geef"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-018",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-pronomen-object"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "PRONOMEN - Object",
+      "context": "Everyday",
+      "prompt": "Match the subject form to its object form.",
+      "explanationEn": "Dutch often uses short forms such as me, je and ze in everyday speech.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-019",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-regular"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Regular present",
+      "context": "Daily routine",
+      "prompt": "Elke dag ___ ik om zeven uur. (werken)",
+      "explanationEn": "With ik, use the verb stem: werken → werk.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "werk"
+      ],
+      "answerOptions": [
+        "werk",
+        "werkt",
+        "werken",
+        "werkte"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-020",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-regular"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Regular present",
+      "context": "Health",
+      "prompt": "Mijn zus ___ in een ziekenhuis. (werken)",
+      "explanationEn": "With hij/zij/het, add -t to the stem: werk → werkt.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "werkt"
+      ],
+      "answerOptions": [
+        "werk",
+        "werkt",
+        "werken",
+        "werkte"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-021",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-regular"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Regular past",
+      "context": "Work",
+      "prompt": "Gisteren ___ we thuis. (werken)",
+      "explanationEn": "For plural subjects in the simple past, use -ten/-den; werken → werkten.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "werkten"
+      ],
+      "answerOptions": [
+        "werkte",
+        "werkten",
+        "gewerkt",
+        "werkt"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-022",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-regular"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Regular perfect",
+      "context": "Work",
+      "prompt": "Ik heb gisteren veel ___. (werken)",
+      "explanationEn": "Perfectum: hebben + past participle; werken → gewerkt.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "gewerkt"
+      ],
+      "answerOptions": [
+        "werken",
+        "werkte",
+        "gewerkt",
+        "werk"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-023",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-regular"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Regular present",
+      "context": "Shopping",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "The finite verb usually comes second in a main clause.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "De winkel opent om negen uur."
+      ],
+      "wordTiles": [
+        "om",
+        "De",
+        "negen",
+        "winkel",
+        "opent",
+        "uur"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-024",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-regular"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "VERBUM - Regular",
+      "context": "Everyday",
+      "prompt": "Match each infinitive to its past participle.",
+      "explanationEn": "Many regular past participles use ge- + stem + t/d; spelling follows Dutch rules.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-025",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-hebben-zijn"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Auxiliaries",
+      "context": "Health",
+      "prompt": "Wij ___ een afspraak bij de huisarts.",
+      "explanationEn": "Use hebben to say 'we have' an appointment.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "hebben"
+      ],
+      "answerOptions": [
+        "hebben",
+        "zijn",
+        "heeft",
+        "is"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-026",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-hebben-zijn"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Auxiliaries",
+      "context": "Daily routine",
+      "prompt": "Ik ___ moe na het werk.",
+      "explanationEn": "Use zijn for a state: ik ben moe.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "ben"
+      ],
+      "answerOptions": [
+        "ben",
+        "heb",
+        "is",
+        "zijn"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-027",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-hebben-zijn"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Auxiliaries",
+      "context": "Travel",
+      "prompt": "Gisteren ___ zij naar huis gegaan.",
+      "explanationEn": "Many verbs of movement/change use zijn in the perfectum: zij is gegaan.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "is"
+      ],
+      "answerOptions": [
+        "heeft",
+        "is",
+        "zijn",
+        "hebben"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-028",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-hebben-zijn"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Auxiliaries",
+      "context": "Shopping",
+      "prompt": "We ___ de boodschappen gedaan.",
+      "explanationEn": "Use hebben with doen in this perfectum sentence.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "hebben"
+      ],
+      "answerOptions": [
+        "zijn",
+        "hebben",
+        "is",
+        "ben"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-029",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-hebben-zijn"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "VERBUM - Hebben / Zijn",
+      "context": "Travel",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "In the perfectum, the auxiliary is finite and the participle usually goes to the end.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Ik ben om acht uur vertrokken."
+      ],
+      "wordTiles": [
+        "vertrokken",
+        "Ik",
+        "acht",
+        "ben",
+        "om",
+        "uur"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-030",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-hebben-zijn"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "VERBUM - Hebben / Zijn",
+      "context": "Everyday",
+      "prompt": "Match the infinitive to the auxiliary commonly used in the perfectum.",
+      "explanationEn": "These are common patterns for A2; auxiliary choice can depend on the verb's use and meaning.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-031",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-modaal-verbum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Modal verbs",
+      "context": "Work",
+      "prompt": "Ik ___ morgen werken. (must / have to)",
+      "explanationEn": "Moeten expresses obligation: ik moet.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "moet"
+      ],
+      "answerOptions": [
+        "moet",
+        "kan",
+        "wil",
+        "mag"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-032",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-modaal-verbum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Modal verbs",
+      "context": "Asking for help",
+      "prompt": "___ je mij helpen, alsjeblieft? (can)",
+      "explanationEn": "Kun je...? asks whether someone is able to help.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "Kun"
+      ],
+      "answerOptions": [
+        "Kun",
+        "Moet",
+        "Mag",
+        "Wil"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-033",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-modaal-verbum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Modal verbs",
+      "context": "Public rules",
+      "prompt": "Je ___ hier niet roken. (not allowed)",
+      "explanationEn": "Niet mogen expresses prohibition: je mag hier niet roken.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "mag"
+      ],
+      "answerOptions": [
+        "mag",
+        "moet",
+        "wil",
+        "kan"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-034",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-modaal-verbum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Modal verbs",
+      "context": "Cafe",
+      "prompt": "Wij ___ graag een kopje koffie. (would like)",
+      "explanationEn": "Willen expresses wanting; for a polite order, we willen graag... is common.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "willen"
+      ],
+      "answerOptions": [
+        "willen",
+        "moeten",
+        "mogen",
+        "kunnen"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-035",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-modaal-verbum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "VERBUM - Modaal verbum",
+      "context": "Shopping",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "With a modal verb, the second verb stays in the infinitive at the end.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Ik moet vandaag boodschappen doen."
+      ],
+      "wordTiles": [
+        "doen",
+        "Ik",
+        "boodschappen",
+        "moet",
+        "vandaag"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-036",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-modaal-verbum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "VERBUM - Modaal verbum",
+      "context": "Everyday",
+      "prompt": "Match the modal verb to its common meaning.",
+      "explanationEn": "Meanings vary slightly with context; these are common A2 uses.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-037",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-sentence-structure"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Main clause",
+      "context": "Commuting",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "If a time phrase starts the sentence, the finite verb comes second and the subject follows it.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Morgen ga ik met de bus naar mijn werk."
+      ],
+      "wordTiles": [
+        "naar",
+        "Morgen",
+        "werk",
+        "ik",
+        "met",
+        "de",
+        "bus",
+        "ga",
+        "mijn"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-038",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-sentence-structure"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Main clause",
+      "context": "Daily routine",
+      "prompt": "Vandaag ___ ik thuis. (werken)",
+      "explanationEn": "The verb is in second position; with ik, use the stem werk.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "werk"
+      ],
+      "answerOptions": [
+        "werk",
+        "werkt",
+        "werken",
+        "werkte"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-039",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-sentence-structure"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Subordinate clause",
+      "context": "Health",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "After omdat, the conjugated verb goes to the end of the subordinate clause.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Ik blijf thuis omdat ik ziek ben."
+      ],
+      "wordTiles": [
+        "omdat",
+        "Ik",
+        "ziek",
+        "thuis",
+        "ben",
+        "blijf",
+        "ik"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-040",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-sentence-structure"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Sentence structure",
+      "context": "Everyday",
+      "prompt": "Match the sentence part to its role.",
+      "explanationEn": "Recognizing sentence parts helps with Dutch word order.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-041",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-inversie"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Inversion",
+      "context": "Shopping",
+      "prompt": "Morgen ___ we naar de markt. (gaan)",
+      "explanationEn": "When a time expression comes first, the finite verb comes before the subject: Morgen gaan we...",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "gaan"
+      ],
+      "answerOptions": [
+        "gaan",
+        "we gaan",
+        "gaat",
+        "ging"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-042",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-inversie"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Inversion",
+      "context": "Daily routine",
+      "prompt": "Na het werk ___ ik boodschappen. (doen, present)",
+      "explanationEn": "After a fronted phrase, inversion puts the verb before ik: Na het werk doe ik...",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "doe"
+      ],
+      "answerOptions": [
+        "doe",
+        "doet",
+        "doen",
+        "deed"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-043",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-inversie"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Inversion",
+      "context": "Family",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "The sentence starts with daarna, so the verb belt comes before the subject zij.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Daarna belt zij haar moeder."
+      ],
+      "wordTiles": [
+        "haar",
+        "Daarna",
+        "moeder",
+        "belt",
+        "zij"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-044",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-inversie"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Inversie",
+      "context": "Everyday",
+      "prompt": "Match the first phrase to the correct continuation.",
+      "explanationEn": "A time/place phrase at the start is followed by the finite verb, then the subject.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-045",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-perfectum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Perfectum",
+      "context": "Communication",
+      "prompt": "Ik heb gisteren een brief ___. (schrijven)",
+      "explanationEn": "Perfectum = hebben/zijn + past participle; schrijven → geschreven.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "geschreven"
+      ],
+      "answerOptions": [
+        "schrijven",
+        "schreef",
+        "geschreven",
+        "geschrijfd"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-046",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-perfectum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Perfectum",
+      "context": "Travel",
+      "prompt": "Zij is naar huis ___. (gaan)",
+      "explanationEn": "Use is + gegaan for the perfectum of gaan.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "gegaan"
+      ],
+      "answerOptions": [
+        "gegaan",
+        "gegaan is",
+        "ging",
+        "geweest"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-047",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-perfectum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Perfectum",
+      "context": "Leisure",
+      "prompt": "We hebben de film ___. (zien)",
+      "explanationEn": "Zien has the irregular past participle gezien.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "gezien"
+      ],
+      "answerOptions": [
+        "zien",
+        "zag",
+        "gezien",
+        "gezeen"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-048",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-perfectum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Perfectum",
+      "context": "Home",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "The auxiliary comes in second position and the participle usually goes at the end.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Ik heb mijn sleutels verloren."
+      ],
+      "wordTiles": [
+        "verloren",
+        "Ik",
+        "mijn",
+        "heb",
+        "sleutels"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-049",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-perfectum"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "VERBUM - Perfectum",
+      "context": "Everyday",
+      "prompt": "Match the infinitive to the past participle.",
+      "explanationEn": "Irregular participles often need to be learned individually.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-050",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-separabel"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Separable verbs",
+      "context": "Home",
+      "prompt": "Ik ___ de televisie ___. (uitzetten, present)",
+      "explanationEn": "In a main clause, the conjugated verb comes second and the separable prefix goes to the end: Ik zet de televisie uit.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "zet ... uit"
+      ],
+      "answerOptions": [
+        "zet ... uit",
+        "uitzet",
+        "zetten ... uit",
+        "zette ... uit"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-051",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-separabel"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Separable verbs",
+      "context": "Family",
+      "prompt": "Morgen ___ ik mijn moeder ___. (opbellen, present)",
+      "explanationEn": "With inversion, the finite verb still stays in second position; the prefix goes to the end.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "bel ... op"
+      ],
+      "answerOptions": [
+        "bel ... op",
+        "opbel",
+        "bel op ...",
+        "opgebeld"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-052",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-separabel"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Separable verbs",
+      "context": "Home",
+      "prompt": "Ik heb de deur ___. (opendoen, perfectum)",
+      "explanationEn": "In the perfectum, the prefix is joined to the participle: opengedaan.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "opengedaan"
+      ],
+      "answerOptions": [
+        "opendoen",
+        "opengedaan",
+        "opgedoet",
+        "open gedaan"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-053",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-separabel"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Separable verbs",
+      "context": "Home",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "In a main clause, opruimen separates: ruim ... op.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Ik ruim mijn kamer morgen op."
+      ],
+      "wordTiles": [
+        "op",
+        "morgen",
+        "Ik",
+        "mijn",
+        "ruim",
+        "kamer"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-054",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-verbum-separabel"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "VERBUM - Separabel",
+      "context": "Everyday",
+      "prompt": "Match the separable verb to its meaning.",
+      "explanationEn": "The prefix often moves to the end in a main clause.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-055",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-conjuncties"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Conjunctions",
+      "context": "Health",
+      "prompt": "Ik blijf thuis, ___ ik ziek ben. (because)",
+      "explanationEn": "Omdat means because and introduces a subordinate clause: ... omdat ik ziek ben.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "omdat"
+      ],
+      "answerOptions": [
+        "omdat",
+        "maar",
+        "of",
+        "want"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-056",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-conjuncties"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Conjunctions",
+      "context": "Weather",
+      "prompt": "Ik wil fietsen, ___ het regent. (but)",
+      "explanationEn": "Maar means but and connects contrasting ideas.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "maar"
+      ],
+      "answerOptions": [
+        "maar",
+        "want",
+        "omdat",
+        "dus"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-057",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-conjuncties"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Conjunctions",
+      "context": "Weather",
+      "prompt": "Ik neem een jas mee, ___ het koud is. (because)",
+      "explanationEn": "Want means because; unlike omdat, it keeps normal main-clause word order.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "want"
+      ],
+      "answerOptions": [
+        "want",
+        "maar",
+        "of",
+        "en"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-058",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-conjuncties"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Conjunctions",
+      "context": "Daily routine",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "After omdat, the verb goes to the end of the subordinate clause.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Ik ga naar bed omdat ik moe ben."
+      ],
+      "wordTiles": [
+        "omdat",
+        "Ik",
+        "moe",
+        "ga",
+        "naar",
+        "bed",
+        "ik",
+        "ben"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-059",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-conjuncties"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Conjuncties",
+      "context": "Everyday",
+      "prompt": "Match the conjunction to its meaning.",
+      "explanationEn": "Pay special attention to the word order after want versus omdat.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-060",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pluralis"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Plural nouns",
+      "context": "Shopping",
+      "prompt": "Eén boek, twee ___.",
+      "explanationEn": "Many Dutch nouns form the plural with -en; spelling may change.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "boeken"
+      ],
+      "answerOptions": [
+        "boek",
+        "boeken",
+        "boeks",
+        "boeken's"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-061",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pluralis"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Plural nouns",
+      "context": "Home",
+      "prompt": "Eén tafel, drie ___.",
+      "explanationEn": "Many nouns form the plural with -s when the ending allows it.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "tafels"
+      ],
+      "answerOptions": [
+        "tafel",
+        "tafels",
+        "tafelen",
+        "tafel's"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-062",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-pluralis"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Plural nouns",
+      "context": "Family",
+      "prompt": "Eén kind, twee ___.",
+      "explanationEn": "Kind has the irregular plural kinderen.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "kinderen"
+      ],
+      "answerOptions": [
+        "kinds",
+        "kinderen",
+        "kinder",
+        "kinders"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-063",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-pluralis"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Plural nouns",
+      "context": "Family",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "Plural subject de kinderen takes the plural verb spelen.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "De kinderen spelen buiten."
+      ],
+      "wordTiles": [
+        "buiten",
+        "spelen",
+        "De",
+        "kinderen"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-064",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-pluralis"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Pluralis",
+      "context": "Everyday",
+      "prompt": "Match the singular noun to its plural.",
+      "explanationEn": "Some plurals change spelling or vowel; learn common forms.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-065",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-comperatief-superlatief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Comparatives",
+      "context": "Housing",
+      "prompt": "Mijn huis is ___ dan jouw huis. (small)",
+      "explanationEn": "Comparative usually adds -er: klein → kleiner; use dan for 'than'.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "kleiner"
+      ],
+      "answerOptions": [
+        "klein",
+        "kleiner",
+        "kleinst",
+        "meest klein"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-066",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-comperatief-superlatief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Superlatives",
+      "context": "Shopping",
+      "prompt": "Dit is de ___ supermarkt in de buurt. (cheap)",
+      "explanationEn": "The superlative commonly uses -st(e) and often de/het before the noun.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "goedkoopste"
+      ],
+      "answerOptions": [
+        "goedkoop",
+        "goedkoper",
+        "goedkoopste",
+        "meest goedkoop"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-067",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-comperatief-superlatief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Comparatives",
+      "context": "Travel",
+      "prompt": "De trein is ___ dan de bus. (fast)",
+      "explanationEn": "Use the comparative sneller with dan.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "sneller"
+      ],
+      "answerOptions": [
+        "snel",
+        "sneller",
+        "snelst",
+        "meest snel"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-068",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-comperatief-superlatief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Comparatives",
+      "context": "Shopping",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "The comparative adjective comes before dan.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Deze tas is duurder dan die tas."
+      ],
+      "wordTiles": [
+        "dan",
+        "Deze",
+        "tas",
+        "duurder",
+        "is",
+        "die",
+        "tas"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-069",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-comperatief-superlatief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Comperatief / Superlatief",
+      "context": "Everyday",
+      "prompt": "Match the adjective to its comparative.",
+      "explanationEn": "Goed → beter is irregular; veel → meer and weinig → minder are also irregular.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-070",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-negatie"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Negation",
+      "context": "Daily routine",
+      "prompt": "Ik heb ___ tijd. (no / not any)",
+      "explanationEn": "Use geen before an indefinite noun: geen tijd.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "geen"
+      ],
+      "answerOptions": [
+        "niet",
+        "geen",
+        "nooit",
+        "wel"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-071",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-negatie"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Negation",
+      "context": "Education",
+      "prompt": "Ik begrijp het ___. (not)",
+      "explanationEn": "Use niet to negate a verb, adjective, or definite expression: ik begrijp het niet.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "niet"
+      ],
+      "answerOptions": [
+        "geen",
+        "niet",
+        "nooit",
+        "niets"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-072",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-negatie"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Negation",
+      "context": "Daily routine",
+      "prompt": "Ik drink ___ koffie. (never)",
+      "explanationEn": "Nooit means never.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "nooit"
+      ],
+      "answerOptions": [
+        "niet",
+        "geen",
+        "nooit",
+        "niemand"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-073",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-negatie"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Negation",
+      "context": "Commuting",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "Niet often appears before the phrase being negated or toward the end of the clause.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Ik ga vandaag niet met de auto."
+      ],
+      "wordTiles": [
+        "niet",
+        "Ik",
+        "auto",
+        "vandaag",
+        "ga",
+        "met",
+        "de"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-074",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-negatie"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Negatie",
+      "context": "Everyday",
+      "prompt": "Match the negative word to its meaning.",
+      "explanationEn": "Choose the negative form based on what is being negated.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-075",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-demonstratief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Demonstratives",
+      "context": "Home",
+      "prompt": "___ boek is van mij. (this; het-word)",
+      "explanationEn": "Use dit with singular het-words nearby: dit boek.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "Dit"
+      ],
+      "answerOptions": [
+        "Dit",
+        "Deze",
+        "Die",
+        "Dat"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-076",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-demonstratief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Demonstratives",
+      "context": "Transport",
+      "prompt": "___ fiets is nieuw. (that; de-word)",
+      "explanationEn": "Use die for a de-word farther away: die fiets.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "Die"
+      ],
+      "answerOptions": [
+        "Deze",
+        "Dit",
+        "Die",
+        "Dat"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-077",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-demonstratief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Demonstratives",
+      "context": "Housing",
+      "prompt": "___ huizen zijn duur. (these)",
+      "explanationEn": "Use deze with plural nouns for 'these'.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "Deze"
+      ],
+      "answerOptions": [
+        "Dit",
+        "Deze",
+        "Dat",
+        "Die"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-078",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-demonstratief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Demonstratives",
+      "context": "Housing",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "Demonstratives come before the noun: dat huis, dit huis.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Dat huis is groter dan dit huis."
+      ],
+      "wordTiles": [
+        "huis",
+        "Dat",
+        "dan",
+        "groter",
+        "is",
+        "dit",
+        "huis"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-079",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-demonstratief"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Demonstratief",
+      "context": "Everyday",
+      "prompt": "Match the demonstrative to its use.",
+      "explanationEn": "For singular nouns, first identify whether the noun uses de or het.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    },
+    {
+      "id": "seed-exercise-nl-a2-080",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-mixed-a2-review"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Mixed grammar",
+      "context": "Weather",
+      "prompt": "Omdat het regent, ___ ik thuis. (blijven)",
+      "explanationEn": "The subordinate clause comes first; the main clause then uses inversion: blijf ik.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "blijf"
+      ],
+      "answerOptions": [
+        "blijf",
+        "blijft",
+        "blijven",
+        "bleef"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-081",
+      "type": "word-order",
+      "categoryIds": [
+        "seed-cat-grammar-mixed-a2-review"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Mixed grammar",
+      "context": "Shopping",
+      "prompt": "Put the words in the correct order.",
+      "explanationEn": "Time first → inversion; perfectum participle at the end.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedSentences": [
+        "Gisteren heb ik mijn boodschappen gedaan."
+      ],
+      "wordTiles": [
+        "gedaan",
+        "Gisteren",
+        "mijn",
+        "heb",
+        "boodschappen",
+        "ik"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-082",
+      "type": "missing-word",
+      "categoryIds": [
+        "seed-cat-grammar-mixed-a2-review"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Mixed grammar",
+      "context": "Family",
+      "prompt": "Mijn ouders ___ gisteren vroeg naar huis gegaan.",
+      "explanationEn": "Zijn is used with gaan in the perfectum.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "acceptedAnswers": [
+        "zijn"
+      ],
+      "answerOptions": [
+        "hebben",
+        "zijn",
+        "is",
+        "ben"
+      ]
+    },
+    {
+      "id": "seed-exercise-nl-a2-083",
+      "type": "matching",
+      "categoryIds": [
+        "seed-cat-grammar-mixed-a2-review"
+      ],
+      "difficulty": "medium",
+      "cefrLevel": "A2",
+      "skill": "Mixed grammar",
+      "context": "Mixed review",
+      "prompt": "Match the sentence to the grammar point.",
+      "explanationEn": "Mixed review connects individual rules to realistic A2 sentences.",
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "pairs": []
+    }
+  ]
+}

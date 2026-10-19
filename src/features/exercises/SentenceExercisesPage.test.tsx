@@ -15,6 +15,21 @@ function renderPage() {
 }
 
 describe('SentenceExercisesPage', () => {
+  it('does not offer an empty matching placeholder for practice', async () => {
+    await exercises.save({
+      id: 'matching-placeholder',
+      type: 'matching',
+      categoryIds: [],
+      difficulty: 'easy',
+      prompt: 'Match the pronouns.',
+      pairs: [],
+      reviewStatus: 'draft',
+    });
+    renderPage();
+    expect(await screen.findByText('No sentence exercises match these filters.')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Practice' })).not.toBeInTheDocument();
+  });
+
   it('checks selectable missing-word answers and persists feedback', async () => {
     const user = userEvent.setup();
     const exercise = await exercises.save({

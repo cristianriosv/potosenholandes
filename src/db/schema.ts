@@ -61,6 +61,9 @@ const ExerciseBase = {
   categoryIds,
   difficulty: z.enum(['easy', 'medium', 'hard']),
   prompt: text,
+  skill: z.string().optional(),
+  cefrLevel: CEFRLevelSchema.optional(),
+  context: z.string().optional(),
   passageId: id.optional(),
   sortOrder: z.number().int().nonnegative().optional(),
   hints: z.array(text).optional(),
@@ -92,6 +95,7 @@ const WordOrderExerciseSchema = z.object({
   ...ExerciseBase,
   type: z.literal('word-order'),
   acceptedSentences: z.array(text).min(1, 'Add at least one accepted sentence'),
+  wordTiles: z.array(text).optional(),
   explanationEn: z.string().optional(),
 });
 
@@ -105,7 +109,7 @@ export const MatchingPairSchema = z.object({
 const MatchingExerciseSchema = z.object({
   ...ExerciseBase,
   type: z.literal('matching'),
-  pairs: z.array(MatchingPairSchema).min(2, 'Add at least two matching pairs'),
+  pairs: z.array(MatchingPairSchema).default([]),
 });
 
 const ExerciseUnionSchema = z.discriminatedUnion('type', [
@@ -140,6 +144,9 @@ export const ExerciseSchema = ExerciseUnionSchema.superRefine((exercise, context
   }
   if (exercise.type === 'matching' && new Set(exercise.pairs.map((pair) => pair.id)).size !== exercise.pairs.length) {
     context.addIssue({ code: 'custom', path: ['pairs'], message: 'Matching pair IDs must be unique' });
+  }
+  if (exercise.type === 'matching' && exercise.pairs.length < 2 && exercise.reviewStatus !== 'draft') {
+    context.addIssue({ code: 'custom', path: ['pairs'], message: 'Add at least two matching pairs before reviewing or publishing this exercise' });
   }
 
   if (new Set(exercise.categoryIds).size !== exercise.categoryIds.length) {

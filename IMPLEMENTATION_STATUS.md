@@ -8,7 +8,7 @@ Status date: 2026-10-19
 | 2. Domain model and repositories | Complete | Canonical Zod model, Dexie v1-to-v2 migration, validated repositories, referential checks, four exercise variants, event-based attempts/reviews, canonical seeds, and a v1 upgrade regression test are implemented. |
 | 3. Reading experience | Partial | Browse/filter, 17 A2 passages with 44 linked questions, immediate explanations, correct-answer reveal, score, retry, and local attempt history are implemented and tested. Imported sources retain ambiguity/editorial caveats, including the reconstructed holiday/event tables and duplicate question. Manual offline/device behavior remains unverified. |
 | 4. Content manager | Complete | Searchable/filterable library, typed editors, linked questions, per-option explanations, previews, review states, atomic stale-write detection, dirty-draft confirmation, protected deletion, duplication, and local image/verb-form fields are implemented and tested. |
-| 5. Flashcards and sentence exercises | Partial | Again/Hard/Easy review scheduling, due/difficult filters, local images, all three sentence modes, and 111 reviewed vocabulary items across 20 suggested categories are implemented and tested. Manual offline behavior remains unverified. |
+| 5. Flashcards and sentence exercises | Partial | Again/Hard/Easy review scheduling, due/difficult filters, local images, all three sentence modes, 111 reviewed vocabulary items, and 83 imported A2 grammar exercises are implemented and tested. The 16 source matching exercises with no supplied pairs remain draft placeholders and are excluded from practice. Manual offline behavior remains unverified. |
 | 6. Backup and offline readiness | Partial | Versioned export/import, validation, change preview, conflict-safe merge, explicit full restore, legacy-progress/seed-state preservation, and atomic rollback tests are implemented. Cross-device and offline checks remain. |
 | Progress summary | Not started | Attempts and review history are stored locally, but the Progress navigation tab still displays a placeholder. |
 | Final engineering review | Not started | No final review has been performed. |
@@ -19,7 +19,7 @@ Use standalone Exercise records, with `passageId` linking reading questions to t
 
 ## Verification
 
-`npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 36 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
+`npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 39 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
 
 ## Recommended Next Steps
 
