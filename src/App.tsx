@@ -4,6 +4,7 @@ import { FlashcardsPage } from './features/flashcards/FlashcardsPage';
 import { ReadingPage } from './features/reading/ReadingPage';
 import { ContentManagerPage } from './features/content/ContentManagerPage';
 import { SentenceExercisesPage } from './features/exercises/SentenceExercisesPage';
+import { BackupPage } from './features/settings/BackupPage';
 
 const sections = [
   { path: '/flashcards', label: 'Flashcards' },
@@ -11,6 +12,7 @@ const sections = [
   { path: '/reading', label: 'Reading' },
   { path: '/manage', label: 'Content' },
   { path: '/progress', label: 'Progress' },
+  { path: '/settings', label: 'Settings' },
 ];
 
 function Placeholder({ title }: { title: string }) {
@@ -50,8 +52,9 @@ export function App() {
             <Route path="/reading" element={<ReadingPage />} />
             <Route path="/manage" element={<ContentManagerPage />} />
             <Route path="/exercises" element={<SentenceExercisesPage />} />
+            <Route path="/settings" element={<BackupPage />} />
             {sections
-              .filter((s) => !['/flashcards', '/reading', '/manage', '/exercises'].includes(s.path))
+              .filter((s) => !['/flashcards', '/reading', '/manage', '/exercises', '/settings'].includes(s.path))
               .map((s) => (
                 <Route key={s.path} path={s.path} element={<Placeholder title={s.label} />} />
               ))}

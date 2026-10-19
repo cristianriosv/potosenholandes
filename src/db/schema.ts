@@ -192,6 +192,8 @@ export const BackupSchema = z.object({
   exercises: z.array(ExerciseSchema),
   practiceAttempts: z.array(PracticeAttemptSchema),
   flashcardReviews: z.array(FlashcardReviewSchema),
+  legacyProgress: z.array(LegacyProgressSchema).default([]),
+  seededIds: z.array(id).default([]),
 });
 
 export type Category = z.infer<typeof CategorySchema>;
