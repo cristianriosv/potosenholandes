@@ -1,0 +1,994 @@
+{
+  "categories": [
+    {
+      "id": "seed-cat-reading-community-and-environment",
+      "name": "Community and environment",
+      "description": "Suggested category from the supplied reviewed message set.",
+      "sortOrder": 34,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-reading-work-and-scheduling",
+      "name": "Work and scheduling",
+      "description": "Suggested category from the supplied reviewed message set.",
+      "sortOrder": 35,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-reading-work-and-office-facilities",
+      "name": "Work and office facilities",
+      "description": "Suggested category from the supplied reviewed message set.",
+      "sortOrder": 36,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-reading-work-and-workplace-rules",
+      "name": "Work and workplace rules",
+      "description": "Suggested category from the supplied reviewed message set.",
+      "sortOrder": 37,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-cat-reading-work-and-social-events",
+      "name": "Work and social events",
+      "description": "Suggested category from the supplied reviewed message set.",
+      "sortOrder": 38,
+      "source": "imported",
+      "reviewStatus": "draft",
+      "createdAt": 0,
+      "updatedAt": 0
+    }
+  ],
+  "passages": [
+    {
+      "id": "seed-reading-message-01",
+      "title": "Autovrije zondag",
+      "dutchText": "Moyra krijgt een brief van de gemeente Amsterdam.\n\n\nBeste meneer/mevrouw,\n\nMet deze brief willen we u informeren over de autovrije zondag. Op 30 maart mogen er geen auto’s in Amsterdam rijden. Op deze dag zullen de straten helemaal vrij zijn en kunt u lopen en fietsen waar u maar wilt. Kinderen kunnen lekker vrij spelen zonder het gevaar van rondrijdende auto’s. We organiseren deze dag omdat we willen dat mensen uit de buurt meer aan het milieu denken.\n\nVoor korte afstanden kunt u natuurlijk lopen of fietsen. Vindt u het te ver om te fietsen of te lopen, dan kunt u natuurlijk de tram of de bus nemen. Moet u ergens naartoe buiten Amsterdam? U kunt een taxi nemen maar dat is wel een beetje duur. We raden u aan om dan met de trein reizen.\n\nWe hopen dat u zult genieten van een heerlijke rustige dag die goed is voor het milieu!",
+      "categoryIds": [
+        "seed-cat-reading-community-and-environment"
+      ],
+      "cefrLevel": "A2",
+      "context": "Understanding a car-free Sunday announcement",
+      "reviewNotes": [
+        "Reviewed answers are based on the supplied material, not independently verified official exam questions."
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-02",
+      "title": "Vakantierooster op kantoor",
+      "dutchText": "John werkt in de beveiliging van een kantoorgebouw. Hij krijgt een brief van zijn baas.\n\n\nBeste John,\n\nDe zomer komt er weer aan dus wil ik graag weten wanneer iedereen vakantie neemt. Kun je uiterlijk deze week vrijdag jouw vakantie aanvragen zodat ik een vakantieschema kan maken? Vakantieoverzicht (gereconstrueerd uit de tabel):\nColleague | Week 29 | Week 30 | Week 31 | Week 32 | Week 33 | Week 34\nHarold | — | X | — | — | — | —\nJessica | — | — | — | — | X | —\nAmir | — | — | — | — | — | X\nLarissa | — | X | — | — | — | —\nJohn | — | — | — | — | — | —\n\nVakantieregels:\n- Iedereen mag maximaal één week vrij nemen.\n- In week 31 en 32 gaat het kantoor dicht. Je hoeft dan geen vrij te nemen want er is dan niemand op kantoor.\n- In week 30 en 33 mogen er maximaal twee personen vrij nemen. In week 29 en 34 wordt het druk. In die week mag maar één persoon op vakantie.\n- Is er in het rooster geen plaats om vakantie te nemen op een moment dat jij dat wil? Laat dit dan uiterlijk deze vrijdag aan me weten. Dan zal ik kijken of we er iets aan kunnen doen.\nVriendelijke groet,\nMaria",
+      "categoryIds": [
+        "seed-cat-reading-work-and-scheduling"
+      ],
+      "cefrLevel": "A2",
+      "context": "Choosing an available holiday week",
+      "reviewNotes": [
+        "Reviewed answers are based on the supplied material, not independently verified official exam questions.",
+        "The holiday schedule table was reconstructed from spacing in the supplied text extraction. Confirm the column alignment against the original page if available.",
+        "John’s available holiday answer depends on the reconstructed holiday schedule."
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-03",
+      "title": "Verhuizing naar een nieuw kantoor",
+      "dutchText": "Alle medewerkers van een bedrijf ontvangen een brief over de verhuizing naar het nieuwe kantoor.\n\n\nBeste collega’s,\n\nZoals jullie weten gaan we binnenkort verhuizen naar een nieuw kantoor. Allereerst wil ik graag iedereen bedanken voor de hulp bij het opruimen van ons kantoor deze week. We blijven nog één week in ons kantoor op de Violastraat. Met deze brief zal ik jullie informeren over het nieuwe kantoor.\n\nParkeren:\nKom je met de auto naar kantoor? Je kunt je auto parkeren in de parkeergarage onder het kantoorgebouw. De managers kunnen een privé plaats reserveren. Zij moeten dan een email naar Nadia van personeelszaken sturen. Voor alle andere collega’s, die een auto hebben, geldt dat zij een normale parkeerkaart kunnen krijgen bij de receptie van het nieuwe kantoor. Stuur eerst een email naar receptie@kantoor.nl en vraag om een parkeerkaart.\nVoor fietsers is er goed nieuws want naast het kantoor zit een gratis beveiligde fietsenstalling.\n\nHoe komt u naar het nieuwe kantoor met het openbaar vervoer?\nReist u met het openbaar vervoer naar uw werk? Het nieuwe kantoor is dan goed bereikbaar. De bus richting Isolatorweg stopt voor de deur. Je stapt uit bij bushalte Strawinskylaan. Je kunt ook de metro nemen. Deze stopt ook vlakbij het kantoor. Je neemt dan de metro richting Centraal station. Je stapt uit bij Station Zuid.  Dan loop je langs het WTC, dan onder het viaduct door en daarna neem je de eerste straat naar links.\n\nHeb je vragen over het nieuwe kantoor? Stuur mij dan een email.\n\nVriendelijke groet,\nHarold",
+      "categoryIds": [
+        "seed-cat-reading-work-and-office-facilities"
+      ],
+      "cefrLevel": "A2",
+      "context": "Finding information about a new workplace",
+      "reviewNotes": [
+        "Reviewed answers are based on the supplied material, not independently verified official exam questions.",
+        "This is an exact duplicate of Question 2 in the supplied source.",
+        "Consider replacing this duplicate question with a question about the bus, metro, or bicycle parking.",
+        "The supplied source repeats the manager parking question; both question occurrences are retained."
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-04",
+      "title": "Nieuwe regels bij Eetcafé Overkant",
+      "dutchText": "De medewerkers van Eetcafé Overkant ontvangen een email van hun baas.\n\n\nBeste collega’s,\n\nAllereerst een gelukkig nieuw jaar! Ik hoop dat jullie een feestelijk einde van het jaar hebben gehad. Ik wil jullie met deze mail een paar dingen vertellen over het komende jaar.\n\nWe gaan in dit jaar veel nieuwe dingen doen. Mensen kunnen vanaf dit jaar ook bij ons ontbijten dus we krijgen nieuwe openingstijden.\n\nWat zijn de nieuwe regels?\nEr komen dit jaar een aantal nieuwe regels bij. Je leest ze hieronder:\n\nIk wil dat iedereen al 15 minuten voordat zijn werk begint aanwezig is. Je hebt dan genoeg tijd om   je om te kleden en je kunt dan goed op tijd beginnen.\nPer werkdag heeft iedereen in totaal 45 minuten pauze. Je kunt één pauze van 45 minuten nemen. Neem je liever twee korte pauzes? Dat in totaal mogen de pauzes niet langer zijn dan 45 minuten.\nMedewerkers mogen geen telefoon gebruiken als ze werken. Het is niet professioneel om naar je telefoon te kijken op werk. Laat je telefoon in je tas als je gaat werken.\nWe hebben vanaf dit jaar een nieuw alarmsysteem. Ben je de laatste persoon die nog aan het werken is? Dan moet jij het alarm aanzetten voordat je weggaat. De code is 2020.\nGroeten,\nMelanie",
+      "categoryIds": [
+        "seed-cat-reading-work-and-workplace-rules"
+      ],
+      "cefrLevel": "A2",
+      "context": "Understanding new rules at work",
+      "reviewNotes": [
+        "Reviewed answers are based on the supplied material, not independently verified official exam questions."
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-05",
+      "title": "Bedrijfsuitje naar het zwembad",
+      "dutchText": "Paul krijgt een brief van zijn werk.\n\n\nBeste collega,\n\nWij hebben het bedrijfsuitje georganiseerd. We gaan op 8 juli zwemmen in Wassenaar! In deze email willen we je informatie geven over deze dag.\n\nEr gaat een bus vanaf werk naar het zwembad. Wil je mee met de bus? Laat dit dan even weten aan Anja. Zij regelt het vervoer. Om 9:30 kun je een kopje koffie drinken op kantoor. We vertrekken vanuit kantoor naar het zwembad. De bus rijdt om 10:30 weg maar zorg dat je uiterlijk om 10:15 op kantoor bent.\n\nNeem je eigen lunch mee en vergeet ook niet je zwembroek. Bij het zwembad hebben ze handdoeken. Deze kun je dus thuislaten. We gaan zwemmen tot 17:00. Daarna gaan we naar een restaurant waar we om 18:00 een tafel hebben gereserveerd. Eet je mee? Laat dan even weten aan Peter of je erbij bent.\nAls je nog andere vragen hebt, kun je contact met mij opnemen.\n\nWe hopen dat er veel van jullie komen!\n\nNamens de organisatie,\n\nHerman",
+      "categoryIds": [
+        "seed-cat-reading-work-and-social-events"
+      ],
+      "cefrLevel": "A2",
+      "context": "Preparing for a company swimming trip",
+      "reviewNotes": [
+        "Reviewed answers are based on the supplied material, not independently verified official exam questions.",
+        "The text does not explicitly state the return time. Herman is the best contact because he invites readers to contact him with other questions."
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-06",
+      "title": "Bedrijfsuitje: fietstocht in Drenthe",
+      "dutchText": "Paul krijgt een brief van zijn werk.\n\n\nBeste collega,\n\nWij van de feestcommissie organiseren een bedrijfsuitje. We gaan op 13 september een fietstocht maken in Drenthe!\n\nWe zijn rond lunchtijd ergens op het platteland. We hebben niks geregeld voor de lunch. Dus we gaan niet stoppen om met de hele groep samen te eten. Iedereen moet deze zelf meenemen. Die kun je tijdens de fietstocht opeten. Onderweg rijden we ook langs een meer. Als het mooi weer is, gaan we daar zwemmen. Neem dus je zwemkleding mee. \n\nIn de avond gaan we samen eten in een restaurant. Laat allemaal alsjeblieft voor het einde van de week aan Delano weten of je bij het eten bent of niet.\n\nEr gaat een bus vanaf werk naar het zwembad. Als je mee wilt rijden, moet je dit even melden bij Toon. Hij regelt de het vervoer. We verzamelen om 8:00 op kantoor. De bus vertrekt om 8:15 vanaf kantoor naar Drenthe. Als je met eigen vervoer gaat, zorg dan dat je uiterlijk om 9:45 bij de fietsenverhuur in Drenthe bent. Dan ben je op tijd voor de fietstocht. Die begint om 10:00.\n\nHeb je nog een vraag over deze dag? Dan kun je het best even contact opnemen met Sylvia.\n\nWij hebben er zin in!\n\nNamens de feestcommissie,\nJoost",
+      "categoryIds": [
+        "seed-cat-reading-work-and-social-events"
+      ],
+      "cefrLevel": "A2",
+      "context": "Preparing for a company cycling trip",
+      "reviewNotes": [
+        "Reviewed answers are based on the supplied material, not independently verified official exam questions.",
+        "The source says the bus goes to the swimming pool although the event is a cycling trip in Drenthe."
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-07",
+      "title": "Verjaardagsfeest van de Bloemenbuurt",
+      "dutchText": "De feestcommissie van de bloemenbuurt organiseert het verjaardagsfeest van de buurt. De buurtbewoners krijgen een brief.\n\nLees daarna de tekst. \n\nBeste buurtgenoten,\n\nDit bericht is om jullie te informeren over het verjaardagsfeest van de Bloemenbuurt buurt op 23 juni. Dit jaar bestaat de buurt 30 jaar! Er zullen veel leuke activiteiten zijn. Ook speelt onze lokale voetbalclub F.C. Helden op deze dag de finale van het bekertoernooi. Komt u ze ook aanmoedigen?!\nEr zal om 12:00 bij het buurthuis een feestelijke opening zijn. Zorg dat je op tijd bent! Hieronder vindt u het programma van de dag:\n\nProgramma:\nTime | What? | Where?\n12:00–12:30 | Feestelijke opening | Buurthuis\n12:45–14:00 | Muzikaal optreden | Albertspark\n14:15–15:45 | Finale bekertoernooi | Stadion\n16:00–17:30 | Creatieve cursus | Buurthuis\n16:00–18:00 | Activiteiten voor kinderen | Nelsonpark\n18:30–21:00 | Barbecue | Buurthuis\n\nPrijs\nVorig jaar kostte het buurtfeest €20. Veel mensen vonden dat te duur dus is het dit jaar goedkoper.\n\nDagprogramma inclusief barbecue: €17,50\nDagprogramma exclusief barbecue: €12,50\nAlleen barbecue: €7,50\n\nWe hebben er zin in en hopen u op 23 juni te zien!\n\nFeestelijke groet,\nDe feestcommissie",
+      "categoryIds": [
+        "seed-cat-reading-community-and-local-events"
+      ],
+      "cefrLevel": "A2",
+      "context": "Reading an event programme and comparing ticket prices",
+      "reviewNotes": [
+        "Reviewed answers are based on the supplied material, not independently verified official exam questions.",
+        "The two activities starting at 16:00 overlap but are listed at different locations.",
+        "The announcement says the event is on 30 September but later says 23 June; both source dates are preserved."
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-08",
+      "title": "Huisartsenpraktijk Diamantbuurt",
+      "dutchText": "In een folder staat informatie over een huisartsenpraktijk. \n\n\nWelkom bij huisartsenpraktijk Diamantbuurt\nIn deze folder leest u informatie over huisartsenpraktijk de Diamantbuurt.\n\nAfspraak maken\nVoor een afspraak kunt u bellen met de receptie. Deze is bereikbaar van maandag tot donderdag tussen 9:00 en 16:00 en op vrijdag tussen 9:30 en 12:00. Het is mogelijk om een afspraak te maken per email. Stuurt u deze dan naar diamantbuurt@huisarts.nl. Heeft het spoed? U kunt ons dan beter bellen. Wij kunnen u dan sneller helpen.\nKunt u niet op de afspraak komen? Laat dit minimaal 24 uur voor de afspraak weten. U moet dan de assistente bellen op 020-5897649. Ontdekt u pas in het weekend dat u op maandag niet een naar afspraak kunt komen? Stuur dan een email naar diamantbuurt@huisarts.nl.\n\nSpreekuur\nHebt u een vraag of een klacht maar denkt u dat u geen huisarts nodig hebt? U hoeft dan geen afspraak te maken. U kunt dan bellen tijdens het spreekuur en u zult een gesprek hebben met de assistent. Zij zal u proberen te helpen. Als het nodig is, zal zij u adviseren een afspraak te maken bij de huisarts. Het spreekuur is elke dag tussen 10:00 en 12:00.\n\nOpeningstijden\nOnze openingstijden zijn van maandag tot donderdag tussen 9:00 en 18:00 en op vrijdag van 9:00 tot 12:00. In het weekend en op vrijdagmiddag zijn wij gesloten. Heeft u op vrijdagmiddag of in het weekend een huisarts nodig? Dan kunt u de huisartsenpost bellen: 020-5954376.",
+      "categoryIds": [
+        "seed-cat-reading-health-and-medical-services"
+      ],
+      "cefrLevel": "A2",
+      "context": "Contacting a GP practice, cancelling appointments and out-of-hours care",
+      "reviewNotes": [
+        "Reviewed answers are based on the supplied material, not independently verified official exam questions.",
+        "The text does not specifically discuss medication advice. This answer follows the general instruction for questions that do not necessarily require a GP appointment.",
+        "The medicine question is broader than the leaflet’s explicit examples; the answer is inferred from its general guidance."
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    }
+  ],
+  "exercises": [
+    {
+      "id": "seed-reading-message-01-q01",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-community-and-environment"
+      ],
+      "difficulty": "easy",
+      "prompt": "Waarom wil de buurtcommissie een autovrije zondag?",
+      "passageId": "seed-reading-message-01",
+      "sortOrder": 0,
+      "options": [
+        {
+          "id": "seed-reading-message-01-q01-option-a",
+          "text": "Zodat mensen vrij op de straten kunnen lopen en fietsen",
+          "isCorrect": false,
+          "explanationEn": "Walking and cycling are benefits of the day, but the stated reason is environmental awareness."
+        },
+        {
+          "id": "seed-reading-message-01-q01-option-b",
+          "text": "Zodat de mensen meer aan het milieu gaan denken",
+          "isCorrect": true,
+          "explanationEn": "The letter explicitly says the day is organized to encourage people to think more about the environment."
+        },
+        {
+          "id": "seed-reading-message-01-q01-option-c",
+          "text": "Zodat de kinderen vrij kunnen spelen",
+          "isCorrect": false,
+          "explanationEn": "Children can play more safely, but this is presented as a benefit, not the main reason."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-01-q02",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-community-and-environment"
+      ],
+      "difficulty": "easy",
+      "prompt": "Moyra woont in Amsterdam-Oost en ze wil naar een vriend in Haarlem. Wat kan ze volgens de tekst het beste doen?",
+      "passageId": "seed-reading-message-01",
+      "sortOrder": 1,
+      "options": [
+        {
+          "id": "seed-reading-message-01-q02-option-a",
+          "text": "De bus nemen",
+          "isCorrect": false,
+          "explanationEn": "The bus is mentioned as an option for getting around shorter distances; the train is recommended for going outside Amsterdam."
+        },
+        {
+          "id": "seed-reading-message-01-q02-option-b",
+          "text": "De trein nemen",
+          "isCorrect": true,
+          "explanationEn": "For travel to a destination outside Amsterdam, the letter recommends the train."
+        },
+        {
+          "id": "seed-reading-message-01-q02-option-c",
+          "text": "Een taxi nemen",
+          "isCorrect": false,
+          "explanationEn": "A taxi is possible but described as expensive, and the letter recommends the train instead."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-02-q01",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-scheduling"
+      ],
+      "difficulty": "easy",
+      "prompt": "Waarom stuurt Maria deze mail?",
+      "passageId": "seed-reading-message-02",
+      "sortOrder": 0,
+      "options": [
+        {
+          "id": "seed-reading-message-02-q01-option-a",
+          "text": "Om te vertellen wanneer iedereen vakantie neemt",
+          "isCorrect": false,
+          "explanationEn": "The table shows colleagues' planned holidays, but the purpose of the email is to collect requests and make a schedule."
+        },
+        {
+          "id": "seed-reading-message-02-q01-option-b",
+          "text": "Om te zeggen dat ze op vakantie gaat",
+          "isCorrect": false,
+          "explanationEn": "Maria does not say she is going on holiday."
+        },
+        {
+          "id": "seed-reading-message-02-q01-option-c",
+          "text": "Om een vakantieschema te maken",
+          "isCorrect": true,
+          "explanationEn": "Maria asks John to submit his preferred holiday so she can make a schedule."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-02-q02",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-scheduling"
+      ],
+      "difficulty": "easy",
+      "prompt": "Wanneer kan John vakantie nemen?",
+      "passageId": "seed-reading-message-02",
+      "sortOrder": 1,
+      "options": [
+        {
+          "id": "seed-reading-message-02-q02-option-a",
+          "text": "Week 30 of 31",
+          "isCorrect": false,
+          "explanationEn": "Week 30 already has Harold and Larissa, reaching its maximum of two people; week 31 the office is closed, so leave is not needed."
+        },
+        {
+          "id": "seed-reading-message-02-q02-option-b",
+          "text": "Week 33 of 34",
+          "isCorrect": false,
+          "explanationEn": "Week 34 already has Amir and allows only one person; week 33 is available for one more person."
+        },
+        {
+          "id": "seed-reading-message-02-q02-option-c",
+          "text": "Week 29 of 30",
+          "isCorrect": false,
+          "explanationEn": "Week 30 is already full."
+        },
+        {
+          "id": "seed-reading-message-02-q02-option-d",
+          "text": "Week 29 of 33",
+          "isCorrect": true,
+          "explanationEn": "based on the reconstructed table and rules. Week 29 is empty and allows one person; week 33 has one person listed and allows up to two."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-02-q03",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-scheduling"
+      ],
+      "difficulty": "easy",
+      "prompt": "Waarom hoeft John in week 31 geen vrij te nemen?",
+      "passageId": "seed-reading-message-02",
+      "sortOrder": 2,
+      "options": [
+        {
+          "id": "seed-reading-message-02-q03-option-a",
+          "text": "Dan werken er al genoeg collega’s",
+          "isCorrect": false,
+          "explanationEn": "The reason is not staffing levels."
+        },
+        {
+          "id": "seed-reading-message-02-q03-option-b",
+          "text": "Dan zijn er niet veel mensen op kantoor",
+          "isCorrect": false,
+          "explanationEn": "The text says nobody is at the office because it is closed, not simply that few people are there."
+        },
+        {
+          "id": "seed-reading-message-02-q03-option-c",
+          "text": "Het kantoor is dan gesloten",
+          "isCorrect": true,
+          "explanationEn": "The rules say the office is closed in weeks 31 and 32."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-03-q01",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-office-facilities"
+      ],
+      "difficulty": "easy",
+      "prompt": "Hassan wil weten of er een kantine is in het nieuwe kantoor. Wat kan hij het beste doen?",
+      "passageId": "seed-reading-message-03",
+      "sortOrder": 0,
+      "options": [
+        {
+          "id": "seed-reading-message-03-q01-option-a",
+          "text": "Een email sturen naar Nadia",
+          "isCorrect": false,
+          "explanationEn": "Nadia is mentioned for managers reserving a private parking space."
+        },
+        {
+          "id": "seed-reading-message-03-q01-option-b",
+          "text": "Een email sturen naar de receptie van het nieuwe kantoor",
+          "isCorrect": false,
+          "explanationEn": "The reception email is for requesting a normal parking card."
+        },
+        {
+          "id": "seed-reading-message-03-q01-option-c",
+          "text": "Een email sturen naar Harold",
+          "isCorrect": true,
+          "explanationEn": "Harold says that colleagues with questions about the new office should email him."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-03-q02",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-office-facilities"
+      ],
+      "difficulty": "easy",
+      "prompt": "Juliano is een manager en hij wil een parkeerplaats reserveren. Wat moet hij doen?",
+      "passageId": "seed-reading-message-03",
+      "sortOrder": 1,
+      "options": [
+        {
+          "id": "seed-reading-message-03-q02-option-a",
+          "text": "Naar de receptie van het nieuwe kantoor gaan",
+          "isCorrect": false,
+          "explanationEn": "The text says managers should email Nadia."
+        },
+        {
+          "id": "seed-reading-message-03-q02-option-b",
+          "text": "Een email naar Nadia sturen",
+          "isCorrect": true,
+          "explanationEn": "Managers must email Nadia from Human Resources to reserve a private parking space."
+        },
+        {
+          "id": "seed-reading-message-03-q02-option-c",
+          "text": "Een email naar receptie@kantoor.nl sturen",
+          "isCorrect": false,
+          "explanationEn": "This address is for other colleagues requesting a standard parking card."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-03-q03",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-office-facilities"
+      ],
+      "difficulty": "easy",
+      "prompt": "Juliano is een manager en hij wil een parkeerplaats reserveren. Wat moet hij doen?",
+      "passageId": "seed-reading-message-03",
+      "sortOrder": 2,
+      "options": [
+        {
+          "id": "seed-reading-message-03-q03-option-a",
+          "text": "Naar de receptie van het nieuwe kantoor gaan",
+          "isCorrect": false,
+          "explanationEn": "The supplied passage does not support this option."
+        },
+        {
+          "id": "seed-reading-message-03-q03-option-b",
+          "text": "Een email naar Nadia sturen",
+          "isCorrect": true,
+          "explanationEn": "Managers must email Nadia to reserve a private parking space."
+        },
+        {
+          "id": "seed-reading-message-03-q03-option-c",
+          "text": "Een email naar receptie@kantoor.nl sturen",
+          "isCorrect": false,
+          "explanationEn": "The supplied passage does not support this option."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-04-q01",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-workplace-rules"
+      ],
+      "difficulty": "easy",
+      "prompt": "Ron is klaar met werken en gaat als laatste naar huis. Wat moet hij doen volgens de tekst?",
+      "passageId": "seed-reading-message-04",
+      "sortOrder": 0,
+      "options": [
+        {
+          "id": "seed-reading-message-04-q01-option-a",
+          "text": "Zijn telefoon in zijn tas laten",
+          "isCorrect": false,
+          "explanationEn": "Employees must leave their phones in their bags while working; this is not the instruction for the last person leaving."
+        },
+        {
+          "id": "seed-reading-message-04-q01-option-b",
+          "text": "Het alarm aanzetten",
+          "isCorrect": true,
+          "explanationEn": "The last employee working must activate the alarm before leaving."
+        },
+        {
+          "id": "seed-reading-message-04-q01-option-c",
+          "text": "De deur op slot doen",
+          "isCorrect": false,
+          "explanationEn": "Locking the door is not specified in the email."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-04-q02",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-workplace-rules"
+      ],
+      "difficulty": "easy",
+      "prompt": "Waarom stuurt de baas deze email?",
+      "passageId": "seed-reading-message-04",
+      "sortOrder": 1,
+      "options": [
+        {
+          "id": "seed-reading-message-04-q02-option-a",
+          "text": "Om informatie te geven",
+          "isCorrect": true,
+          "explanationEn": "The email explains new opening times and workplace rules."
+        },
+        {
+          "id": "seed-reading-message-04-q02-option-b",
+          "text": "Om de medewerkers uit te nodigen voor een nieuwjaarsontbijt",
+          "isCorrect": false,
+          "explanationEn": "Breakfast is mentioned as a new service for customers, not as an invitation for staff."
+        },
+        {
+          "id": "seed-reading-message-04-q02-option-c",
+          "text": "Om de medewerkers te vragen wanneer ze kunnen werken",
+          "isCorrect": false,
+          "explanationEn": "The email does not ask employees for their availability."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-05-q01",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-social-events"
+      ],
+      "difficulty": "easy",
+      "prompt": "Wat hoeft Paul niet mee te nemen?",
+      "passageId": "seed-reading-message-05",
+      "sortOrder": 0,
+      "options": [
+        {
+          "id": "seed-reading-message-05-q01-option-a",
+          "text": "Lunch",
+          "isCorrect": false,
+          "explanationEn": "Employees are told to bring their own lunch."
+        },
+        {
+          "id": "seed-reading-message-05-q01-option-b",
+          "text": "Een zwembroek",
+          "isCorrect": false,
+          "explanationEn": "Employees are told not to forget their swimming trunks."
+        },
+        {
+          "id": "seed-reading-message-05-q01-option-c",
+          "text": "Een handdoek",
+          "isCorrect": true,
+          "explanationEn": "The swimming pool provides towels, so he can leave his towel at home."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-05-q02",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-social-events"
+      ],
+      "difficulty": "easy",
+      "prompt": "Paul wil met de bus mee. Hoe laat moet hij in ieder geval op kantoor zijn?",
+      "passageId": "seed-reading-message-05",
+      "sortOrder": 1,
+      "options": [
+        {
+          "id": "seed-reading-message-05-q02-option-a",
+          "text": "Om 9:30",
+          "isCorrect": false,
+          "explanationEn": "Coffee is available at 9:30, but this is not the required latest arrival time."
+        },
+        {
+          "id": "seed-reading-message-05-q02-option-b",
+          "text": "Om 17:00",
+          "isCorrect": false,
+          "explanationEn": "17:00 is when swimming ends."
+        },
+        {
+          "id": "seed-reading-message-05-q02-option-c",
+          "text": "Om 10:30",
+          "isCorrect": false,
+          "explanationEn": "10:30 is the bus departure time; the text says to arrive earlier."
+        },
+        {
+          "id": "seed-reading-message-05-q02-option-d",
+          "text": "Om 10:15",
+          "isCorrect": true,
+          "explanationEn": "The bus leaves at 10:30, and everyone must be at the office by 10:15."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-05-q03",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-social-events"
+      ],
+      "difficulty": "easy",
+      "prompt": "Piet wil weten hoe laat ze terug zullen zijn van het bedrijfsuitje. Aan wie kan hij dat vragen?",
+      "passageId": "seed-reading-message-05",
+      "sortOrder": 2,
+      "options": [
+        {
+          "id": "seed-reading-message-05-q03-option-a",
+          "text": "Aan Anja",
+          "isCorrect": false,
+          "explanationEn": "Anja arranges the bus transport."
+        },
+        {
+          "id": "seed-reading-message-05-q03-option-b",
+          "text": "Aan Peter",
+          "isCorrect": false,
+          "explanationEn": "Peter handles whether people will join the restaurant dinner."
+        },
+        {
+          "id": "seed-reading-message-05-q03-option-c",
+          "text": "Aan Herman",
+          "isCorrect": true,
+          "explanationEn": "Herman is the sender and says to contact him with other questions."
+        },
+        {
+          "id": "seed-reading-message-05-q03-option-d",
+          "text": "Aan Peter of Herman",
+          "isCorrect": false,
+          "explanationEn": "Peter's stated role concerns dinner attendance; Herman is the contact for other questions."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-06-q01",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-social-events"
+      ],
+      "difficulty": "easy",
+      "prompt": "Wat moet Paul zelf meenemen?",
+      "passageId": "seed-reading-message-06",
+      "sortOrder": 0,
+      "options": [
+        {
+          "id": "seed-reading-message-06-q01-option-a",
+          "text": "Zijn fiets",
+          "isCorrect": false,
+          "explanationEn": "The text does not say participants must bring their own bicycle; the event mentions bicycle rental."
+        },
+        {
+          "id": "seed-reading-message-06-q01-option-b",
+          "text": "Zijn fiets en een zwembroek",
+          "isCorrect": false,
+          "explanationEn": "Swimwear is needed, but the option omits the required lunch."
+        },
+        {
+          "id": "seed-reading-message-06-q01-option-c",
+          "text": "Lunch en zijn zwembroek",
+          "isCorrect": true,
+          "explanationEn": "Everyone must bring their own lunch, and participants should bring swimwear in case they swim in the lake."
+        },
+        {
+          "id": "seed-reading-message-06-q01-option-d",
+          "text": "Lunch en zijn fiets",
+          "isCorrect": false,
+          "explanationEn": "Lunch is needed, but a personal bicycle is not specified as necessary."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-06-q02",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-social-events"
+      ],
+      "difficulty": "easy",
+      "prompt": "Paul gaat niet met de bus mee. Hoe laat moet hij in Drenthe zijn?",
+      "passageId": "seed-reading-message-06",
+      "sortOrder": 1,
+      "options": [
+        {
+          "id": "seed-reading-message-06-q02-option-a",
+          "text": "Om 8:00",
+          "isCorrect": false,
+          "explanationEn": "8:00 is when people meet at the office."
+        },
+        {
+          "id": "seed-reading-message-06-q02-option-b",
+          "text": "Om 10:00",
+          "isCorrect": false,
+          "explanationEn": "10:00 is when the cycling trip begins, so independent travellers must arrive earlier."
+        },
+        {
+          "id": "seed-reading-message-06-q02-option-c",
+          "text": "Om 08:15",
+          "isCorrect": false,
+          "explanationEn": "8:15 is when the bus leaves the office."
+        },
+        {
+          "id": "seed-reading-message-06-q02-option-d",
+          "text": "Om 09:45",
+          "isCorrect": true,
+          "explanationEn": "People travelling independently must arrive at the bicycle rental location by 9:45."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-06-q03",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-work-and-social-events"
+      ],
+      "difficulty": "easy",
+      "prompt": "Mark zal niet mee eten in de avond. Wat kan hij het beste doen?",
+      "passageId": "seed-reading-message-06",
+      "sortOrder": 2,
+      "options": [
+        {
+          "id": "seed-reading-message-06-q03-option-a",
+          "text": "Dit tegen Joost zeggen",
+          "isCorrect": false,
+          "explanationEn": "Joost is the sender, but Delano is specifically responsible for collecting dinner attendance."
+        },
+        {
+          "id": "seed-reading-message-06-q03-option-b",
+          "text": "Dit tegen Sylvia zeggen",
+          "isCorrect": false,
+          "explanationEn": "Sylvia is the contact for other questions."
+        },
+        {
+          "id": "seed-reading-message-06-q03-option-c",
+          "text": "Dit tegen Delano zeggen",
+          "isCorrect": true,
+          "explanationEn": "The letter asks everyone to tell Delano whether they will join dinner."
+        },
+        {
+          "id": "seed-reading-message-06-q03-option-d",
+          "text": "Hij hoeft niks te doen",
+          "isCorrect": false,
+          "explanationEn": "The text explicitly asks everyone to notify Delano."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-07-q01",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-community-and-local-events"
+      ],
+      "difficulty": "easy",
+      "prompt": "De kinderen van Pablo willen de wedstrijd van F.C. Helden zien. Hoe laat begint deze?",
+      "passageId": "seed-reading-message-07",
+      "sortOrder": 0,
+      "options": [
+        {
+          "id": "seed-reading-message-07-q01-option-a",
+          "text": "Om 12:00",
+          "isCorrect": false,
+          "explanationEn": "12:00 is the festive opening."
+        },
+        {
+          "id": "seed-reading-message-07-q01-option-b",
+          "text": "Om 16:00",
+          "isCorrect": false,
+          "explanationEn": "16:00 is the start of the creative course and children's activities."
+        },
+        {
+          "id": "seed-reading-message-07-q01-option-c",
+          "text": "Om 14:15",
+          "isCorrect": true,
+          "explanationEn": "The programme lists the cup final from 14:15 to 15:45 at the stadium."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-07-q02",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-community-and-local-events"
+      ],
+      "difficulty": "easy",
+      "prompt": "De vrouw van Pablo doet niet mee met het dagprogramma maar wel met de barbecue. Hoeveel moet zij betalen?",
+      "passageId": "seed-reading-message-07",
+      "sortOrder": 1,
+      "options": [
+        {
+          "id": "seed-reading-message-07-q02-option-a",
+          "text": "€17,50",
+          "isCorrect": false,
+          "explanationEn": "€17.50 is for the day programme including barbecue."
+        },
+        {
+          "id": "seed-reading-message-07-q02-option-b",
+          "text": "€12,50",
+          "isCorrect": false,
+          "explanationEn": "€12.50 is for the day programme without barbecue."
+        },
+        {
+          "id": "seed-reading-message-07-q02-option-c",
+          "text": "€7,50",
+          "isCorrect": true,
+          "explanationEn": "The price for attending only the barbecue is €7.50."
+        },
+        {
+          "id": "seed-reading-message-07-q02-option-d",
+          "text": "€20",
+          "isCorrect": false,
+          "explanationEn": "€20 is last year's price, mentioned as a comparison."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-08-q01",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-health-and-medical-services"
+      ],
+      "difficulty": "easy",
+      "prompt": "Mira wil vragen welk medicijn ze nodig heeft tegen de hoofdpijn. Wat kan ze het beste doen?",
+      "passageId": "seed-reading-message-08",
+      "sortOrder": 0,
+      "options": [
+        {
+          "id": "seed-reading-message-08-q01-option-a",
+          "text": "Bellen met de assistent",
+          "isCorrect": true,
+          "explanationEn": "as the best-supported option. The text says people with a question who do not think they need a GP can call during the consultation hour and speak with the assistant."
+        },
+        {
+          "id": "seed-reading-message-08-q01-option-b",
+          "text": "Bellen met de receptie",
+          "isCorrect": false,
+          "explanationEn": "The reception is used for arranging appointments; the text directs general questions to the assistant during consultation hours."
+        },
+        {
+          "id": "seed-reading-message-08-q01-option-c",
+          "text": "Een afspraak maken",
+          "isCorrect": false,
+          "explanationEn": "The text says an appointment is not needed for a question that the assistant may be able to help with."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-08-q02",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-health-and-medical-services"
+      ],
+      "difficulty": "easy",
+      "prompt": "Het is zaterdag. Gina heeft maandagochtend een afspraak maar ze wil hem annuleren. Wat kan ze het beste doen?",
+      "passageId": "seed-reading-message-08",
+      "sortOrder": 1,
+      "options": [
+        {
+          "id": "seed-reading-message-08-q02-option-a",
+          "text": "De huisartsenpost bellen",
+          "isCorrect": false,
+          "explanationEn": "The out-of-hours GP service is for needing a GP when the practice is closed, not routine appointment cancellation."
+        },
+        {
+          "id": "seed-reading-message-08-q02-option-b",
+          "text": "24 uur voor de afspraak bellen met de receptie",
+          "isCorrect": false,
+          "explanationEn": "The text says to email if the problem is discovered during the weekend; the reception is not available then."
+        },
+        {
+          "id": "seed-reading-message-08-q02-option-c",
+          "text": "Een email sturen",
+          "isCorrect": true,
+          "explanationEn": "The text specifically says that if someone discovers during the weekend that they cannot attend on Monday, they should email the practice."
+        },
+        {
+          "id": "seed-reading-message-08-q02-option-d",
+          "text": "Op maandagochtend de assistente bellen",
+          "isCorrect": false,
+          "explanationEn": "The text asks Gina to notify the practice before the appointment, rather than waiting until Monday morning."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    },
+    {
+      "id": "seed-reading-message-08-q03",
+      "type": "multiple-choice",
+      "categoryIds": [
+        "seed-cat-reading-health-and-medical-services"
+      ],
+      "difficulty": "easy",
+      "prompt": "Het is zaterdagochtend. Hassan heeft een huisarts nodig. Wat moet hij doen?",
+      "passageId": "seed-reading-message-08",
+      "sortOrder": 2,
+      "options": [
+        {
+          "id": "seed-reading-message-08-q03-option-a",
+          "text": "De assistente bellen",
+          "isCorrect": false,
+          "explanationEn": "The assistant's consultation hours are part of the regular practice service."
+        },
+        {
+          "id": "seed-reading-message-08-q03-option-b",
+          "text": "De receptie bellen",
+          "isCorrect": false,
+          "explanationEn": "The reception is closed on weekends."
+        },
+        {
+          "id": "seed-reading-message-08-q03-option-c",
+          "text": "Een email sturen",
+          "isCorrect": false,
+          "explanationEn": "Email is used for appointment requests or cancellations, but urgent need for a GP outside opening hours is directed to the huisartsenpost."
+        },
+        {
+          "id": "seed-reading-message-08-q03-option-d",
+          "text": "De huisartsenpost bellen",
+          "isCorrect": true,
+          "explanationEn": "The practice is closed on weekends, and the text directs patients who need a GP then to the out-of-hours GP service."
+        }
+      ],
+      "source": "imported",
+      "reviewStatus": "reviewed",
+      "createdAt": 0,
+      "updatedAt": 0
+    }
+  ]
+}

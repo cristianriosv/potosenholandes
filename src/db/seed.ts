@@ -2,6 +2,7 @@ import { db } from './db';
 import type { Category, Exercise, ReadingPassage, VocabularyItem } from './schema';
 import vocabularySeed from './vocabularySeed.json';
 import readingSeed from './readingSeed.json';
+import messageReadingSeed from './messageReadingSeed.json';
 
 const stamp = {
   source: 'seed' as const,
@@ -50,6 +51,7 @@ const categories = [
   ...baseCategories,
   ...(vocabularySeed.categories as Category[]),
   ...(readingSeed.categories as Category[]),
+  ...(messageReadingSeed.categories as Category[]),
 ];
 const vocabularyItems = [...baseVocabularyItems, ...(vocabularySeed.vocabularyItems as VocabularyItem[])];
 
@@ -208,8 +210,16 @@ const baseExercises: Exercise[] = [
   },
 ];
 
-const readingPassages = [...baseReadingPassages, ...(readingSeed.passages as ReadingPassage[])];
-const exercises = [...baseExercises, ...(readingSeed.exercises as Exercise[])];
+const readingPassages = [
+  ...baseReadingPassages,
+  ...(readingSeed.passages as ReadingPassage[]),
+  ...(messageReadingSeed.passages as ReadingPassage[]),
+];
+const exercises = [
+  ...baseExercises,
+  ...(readingSeed.exercises as Exercise[]),
+  ...(messageReadingSeed.exercises as Exercise[]),
+];
 
 export const SEED_ITEMS = { categories, vocabularyItems, readingPassages, exercises };
 

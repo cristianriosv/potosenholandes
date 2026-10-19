@@ -232,7 +232,7 @@ describe('seedIfNeeded', () => {
     const [allVocabulary, allCategories] = await Promise.all([db.vocabularyItems.toArray(), db.categories.toArray()]);
     const imported = allVocabulary.filter((item) => item.source === 'imported');
     expect(imported).toHaveLength(111);
-    expect(allCategories.filter((category) => category.source === 'imported')).toHaveLength(26);
+    expect(allCategories.filter((category) => category.source === 'imported')).toHaveLength(31);
     expect(imported.every((item) => item.reviewStatus === 'reviewed')).toBe(true);
     expect(await db.vocabularyItems.get('seed-vocab-duren')).toMatchObject({
       dutchWord: 'duren',
@@ -261,6 +261,30 @@ describe('seedIfNeeded', () => {
     if (duplicateOptionsQuestion?.type === 'multiple-choice') {
       expect(duplicateOptionsQuestion.options[0]?.text).toBe(duplicateOptionsQuestion.options[3]?.text);
       expect(duplicateOptionsQuestion.options.filter((option) => option.isCorrect).map((option) => option.id)).toEqual(['seed-reading-text-03-q01-option-c']);
+    }
+  });
+
+  it('seeds all eight reviewed message passages and 21 linked questions with source caveats', async () => {
+    await seedIfNeeded();
+    const passages = (await db.readingPassages.toArray()).filter((passage) => passage.id.startsWith('seed-reading-message-'));
+    const questions = (await db.exercises.toArray()).filter((exercise) => exercise.id.startsWith('seed-reading-message-'));
+    expect(passages).toHaveLength(8);
+    expect(questions).toHaveLength(21);
+    expect(passages.every((passage) => passage.reviewStatus === 'reviewed' && passage.source === 'imported')).toBe(true);
+    expect(questions.every((question) => question.type === 'multiple-choice' && question.reviewStatus === 'reviewed')).toBe(true);
+
+    const holiday = passages.find((passage) => passage.id === 'seed-reading-message-02');
+    expect(holiday?.dutchText).toContain('Harold | — | X | — | — | — | —');
+    expect(holiday?.reviewNotes?.some((note) => note.includes('column alignment'))).toBe(true);
+
+    const duplicateQuestion = await db.exercises.get('seed-reading-message-03-q03');
+    expect(duplicateQuestion?.prompt).toBe('Juliano is een manager en hij wil een parkeerplaats reserveren. Wat moet hij doen?');
+    expect(passages.find((passage) => passage.id === 'seed-reading-message-03')?.reviewNotes?.some((note) => note.includes('repeats'))).toBe(true);
+    for (const question of questions) {
+      if (question.type === 'multiple-choice') {
+        expect(question.options.length).toBeGreaterThanOrEqual(3);
+        expect(question.options.every((option) => option.explanationEn.trim().length > 0)).toBe(true);
+      }
     }
   });
 });

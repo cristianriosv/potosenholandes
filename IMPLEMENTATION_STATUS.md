@@ -6,7 +6,7 @@ Status date: 2026-10-19
 | --- | --- | --- |
 | 1. Offline foundation | Partial | Vite PWA, manifest, generated service worker, Dexie, sample content, required navigation, Home links, loading/error states, and a browser online/offline indicator exist. Manual installation and offline startup have not been verified on a device. |
 | 2. Domain model and repositories | Complete | Canonical Zod model, Dexie v1-to-v2 migration, validated repositories, referential checks, four exercise variants, event-based attempts/reviews, canonical seeds, and a v1 upgrade regression test are implemented. |
-| 3. Reading experience | Partial | Browse/filter, nine A2 passages with linked questions, immediate explanations, correct-answer reveal, score, retry, and local attempt history are implemented and tested. Six reviewed source passages add 17 questions; ambiguity/editorial caveats are retained in passage review notes. Manual offline/device behavior remains unverified. |
+| 3. Reading experience | Partial | Browse/filter, 17 A2 passages with 44 linked questions, immediate explanations, correct-answer reveal, score, retry, and local attempt history are implemented and tested. Imported sources retain ambiguity/editorial caveats, including the reconstructed holiday/event tables and duplicate question. Manual offline/device behavior remains unverified. |
 | 4. Content manager | Complete | Searchable/filterable library, typed editors, linked questions, per-option explanations, previews, review states, atomic stale-write detection, dirty-draft confirmation, protected deletion, duplication, and local image/verb-form fields are implemented and tested. |
 | 5. Flashcards and sentence exercises | Partial | Again/Hard/Easy review scheduling, due/difficult filters, local images, all three sentence modes, and 111 reviewed vocabulary items across 20 suggested categories are implemented and tested. Manual offline behavior remains unverified. |
 | 6. Backup and offline readiness | Partial | Versioned export/import, validation, change preview, conflict-safe merge, explicit full restore, legacy-progress/seed-state preservation, and atomic rollback tests are implemented. Cross-device and offline checks remain. |
@@ -19,7 +19,7 @@ Use standalone Exercise records, with `passageId` linking reading questions to t
 
 ## Verification
 
-`npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 35 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
+`npm run typecheck`, `npm run lint`, `npm test -- --run`, and `npm run build` pass; 36 tests pass. The production build emits a JavaScript chunk-size warning because the bundle exceeds 500 kB. Automated checks do not establish offline behavior.
 
 ## Recommended Next Steps
 
