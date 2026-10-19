@@ -70,6 +70,7 @@ export function SentenceExercisesPage() {
   const [saveError, setSaveError] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [tokens, setTokens] = useState<WordToken[]>([]);
+  const [dutchPairs, setDutchPairs] = useState<MatchingPair[]>([]);
   const [englishPairs, setEnglishPairs] = useState<MatchingPair[]>([]);
   const submissionLock = useRef(false);
 
@@ -99,6 +100,7 @@ export function SentenceExercisesPage() {
     setSelectedAnswer(null);
     const target = sentenceExercises.find((exercise) => exercise.id === id);
     setTokens(target?.type === 'word-order' ? shuffle(createWordTokens(target.acceptedSentences, target.wordTiles)) : []);
+    setDutchPairs(target?.type === 'matching' ? shuffle(target.pairs) : []);
     setEnglishPairs(target?.type === 'matching' ? shuffle(target.pairs) : []);
     setOrderedTokenIds([]);
     setSelectedDutchId(null);
@@ -280,7 +282,7 @@ export function SentenceExercisesPage() {
           <SimpleGrid cols={{ base: 1, sm: 2 }}>
             <Stack>
               <Text fw={600}>Dutch</Text>
-              {pairs.map((pair) => (
+              {dutchPairs.map((pair) => (
                 <Button key={pair.id} variant={selectedDutchId === pair.id ? 'filled' : 'default'} disabled={matchedPairIds.includes(pair.id) || Boolean(feedback) || isSaving} onClick={() => chooseDutchPair(pair.id)}>
                   {pair.dutch}{matchedPairIds.includes(pair.id) ? ' ✓' : ''}
                 </Button>

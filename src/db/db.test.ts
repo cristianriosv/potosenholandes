@@ -288,7 +288,7 @@ describe('seedIfNeeded', () => {
     }
   });
 
-  it('imports the 83 A2 grammar exercises and keeps empty matching sets as drafts', async () => {
+  it('imports the 83 A2 grammar exercises with completed matching sets', async () => {
     await seedIfNeeded();
     const imported = (await db.exercises.toArray()).filter((exercise) => exercise.id.startsWith('seed-exercise-nl-a2-'));
     expect(imported).toHaveLength(83);
@@ -297,7 +297,7 @@ describe('seedIfNeeded', () => {
     expect(imported.filter((exercise) => exercise.type === 'word-order')).toHaveLength(17);
     const matching = imported.filter((exercise) => exercise.type === 'matching');
     expect(matching).toHaveLength(16);
-    expect(matching.every((exercise) => exercise.type === 'matching' && exercise.pairs.length === 0 && exercise.reviewStatus === 'draft')).toBe(true);
+    expect(matching.every((exercise) => exercise.type === 'matching' && exercise.pairs.length >= 2 && exercise.reviewStatus === 'draft')).toBe(true);
     expect(await db.exercises.get('seed-exercise-nl-a2-001')).toMatchObject({
       type: 'missing-word', prompt: '___ woon in Nederland.', acceptedAnswers: ['Ik'],
       answerOptions: ['Ik', 'Mij', 'Mijn', 'Hij'], skill: 'Subject pronouns', cefrLevel: 'A2',
@@ -307,6 +307,18 @@ describe('seedIfNeeded', () => {
       acceptedSentences: ['Morgen gaan wij naar de huisarts.'],
       wordTiles: ['Morgen', 'gaan', 'wij', 'naar', 'de', 'huisarts'],
     });
+  });
+
+  it('fills old imported matching placeholders but preserves user-owned matching records', async () => {
+    await seedIfNeeded();
+    await db.table('exercises').update('seed-exercise-nl-a2-006', { pairs: [] });
+    await db.table('exercises').update('seed-exercise-nl-a2-012', { pairs: [], source: 'user' });
+    await seedIfNeeded();
+    const promoted = await db.exercises.get('seed-exercise-nl-a2-006');
+    const userOwned = await db.exercises.get('seed-exercise-nl-a2-012');
+    expect(promoted?.type).toBe('matching');
+    if (promoted?.type === 'matching') expect(promoted.pairs).toHaveLength(8);
+    expect(userOwned).toMatchObject({ source: 'user', type: 'matching', pairs: [] });
   });
 });
 

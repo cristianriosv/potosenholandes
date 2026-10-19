@@ -1,5 +1,6 @@
 import { db } from './db';
 import type { Category, Exercise, ReadingPassage, VocabularyItem } from './schema';
+import { ExerciseSchema } from './schema';
 import vocabularySeed from './vocabularySeed.json';
 import readingSeed from './readingSeed.json';
 import messageReadingSeed from './messageReadingSeed.json';
@@ -250,6 +251,26 @@ export async function seedIfNeeded(): Promise<void> {
       for (const item of existingVocabulary) {
         if (promotedIds.has(item.id) && item.source === 'imported' && item.reviewStatus === 'draft') {
           await db.vocabularyItems.update(item.id, { reviewStatus: 'reviewed' });
+        }
+      }
+      const matchingSeed = new Map(
+        exercises.filter((exercise) => exercise.type === 'matching').map((exercise) => [exercise.id, exercise]),
+      );
+      const existingExercises = await db.exercises.toArray();
+      for (const exercise of existingExercises) {
+        const imported = matchingSeed.get(exercise.id);
+        if (
+          imported?.type === 'matching'
+          && exercise.type === 'matching'
+          && exercise.source === 'imported'
+          && exercise.pairs.length === 0
+        ) {
+          const updated = ExerciseSchema.parse({
+            ...exercise,
+            pairs: imported.pairs,
+            updatedAt: Math.max(Date.now(), exercise.updatedAt + 1),
+          });
+          await db.exercises.put(updated);
         }
       }
       await db.meta.put({ key: 'seededIds', value: [...applied] });
