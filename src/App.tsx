@@ -1,5 +1,6 @@
 import { AppShell, Container, Group, Tabs, Text, Title } from '@mantine/core';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { FlashcardsPage } from './features/flashcards/FlashcardsPage';
 
 const sections = [
   { path: '/flashcards', label: 'Flashcards' },
@@ -42,9 +43,12 @@ export function App() {
       <AppShell.Main>
         <Container size="sm">
           <Routes>
-            {sections.map((s) => (
-              <Route key={s.path} path={s.path} element={<Placeholder title={s.label} />} />
-            ))}
+            <Route path="/flashcards" element={<FlashcardsPage />} />
+            {sections
+              .filter((s) => s.path !== '/flashcards')
+              .map((s) => (
+                <Route key={s.path} path={s.path} element={<Placeholder title={s.label} />} />
+              ))}
             <Route path="*" element={<Placeholder title="Welkom" />} />
           </Routes>
         </Container>
