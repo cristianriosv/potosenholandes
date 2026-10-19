@@ -117,13 +117,48 @@ export const vocabularyItems = {
   },
 };
 
-export const readingPassages = {
-  ...createRepo<ReadingPassage>(
+const readingPassageRepo = createRepo<ReadingPassage>(
     db.readingPassages,
     ReadingPassageSchema,
     [db.categories],
     (item) => requireCategories(item.categoryIds),
-  ),
+  );
+
+export const readingPassages = {
+  ...readingPassageRepo,
+  async duplicate(id: string): Promise<ReadingPassage | undefined> {
+    return db.transaction('rw', [db.readingPassages, db.exercises], async () => {
+      const original = await db.readingPassages.get(id);
+      if (!original) return undefined;
+      const now = Date.now();
+      const copy = ReadingPassageSchema.parse({
+        ...original,
+        id: crypto.randomUUID(),
+        source: 'user',
+        reviewStatus: 'draft',
+        createdAt: now,
+        updatedAt: now,
+      });
+      const questions = await exercises.listForPassage(id);
+      await db.readingPassages.add(copy);
+      for (const question of questions) {
+        const duplicated = {
+          ...question,
+          id: crypto.randomUUID(),
+          passageId: copy.id,
+          source: 'user',
+          reviewStatus: 'draft',
+          createdAt: now,
+          updatedAt: now,
+          ...(question.type === 'multiple-choice'
+            ? { options: question.options.map((option) => ({ ...option, id: crypto.randomUUID() })) }
+            : {}),
+        };
+        await db.exercises.add(ExerciseSchema.parse(duplicated));
+      }
+      return copy;
+    });
+  },
   async remove(id: string): Promise<void> {
     await db.transaction('rw', [db.readingPassages, db.exercises], async () => {
       if (await db.exercises.where('passageId').equals(id).count()) {

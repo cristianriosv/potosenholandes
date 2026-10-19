@@ -2,6 +2,7 @@ import { AppShell, Container, Group, Tabs, Text, Title } from '@mantine/core';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { FlashcardsPage } from './features/flashcards/FlashcardsPage';
 import { ReadingPage } from './features/reading/ReadingPage';
+import { ContentManagerPage } from './features/content/ContentManagerPage';
 
 const sections = [
   { path: '/flashcards', label: 'Flashcards' },
@@ -46,8 +47,9 @@ export function App() {
           <Routes>
             <Route path="/flashcards" element={<FlashcardsPage />} />
             <Route path="/reading" element={<ReadingPage />} />
+            <Route path="/manage" element={<ContentManagerPage />} />
             {sections
-              .filter((s) => s.path !== '/flashcards' && s.path !== '/reading')
+              .filter((s) => !['/flashcards', '/reading', '/manage'].includes(s.path))
               .map((s) => (
                 <Route key={s.path} path={s.path} element={<Placeholder title={s.label} />} />
               ))}
