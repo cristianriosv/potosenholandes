@@ -45,6 +45,24 @@ describe('App', () => {
     expect(screen.getByRole('button', { name: 'Refresh data' })).toBeEnabled();
   });
 
+  it('toggles dark mode', () => {
+    window.localStorage.clear();
+    render(
+      <MantineProvider>
+        <MemoryRouter initialEntries={['/']}>
+          <App />
+        </MemoryRouter>
+      </MantineProvider>,
+    );
+
+    const darkModeToggle = screen.getByRole('button', { name: 'Dark mode' });
+    expect(darkModeToggle).toHaveAttribute('aria-pressed', 'false');
+    fireEvent.click(darkModeToggle);
+
+    expect(darkModeToggle).toHaveAttribute('aria-pressed', 'true');
+    expect(document.documentElement).toHaveAttribute('data-mantine-color-scheme', 'dark');
+  });
+
   it('refreshes data and reports errors to the learner', async () => {
     vi.mocked(refreshAppData).mockResolvedValue();
     const { rerender } = render(

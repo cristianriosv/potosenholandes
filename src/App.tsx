@@ -1,5 +1,17 @@
 import { useEffect, useState } from 'react';
-import { AppShell, Badge, Button, Container, Group, Stack, Tabs, Text, Title } from '@mantine/core';
+import {
+  AppShell,
+  Badge,
+  Button,
+  Container,
+  Group,
+  Stack,
+  Tabs,
+  Text,
+  Title,
+  useComputedColorScheme,
+  useMantineColorScheme,
+} from '@mantine/core';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { FlashcardsPage } from './features/flashcards/FlashcardsPage';
 import { ReadingPage } from './features/reading/ReadingPage';
@@ -53,6 +65,8 @@ function Placeholder({ title }: { title: string }) {
 export function App() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const computedColorScheme = useComputedColorScheme('light');
+  const { toggleColorScheme } = useMantineColorScheme();
   const active = sections.find((s) => pathname.startsWith(s.path))?.path ?? '/home';
   const [isOnline, setIsOnline] = useState(() => navigator.onLine);
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -90,7 +104,15 @@ export function App() {
           <Title order={3}>Potos en Holandes</Title>
           <OfflineStatus isOnline={isOnline} />
         </Group>
-        <Group h={36} px="md" justify="flex-end">
+        <Group h={36} px="md" justify="space-between">
+          <Button
+            size="xs"
+            variant="default"
+            aria-pressed={computedColorScheme === 'dark'}
+            onClick={toggleColorScheme}
+          >
+            Dark mode
+          </Button>
           <Button size="xs" loading={isRefreshing} disabled={!isOnline} onClick={handleRefresh}>
             Refresh data
           </Button>
