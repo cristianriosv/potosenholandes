@@ -2,6 +2,7 @@ import { db } from './db';
 import type { Category, Exercise, ReadingPassage, VocabularyItem } from './schema';
 import { ExerciseSchema } from './schema';
 import vocabularySeed from './vocabularySeed.json';
+import supplementalVocabularySeed from './supplementalVocabularySeed.json';
 import readingSeed from './readingSeed.json';
 import messageReadingSeed from './messageReadingSeed.json';
 import exerciseSeed from './exerciseSeed.json';
@@ -55,8 +56,13 @@ const categories = [
   ...(readingSeed.categories as Category[]),
   ...(messageReadingSeed.categories as Category[]),
   ...(exerciseSeed.categories as Category[]),
+  ...(supplementalVocabularySeed.categories as Category[]),
 ];
-const vocabularyItems = [...baseVocabularyItems, ...(vocabularySeed.vocabularyItems as VocabularyItem[])];
+const vocabularyItems = [
+  ...baseVocabularyItems,
+  ...(vocabularySeed.vocabularyItems as VocabularyItem[]),
+  ...(supplementalVocabularySeed.vocabularyItems as VocabularyItem[]),
+];
 
 const baseReadingPassages: ReadingPassage[] = [
   {
@@ -230,9 +236,28 @@ export const SEED_ITEMS = { categories, vocabularyItems, readingPassages, exerci
 async function addUnapplied(tableName: string, items: readonly { id: string }[], applied: Set<string>): Promise<void> {
   const table = db.table(tableName);
   const existing = new Set((await table.toCollection().primaryKeys()).map(String));
-  const fresh = items.filter((item) => !applied.has(item.id) && !existing.has(item.id));
+  const normalizedWords = tableName === 'flashcards'
+    ? new Set((await db.vocabularyItems.toArray()).map((item) => normalizeVocabularyWord(item.dutchWord)))
+    : undefined;
+  const fresh = items.filter((item) => {
+    if (!normalizedWords) return !applied.has(item.id) && !existing.has(item.id);
+    const word = (item as { id: string; dutchWord: string }).dutchWord;
+    const key = normalizeVocabularyWord(word);
+    const duplicateWord = normalizedWords.has(key);
+    normalizedWords.add(key);
+    return !applied.has(item.id) && !existing.has(item.id) && !duplicateWord;
+  });
   if (fresh.length > 0) await table.bulkAdd(fresh);
   items.forEach((item) => applied.add(item.id));
+}
+
+function normalizeVocabularyWord(word: string): string {
+  return word
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/^(de|het)\s+/, '')
+    .replace(/[^a-z0-9]/g, '');
 }
 
 export async function seedIfNeeded(): Promise<void> {
@@ -247,7 +272,11 @@ export async function seedIfNeeded(): Promise<void> {
       await addUnapplied('passages', readingPassages, applied);
       await addUnapplied('exercises', exercises, applied);
       const existingVocabulary = await db.vocabularyItems.toArray();
-      const promotedIds = new Set(vocabularyItems.map((item) => item.id));
+      const promotedIds = new Set(
+        vocabularyItems
+          .filter((item) => item.source === 'imported' && item.reviewStatus === 'reviewed')
+          .map((item) => item.id),
+      );
       for (const item of existingVocabulary) {
         if (promotedIds.has(item.id) && item.source === 'imported' && item.reviewStatus === 'draft') {
           await db.vocabularyItems.update(item.id, { reviewStatus: 'reviewed' });

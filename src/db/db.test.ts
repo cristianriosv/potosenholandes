@@ -234,6 +234,72 @@ describe('seedIfNeeded', () => {
     });
   });
 
+  it('adds supplemental words without duplicating an existing normalized headword', async () => {
+    const existing = await vocabularyItems.save({
+      dutchWord: 'HÉT BEHOEFTE!',
+      englishTranslation: 'existing user definition',
+      categoryIds: [],
+    });
+
+    await seedIfNeeded();
+
+    expect(await vocabularyItems.get(existing.id)).toMatchObject({
+      dutchWord: 'HÉT BEHOEFTE!',
+      englishTranslation: 'existing user definition',
+      source: 'user',
+    });
+    expect(await vocabularyItems.get('seed-vocab-extra-behoefte')).toBeUndefined();
+  });
+
+  it('seeds reviewed supplemental vocabulary and keeps the uncertain spelling in draft', async () => {
+    await seedIfNeeded();
+    const [allVocabulary, allCategories] = await Promise.all([db.vocabularyItems.toArray(), db.categories.toArray()]);
+    const supplemental = allVocabulary.filter((item) => item.id.startsWith('seed-vocab-extra-'));
+    const categoryIds = new Set(allCategories.map((category) => category.id));
+    const uncertainSpelling = await vocabularyItems.get('seed-vocab-extra-uitsappen');
+
+    expect(supplemental).toHaveLength(522);
+    expect(supplemental.filter((item) => item.id !== 'seed-vocab-extra-uitsappen')
+      .every((item) => item.source === 'imported' && item.reviewStatus === 'reviewed')).toBe(true);
+    expect(supplemental.every((item) => item.categoryIds.every((id) => categoryIds.has(id)))).toBe(true);
+    expect(await vocabularyItems.get('seed-vocab-extra-gelukkig')).toMatchObject({
+      dutchWord: 'gelukkig',
+      englishTranslation: 'fortunately; happy',
+      exampleDutch: 'Gelukkig was de trein op tijd.',
+      categoryIds: ['seed-cat-word-list-adverb-adjective'],
+      reviewStatus: 'reviewed',
+    });
+    expect(await vocabularyItems.get('seed-vocab-extra-eigenlijk')).toMatchObject({
+      categoryIds: ['seed-cat-word-list-adverb-conjunction'],
+      reviewStatus: 'reviewed',
+    });
+    expect(uncertainSpelling).toMatchObject({
+      dutchWord: 'uitsappen',
+      englishTranslation: 'unclear; possibly a typo for uitslapen (to sleep in)',
+      categoryIds: ['seed-cat-word-list-separable-verb'],
+      reviewStatus: 'draft',
+    });
+    expect(allCategories).toContainEqual(expect.objectContaining({
+      id: 'seed-cat-word-list-separable-verb',
+      name: 'Separable verbs',
+    }));
+  });
+
+  it('promotes previously imported supplemental cards after they are reviewed', async () => {
+    await seedIfNeeded();
+    await db.vocabularyItems.update('seed-vocab-extra-toekomst', { reviewStatus: 'draft' });
+    await db.vocabularyItems.update('seed-vocab-extra-uitsappen', { reviewStatus: 'draft' });
+    await seedIfNeeded();
+    expect(await db.vocabularyItems.get('seed-vocab-extra-toekomst')).toMatchObject({
+      source: 'imported',
+      reviewStatus: 'reviewed',
+    });
+    expect(await db.vocabularyItems.get('seed-vocab-extra-uitsappen')).toMatchObject({
+      source: 'imported',
+      reviewStatus: 'draft',
+    });
+  });
+
   it('promotes previously seeded unchanged vocabulary to reviewed without changing category states', async () => {
     await seedIfNeeded();
     await db.vocabularyItems.update('seed-vocab-duren', { reviewStatus: 'draft' });
@@ -246,9 +312,9 @@ describe('seedIfNeeded', () => {
   it('imports all 111 vocabulary entries as reviewed records with the supplied examples and forms', async () => {
     await seedIfNeeded();
     const [allVocabulary, allCategories] = await Promise.all([db.vocabularyItems.toArray(), db.categories.toArray()]);
-    const imported = allVocabulary.filter((item) => item.source === 'imported');
+    const imported = allVocabulary.filter((item) => item.source === 'imported' && item.id.startsWith('seed-vocab-') && !item.id.startsWith('seed-vocab-extra-'));
     expect(imported).toHaveLength(111);
-    expect(allCategories.filter((category) => category.source === 'imported')).toHaveLength(47);
+    expect(allCategories.filter((category) => category.source === 'imported')).toHaveLength(48);
     expect(imported.every((item) => item.reviewStatus === 'reviewed')).toBe(true);
     expect(await db.vocabularyItems.get('seed-vocab-duren')).toMatchObject({
       dutchWord: 'duren',
