@@ -6,6 +6,7 @@ import { ReadingPage } from './features/reading/ReadingPage';
 import { ContentManagerPage } from './features/content/ContentManagerPage';
 import { SentenceExercisesPage } from './features/exercises/SentenceExercisesPage';
 import { BackupPage } from './features/settings/BackupPage';
+import { refreshAppData } from './appRefresh';
 
 const sections = [
   { path: '/home', label: 'Home' },
@@ -17,19 +18,7 @@ const sections = [
   { path: '/settings', label: 'Settings' },
 ];
 
-function OfflineStatus() {
-  const [isOnline, setIsOnline] = useState(() => navigator.onLine);
-
-  useEffect(() => {
-    const update = () => setIsOnline(navigator.onLine);
-    window.addEventListener('online', update);
-    window.addEventListener('offline', update);
-    return () => {
-      window.removeEventListener('online', update);
-      window.removeEventListener('offline', update);
-    };
-  }, []);
-
+function OfflineStatus({ isOnline }: { isOnline: boolean }) {
   return <Badge color={isOnline ? 'green' : 'orange'} role="status">{isOnline ? 'Online' : 'Offline'}</Badge>;
 }
 
@@ -65,13 +54,46 @@ export function App() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const active = sections.find((s) => pathname.startsWith(s.path))?.path ?? '/home';
+  const [isOnline, setIsOnline] = useState(() => navigator.onLine);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [refreshMessage, setRefreshMessage] = useState('');
+  const [refreshError, setRefreshError] = useState('');
+
+  useEffect(() => {
+    const update = () => setIsOnline(navigator.onLine);
+    window.addEventListener('online', update);
+    window.addEventListener('offline', update);
+    return () => {
+      window.removeEventListener('online', update);
+      window.removeEventListener('offline', update);
+    };
+  }, []);
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    setRefreshMessage('');
+    setRefreshError('');
+    try {
+      await refreshAppData();
+      setRefreshMessage('Data is up to date.');
+    } catch (error) {
+      setRefreshError(error instanceof Error ? error.message : 'Could not refresh data. Please try again.');
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
 
   return (
-    <AppShell header={{ height: 100 }} padding="md">
+    <AppShell header={{ height: 132 }} padding="md">
       <AppShell.Header>
         <Group h={48} px="md" justify="space-between">
           <Title order={3}>Potos en Holandes</Title>
-          <OfflineStatus />
+          <OfflineStatus isOnline={isOnline} />
+        </Group>
+        <Group h={36} px="md" justify="flex-end">
+          <Button size="xs" loading={isRefreshing} disabled={!isOnline} onClick={handleRefresh}>
+            Refresh data
+          </Button>
         </Group>
         <Tabs value={active} onChange={(v) => v && navigate(v)}>
           <Tabs.List style={{ overflowX: 'auto', flexWrap: 'nowrap' }}>
@@ -85,6 +107,8 @@ export function App() {
       </AppShell.Header>
       <AppShell.Main>
         <Container size="sm">
+          {refreshMessage && <Text role="status" mb="sm">{refreshMessage}</Text>}
+          {refreshError && <Text role="alert" c="red" mb="sm">{refreshError}</Text>}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
