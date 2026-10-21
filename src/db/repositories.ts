@@ -4,6 +4,7 @@ import { db } from './db';
 import {
   CategorySchema,
   ExerciseSchema,
+  ExerciseTagSchema,
   FlashcardReviewSchema,
   LegacyProgressSchema,
   PracticeAttemptSchema,
@@ -11,6 +12,7 @@ import {
   VocabularyItemSchema,
   type Category,
   type Exercise,
+  type ExerciseTag,
   type FlashcardReview,
   type LegacyProgress,
   type PracticeAttempt,
@@ -205,14 +207,37 @@ export const exercises = {
     return exerciseRepo.save(draft as Draft<Exercise>);
   },
   async remove(id: string): Promise<void> {
-    await db.transaction('rw', db.exercises, db.practiceAttempts, async () => {
+    await db.transaction('rw', [db.exercises, db.practiceAttempts, db.exerciseTags], async () => {
       await db.exercises.delete(id);
       await db.practiceAttempts.where('exerciseId').equals(id).delete();
+      await db.exerciseTags.delete(id);
     });
   },
   listForPassage(passageId: string): Promise<Exercise[]> {
     return db.exercises.where('passageId').equals(passageId).sortBy('sortOrder');
   },
+};
+
+export const exerciseTags = {
+  async setDifficulty(id: string, difficulty: ExerciseTag['difficulty'] | null): Promise<void> {
+    await db.transaction('rw', [db.exercises, db.exerciseTags], async () => {
+      if (!(await db.exercises.get(id))) {
+        throw new Error(`Exercise "${id}" does not exist.`);
+      }
+      if (!difficulty) {
+        await db.exerciseTags.delete(id);
+        return;
+      }
+      const previous = await db.exerciseTags.get(id);
+      await db.exerciseTags.put(ExerciseTagSchema.parse({
+        id,
+        difficulty,
+        updatedAt: Math.max(Date.now(), (previous?.updatedAt ?? 0) + 1),
+      }));
+    });
+  },
+  get: (id: string) => db.exerciseTags.get(id),
+  list: () => db.exerciseTags.toArray(),
 };
 
 export const practiceAttempts = {
@@ -224,7 +249,16 @@ export const practiceAttempts = {
       const id = `attempt:${input.sessionId}:${input.exerciseId}`;
       const existing = await db.practiceAttempts.get(id);
       if (existing) return existing;
-      const attempt = PracticeAttemptSchema.parse({ ...input, id, attemptedAt: Date.now() });
+      const previousAttempts = await db.practiceAttempts.where('exerciseId').equals(input.exerciseId).toArray();
+      const latestAttemptAt = previousAttempts.reduce(
+        (latest, previous) => Math.max(latest, previous.attemptedAt),
+        0,
+      );
+      const attempt = PracticeAttemptSchema.parse({
+        ...input,
+        id,
+        attemptedAt: Math.max(Date.now(), latestAttemptAt + 1),
+      });
       await db.practiceAttempts.add(attempt);
       return attempt;
     });

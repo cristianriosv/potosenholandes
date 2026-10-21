@@ -15,17 +15,24 @@ import {
 } from '@mantine/core';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
-import { exercises, practiceAttempts, readingPassages } from '../../db/repositories';
-import type { Category, Exercise, ReadingPassage } from '../../db/schema';
+import { exerciseTags, exercises, practiceAttempts, readingPassages } from '../../db/repositories';
+import type { Category, Exercise, ExerciseTag, PracticeAttempt, ReadingPassage } from '../../db/schema';
+import {
+  latestAttemptsByExercise,
+  matchesDifficultyFilter,
+  matchesResultFilter,
+  type DifficultyFilter,
+  type ResultFilter,
+} from '../progress/exerciseProgress';
 
 const ALL = 'all';
 
 type BrowseResult =
-  | { kind: 'ready'; categories: Category[]; passages: ReadingPassage[] }
+  | { kind: 'ready'; categories: Category[]; passages: ReadingPassage[]; exercises: Exercise[]; attempts: PracticeAttempt[]; tags: ExerciseTag[] }
   | { kind: 'error'; message: string };
 
 type PassageResult =
-  | { kind: 'ready'; passage: ReadingPassage; questions: Exercise[] }
+  | { kind: 'ready'; passage: ReadingPassage; questions: Exercise[]; attempts: PracticeAttempt[]; tags: ExerciseTag[] }
   | { kind: 'error'; message: string };
 
 function errorMessage(error: unknown): string {
@@ -35,11 +42,14 @@ function errorMessage(error: unknown): string {
 export function ReadingPage() {
   const browse = useLiveQuery(async (): Promise<BrowseResult> => {
     try {
-      const [categories, passages] = await Promise.all([
+      const [categories, passages, allExercises, attempts, tags] = await Promise.all([
         db.categories.orderBy('sortOrder').toArray(),
         db.readingPassages.toArray(),
+        exercises.list(),
+        practiceAttempts.list(),
+        exerciseTags.list(),
       ]);
-      return { kind: 'ready', categories, passages };
+      return { kind: 'ready', categories, passages, exercises: allExercises, attempts, tags };
     } catch (error) {
       return { kind: 'error', message: errorMessage(error) };
     }
@@ -47,6 +57,8 @@ export function ReadingPage() {
 
   const [categoryId, setCategoryId] = useState(ALL);
   const [level, setLevel] = useState(ALL);
+  const [resultFilter, setResultFilter] = useState<ResultFilter>('all');
+  const [difficultyFilter, setDifficultyFilter] = useState<DifficultyFilter>('all');
   const [passageId, setPassageId] = useState<string | null>(null);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
@@ -54,6 +66,7 @@ export function ReadingPage() {
   const [sessionId, setSessionId] = useState(() => crypto.randomUUID());
   const [feedback, setFeedback] = useState<{ isCorrect: boolean; selectedOptionId: string } | null>(null);
   const [saveError, setSaveError] = useState<string | null>(null);
+  const [tagError, setTagError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submissionLock = useRef(false);
 
@@ -67,19 +80,51 @@ export function ReadingPage() {
       if (questions.length !== linked.length) {
         return { kind: 'error', message: 'This passage contains an invalid question type.' };
       }
-      return { kind: 'ready', passage, questions };
+      const [attempts, tags] = await Promise.all([practiceAttempts.list(), exerciseTags.list()]);
+      return { kind: 'ready', passage, questions, attempts, tags };
     } catch (error) {
       return { kind: 'error', message: errorMessage(error) };
     }
   }, [passageId]);
 
+  const latestAttempts = useMemo(
+    () => latestAttemptsByExercise(browse?.kind === 'ready' ? browse.attempts : []),
+    [browse],
+  );
+  const tagsByExercise = useMemo(
+    () => new Map((browse?.kind === 'ready' ? browse.tags : []).map((tag) => [tag.id, tag])),
+    [browse],
+  );
   const visiblePassages = useMemo(() => {
     if (browse?.kind !== 'ready') return [];
     return browse.passages
       .filter((passage) => categoryId === ALL || passage.categoryIds.includes(categoryId))
       .filter((passage) => level === ALL || passage.cefrLevel === level)
+      .filter((passage) => {
+        const questionIds = browse.exercises.filter((exercise) => exercise.passageId === passage.id).map((exercise) => exercise.id);
+        const latestForPassage = questionIds
+          .map((id) => latestAttempts.get(id))
+          .filter((attempt): attempt is PracticeAttempt => Boolean(attempt))
+          .sort((left, right) => right.attemptedAt - left.attemptedAt)[0];
+        return matchesResultFilter(latestForPassage, resultFilter);
+      })
+      .filter((passage) => {
+        return browse.exercises.some((exercise) =>
+          exercise.passageId === passage.id
+            && matchesDifficultyFilter(tagsByExercise.get(exercise.id)?.difficulty, difficultyFilter),
+        );
+      })
       .sort((a, b) => a.title.localeCompare(b.title));
-  }, [browse, categoryId, level]);
+  }, [browse, categoryId, level, latestAttempts, resultFilter, difficultyFilter, tagsByExercise]);
+
+  const setDifficulty = async (id: string, difficulty: ExerciseTag['difficulty'] | null) => {
+    setTagError(null);
+    try {
+      await exerciseTags.setDifficulty(id, difficulty);
+    } catch (error) {
+      setTagError(errorMessage(error));
+    }
+  };
 
   const startPassage = (id: string) => {
     submissionLock.current = false;
@@ -171,24 +216,68 @@ export function ReadingPage() {
             data={[{ value: ALL, label: 'All levels' }, ...['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].map((value) => ({ value, label: value }))]}
           />
         </Group>
+        <Group grow align="end">
+          <Select
+            label="Last result"
+            allowDeselect={false}
+            value={resultFilter}
+            onChange={(value) => setResultFilter((value ?? 'all') as ResultFilter)}
+            data={[
+              { value: 'all', label: 'Any result' },
+              { value: 'correct', label: 'Last answer correct' },
+              { value: 'incorrect', label: 'Last answer incorrect' },
+              { value: 'unanswered', label: 'Not answered yet' },
+            ]}
+          />
+          <Select
+            label="Difficulty tag"
+            allowDeselect={false}
+            value={difficultyFilter}
+            onChange={(value) => setDifficultyFilter((value ?? 'all') as DifficultyFilter)}
+            data={[
+              { value: 'all', label: 'Any difficulty' },
+              { value: 'easy', label: 'Tagged easy' },
+              { value: 'difficult', label: 'Tagged difficult' },
+            ]}
+          />
+        </Group>
+        {tagError && <Alert color="red" role="alert">{tagError}</Alert>}
         {visiblePassages.length === 0 ? (
           <Text c="dimmed" role="status">No reading passages match these filters.</Text>
         ) : (
           <Stack gap="sm">
-            {visiblePassages.map((passage) => (
-              <Paper key={passage.id} withBorder p="md">
-                <Group justify="space-between" align="start">
-                  <div>
-                    <Text fw={600}>{passage.title}</Text>
-                    <Text size="sm" c="dimmed" lineClamp={2}>{passage.dutchText}</Text>
-                  </div>
-                  <Badge>{passage.cefrLevel}</Badge>
-                </Group>
-                <Button mt="sm" variant="light" onClick={() => startPassage(passage.id)}>
-                  Read passage
-                </Button>
-              </Paper>
-            ))}
+            {visiblePassages.map((passage) => {
+              const linkedQuestions = browse.exercises.filter((exercise) => exercise.passageId === passage.id);
+              const lastAttempt = linkedQuestions
+                .map((exercise) => latestAttempts.get(exercise.id))
+                .filter((attempt): attempt is PracticeAttempt => Boolean(attempt))
+                .sort((left, right) => right.attemptedAt - left.attemptedAt)[0];
+              const difficulties = new Set(linkedQuestions.flatMap((exercise) => {
+                const difficulty = tagsByExercise.get(exercise.id)?.difficulty;
+                return difficulty ? [difficulty] : [];
+              }));
+              return (
+                <Paper key={passage.id} withBorder p="md">
+                  <Group justify="space-between" align="start">
+                    <div>
+                      <Text fw={600}>{passage.title}</Text>
+                      <Text size="sm" c="dimmed" lineClamp={2}>{passage.dutchText}</Text>
+                      <Group gap="xs" mt={4}>
+                        <Badge color={!lastAttempt ? 'gray' : lastAttempt.isCorrect ? 'green' : 'red'}>
+                          {!lastAttempt ? 'Not answered' : lastAttempt.isCorrect ? 'Last: correct' : 'Last: incorrect'}
+                        </Badge>
+                        {difficulties.has('easy') && <Badge color="blue">Easy</Badge>}
+                        {difficulties.has('difficult') && <Badge color="orange">Difficult</Badge>}
+                      </Group>
+                    </div>
+                    <Badge>{passage.cefrLevel}</Badge>
+                  </Group>
+                  <Button mt="sm" variant="light" onClick={() => startPassage(passage.id)}>
+                    Read passage
+                  </Button>
+                </Paper>
+              );
+            })}
           </Stack>
         )}
       </Stack>
@@ -238,6 +327,8 @@ export function ReadingPage() {
   if (question?.type !== 'multiple-choice') {
     return <Alert color="red" title="Question unavailable" role="alert">This question is not a multiple-choice question.</Alert>;
   }
+  const questionTag = passageResult.tags.find((tag) => tag.id === question.id);
+  const questionLastAttempt = latestAttemptsByExercise(passageResult.attempts).get(question.id);
   const selectedOption = question.options.find((option) => option.id === (feedback?.selectedOptionId ?? selectedOptionId));
   const correctOption = question.options.find((option) => option.isCorrect);
 
@@ -254,6 +345,23 @@ export function ReadingPage() {
       <Progress value={(questionIndex / questions.length) * 100} aria-label="Reading question progress" />
       <Text size="sm" c="dimmed">Question {questionIndex + 1} of {questions.length} · Score {score}</Text>
       <Title order={3}>{question.prompt}</Title>
+      <Group gap="xs">
+        <Badge color={!questionLastAttempt ? 'gray' : questionLastAttempt.isCorrect ? 'green' : 'red'}>
+          {!questionLastAttempt ? 'Not answered' : questionLastAttempt.isCorrect ? 'Last answer: correct' : 'Last answer: incorrect'}
+        </Badge>
+        {(['easy', 'difficult'] as const).map((difficulty) => (
+          <Button
+            key={difficulty}
+            size="xs"
+            variant={questionTag?.difficulty === difficulty ? 'filled' : 'light'}
+            aria-pressed={questionTag?.difficulty === difficulty}
+            onClick={() => void setDifficulty(question.id, questionTag?.difficulty === difficulty ? null : difficulty)}
+          >
+            {difficulty === 'easy' ? 'Easy' : 'Difficult'}
+          </Button>
+        ))}
+      </Group>
+      {tagError && <Alert color="red" role="alert">{tagError}</Alert>}
       <Radio.Group
         value={selectedOptionId ?? ''}
         onChange={setSelectedOptionId}

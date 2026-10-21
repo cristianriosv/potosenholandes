@@ -5,6 +5,7 @@ import {
   type Backup,
   type Category,
   type Exercise,
+  type ExerciseTag,
   type FlashcardReview,
   type LegacyProgress,
   type PracticeAttempt,
@@ -20,6 +21,7 @@ type CollectionKey =
   | 'exercises'
   | 'practiceAttempts'
   | 'flashcardReviews'
+  | 'exerciseTags'
   | 'legacyProgress';
 export interface ChangeCounts {
   additions: number;
@@ -41,6 +43,7 @@ const collectionKeys: CollectionKey[] = [
   'exercises',
   'practiceAttempts',
   'flashcardReviews',
+  'exerciseTags',
   'legacyProgress',
 ];
 
@@ -77,11 +80,12 @@ export function parseBackup(input: unknown): Backup {
     const details = result.error.issues.map((issue) => `${issue.path.join('.') || 'Backup'}: ${issue.message}`).join('\n');
     throw new Error(`The backup is invalid. ${details}`);
   }
-  if (result.data.schemaVersion !== BACKUP_SCHEMA_VERSION) {
+  if (result.data.schemaVersion !== 2 && result.data.schemaVersion !== BACKUP_SCHEMA_VERSION) {
     throw new Error(`Backup version ${result.data.schemaVersion} is not supported. Expected version ${BACKUP_SCHEMA_VERSION}.`);
   }
-  validateReferences(result.data);
-  return result.data;
+  const backup = { ...result.data, schemaVersion: BACKUP_SCHEMA_VERSION };
+  validateReferences(backup);
+  return backup;
 }
 
 function validateUniqueIds(backup: Backup): void {
@@ -124,6 +128,9 @@ function validateReferences(backup: Backup): void {
   for (const attempt of backup.practiceAttempts) {
     if (!exerciseIds.has(attempt.exerciseId)) throw new Error(`Attempt "${attempt.id}" references missing exercise "${attempt.exerciseId}".`);
   }
+  for (const tag of backup.exerciseTags) {
+    if (!exerciseIds.has(tag.id)) throw new Error(`Exercise tag "${tag.id}" references missing exercise "${tag.id}".`);
+  }
   for (const review of backup.flashcardReviews) {
     if (!vocabularyIds.has(review.vocabularyItemId)) {
       throw new Error(`Review "${review.id}" references missing vocabulary item "${review.vocabularyItemId}".`);
@@ -145,18 +152,20 @@ async function listCurrent(key: CollectionKey): Promise<BackupRecord[]> {
     case 'exercises': return db.exercises.toArray() as unknown as BackupRecord[];
     case 'practiceAttempts': return db.practiceAttempts.toArray() as unknown as BackupRecord[];
     case 'flashcardReviews': return db.flashcardReviews.toArray() as unknown as BackupRecord[];
+    case 'exerciseTags': return db.exerciseTags.toArray() as unknown as BackupRecord[];
     case 'legacyProgress': return db.progress.toArray() as unknown as BackupRecord[];
   }
 }
 
 export async function createBackup(): Promise<Backup> {
-  const [categories, vocabularyItems, readingPassages, exercises, practiceAttempts, flashcardReviews, legacyProgress, meta] = await Promise.all([
+  const [categories, vocabularyItems, readingPassages, exercises, practiceAttempts, flashcardReviews, exerciseTags, legacyProgress, meta] = await Promise.all([
     db.categories.toArray(),
     db.vocabularyItems.toArray(),
     db.readingPassages.toArray(),
     db.exercises.toArray(),
     db.practiceAttempts.toArray(),
     db.flashcardReviews.toArray(),
+    db.exerciseTags.toArray(),
     db.progress.toArray(),
     db.meta.get('seededIds'),
   ]);
@@ -170,6 +179,7 @@ export async function createBackup(): Promise<Backup> {
     exercises,
     practiceAttempts,
     flashcardReviews,
+    exerciseTags,
     legacyProgress,
     seededIds: Array.isArray(meta?.value) ? meta.value : [],
   });
@@ -182,6 +192,7 @@ async function countChanges(key: CollectionKey, incoming: BackupRecord[]): Promi
     const current = existing.get(item.id);
     if (!current) result.additions += 1;
     else if (sameContent(current, item)) result.duplicates += 1;
+    else if (key === 'exerciseTags' && (item.updatedAt ?? 0) > (current.updatedAt ?? 0)) result.updates += 1;
     else if (current.source === 'user' || !current.source) result.conflicts += 1;
     else result.updates += 1;
   }
@@ -209,6 +220,7 @@ async function writeCollection(key: CollectionKey, records: BackupRecord[]): Pro
     case 'exercises': await db.exercises.bulkPut(records as unknown as Exercise[]); break;
     case 'practiceAttempts': await db.practiceAttempts.bulkPut(records as unknown as PracticeAttempt[]); break;
     case 'flashcardReviews': await db.flashcardReviews.bulkPut(records as unknown as FlashcardReview[]); break;
+    case 'exerciseTags': await db.exerciseTags.bulkPut(records as unknown as ExerciseTag[]); break;
     case 'legacyProgress': await db.progress.bulkPut(records as unknown as LegacyProgress[]); break;
   }
 }
@@ -224,6 +236,7 @@ export async function applyBackup(input: unknown, mode: 'merge' | 'restore'): Pr
       ...contentTables,
       db.practiceAttempts,
       db.flashcardReviews,
+      db.exerciseTags,
       db.progress,
       db.meta,
     ],
@@ -238,6 +251,7 @@ export async function applyBackup(input: unknown, mode: 'merge' | 'restore'): Pr
             case 'exercises': await db.exercises.clear(); break;
             case 'practiceAttempts': await db.practiceAttempts.clear(); break;
             case 'flashcardReviews': await db.flashcardReviews.clear(); break;
+            case 'exerciseTags': await db.exerciseTags.clear(); break;
             case 'legacyProgress': await db.progress.clear(); break;
           }
           await writeCollection(key, records);
@@ -252,6 +266,11 @@ export async function applyBackup(input: unknown, mode: 'merge' | 'restore'): Pr
         const current = new Map((await listCurrent(key)).map((record) => [record.id, record as BackupRecord]));
         const accepted = incoming.filter((item) => {
           const existing = current.get(item.id);
+          if (key === 'exerciseTags') {
+            return !existing || (
+              !sameContent(existing, item) && (item.updatedAt ?? 0) > (existing.updatedAt ?? 0)
+            );
+          }
           if (!existing || sameContent(existing, item)) return !existing;
           return Boolean(existing.source && existing.source !== 'user');
         });

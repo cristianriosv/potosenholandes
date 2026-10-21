@@ -5,6 +5,7 @@ import { AppDatabase, db } from './db';
 import {
   categories,
   exercises,
+  exerciseTags,
   flashcardReviews,
   practiceAttempts,
   readingPassages,
@@ -177,9 +178,24 @@ describe('canonical repositories', () => {
       response: 'Ik woon hier',
       isCorrect: true,
     });
-    expect(await practiceAttempts.forExercise(updated.id)).toEqual([attempt]);
+    const newerAttempt = await practiceAttempts.record({
+      exerciseId: updated.id,
+      sessionId: 'session-2',
+      response: 'wrong',
+      isCorrect: false,
+    });
+    expect(newerAttempt.attemptedAt).toBeGreaterThan(attempt.attemptedAt);
+    expect(await practiceAttempts.forExercise(updated.id)).toEqual(expect.arrayContaining([attempt, newerAttempt]));
+    await exerciseTags.setDifficulty(updated.id, 'difficult');
+    expect(await exerciseTags.get(updated.id)).toMatchObject({ difficulty: 'difficult' });
+    await exerciseTags.setDifficulty(updated.id, 'easy');
+    expect(await exerciseTags.get(updated.id)).toMatchObject({ difficulty: 'easy' });
+    await exerciseTags.setDifficulty(updated.id, null);
+    expect(await exerciseTags.get(updated.id)).toBeUndefined();
+    await exerciseTags.setDifficulty(updated.id, 'difficult');
     await exercises.remove(updated.id);
     expect(await practiceAttempts.forExercise(updated.id)).toEqual([]);
+    expect(await exerciseTags.get(updated.id)).toBeUndefined();
     if (duplicate) await exercises.remove(duplicate.id);
 
     const item = await vocabularyItems.save({ dutchWord: 'huis', englishTranslation: 'house', categoryIds: [] });
@@ -362,6 +378,7 @@ describe('v1 database migration', () => {
     const upgraded = new AppDatabase(name);
     await upgraded.open();
     try {
+      expect(await upgraded.exerciseTags.count()).toBe(0);
       expect(await upgraded.categories.get('cat-old')).toMatchObject({ name: 'Oud', sortOrder: 0, description: '' });
       expect(await upgraded.vocabularyItems.get('card-old')).toMatchObject({
         dutchWord: 'fiets', article: 'de', englishTranslation: 'bicycle', categoryIds: ['cat-old'], createdAt: 21,

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const BACKUP_SCHEMA_VERSION = 2;
+export const BACKUP_SCHEMA_VERSION = 3;
 
 const id = z.string().trim().min(1, 'ID is required');
 const text = z.string().trim().min(1, 'This field is required');
@@ -181,6 +181,12 @@ export const FlashcardReviewSchema = z.object({
   nextDueAt: z.number().int().nonnegative(),
 });
 
+export const ExerciseTagSchema = z.object({
+  id,
+  difficulty: z.enum(['easy', 'difficult']),
+  updatedAt: z.number().int().nonnegative(),
+});
+
 export const LegacyProgressSchema = z.object({
   id,
   itemType: z.enum(['flashcard', 'exercise', 'question']),
@@ -200,6 +206,7 @@ export const BackupSchema = z.object({
   exercises: z.array(ExerciseSchema),
   practiceAttempts: z.array(PracticeAttemptSchema),
   flashcardReviews: z.array(FlashcardReviewSchema),
+  exerciseTags: z.array(ExerciseTagSchema).default([]),
   legacyProgress: z.array(LegacyProgressSchema).default([]),
   seededIds: z.array(id).default([]),
 });
@@ -210,5 +217,6 @@ export type ReadingPassage = z.infer<typeof ReadingPassageSchema>;
 export type Exercise = z.infer<typeof ExerciseSchema>;
 export type PracticeAttempt = z.infer<typeof PracticeAttemptSchema>;
 export type FlashcardReview = z.infer<typeof FlashcardReviewSchema>;
+export type ExerciseTag = z.infer<typeof ExerciseTagSchema>;
 export type LegacyProgress = z.infer<typeof LegacyProgressSchema>;
 export type Backup = z.infer<typeof BackupSchema>;

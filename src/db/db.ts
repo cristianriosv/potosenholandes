@@ -2,6 +2,7 @@ import Dexie, { type EntityTable } from 'dexie';
 import type {
   Category,
   Exercise,
+  ExerciseTag,
   FlashcardReview,
   LegacyProgress,
   PracticeAttempt,
@@ -106,6 +107,7 @@ export class AppDatabase extends Dexie {
             createdAt: Number.isInteger(card.createdAt) ? card.createdAt : now,
             updatedAt: Number.isInteger(card.updatedAt) ? card.updatedAt : now,
           });
+
         });
 
         const migratedPassages: ReadingPassage[] = [];
@@ -211,6 +213,18 @@ export class AppDatabase extends Dexie {
           .forEach((question) => seededIds.add(question.id));
         await metaTable.put({ key: 'seededIds', value: [...seededIds] });
       });
+
+    this.version(3).stores({
+      categories: 'id, name, sortOrder, reviewStatus',
+      flashcards: 'id, *categoryIds, dutchWord, updatedAt, reviewStatus',
+      exercises: 'id, type, passageId, *categoryIds, updatedAt, reviewStatus',
+      passages: 'id, title, *categoryIds, cefrLevel, updatedAt, reviewStatus',
+      progress: 'id, itemType, itemId, lastSeenAt',
+      meta: 'key',
+      practiceAttempts: 'id, &[sessionId+exerciseId], exerciseId, sessionId, attemptedAt',
+      flashcardReviews: 'id, vocabularyItemId, reviewedAt, nextDueAt',
+      exerciseTags: 'id',
+    });
   }
 
   get flashcards(): EntityTable<VocabularyItem, 'id'> {
@@ -227,6 +241,10 @@ export class AppDatabase extends Dexie {
 
   get readingPassages(): EntityTable<ReadingPassage, 'id'> {
     return this.passages;
+  }
+
+  get exerciseTags(): EntityTable<ExerciseTag, 'id'> {
+    return this.table('exerciseTags') as EntityTable<ExerciseTag, 'id'>;
   }
 }
 

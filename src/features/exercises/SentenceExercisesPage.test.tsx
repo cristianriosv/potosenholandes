@@ -100,4 +100,30 @@ describe('SentenceExercisesPage', () => {
     expect(within(result).getByText('All pairs are matched.')).toBeInTheDocument();
     expect(await db.practiceAttempts.where('exerciseId').equals(exercise.id).first()).toMatchObject({ isCorrect: true });
   });
+
+  it('saves difficulty tags and filters by the latest answer', async () => {
+    const user = userEvent.setup();
+    const exercise = await exercises.save({
+      id: 'tagged-cloze',
+      type: 'missing-word',
+      categoryIds: [],
+      difficulty: 'easy',
+      prompt: 'Ik ___ naar huis.',
+      acceptedAnswers: ['ga'],
+      answerOptions: ['ga', 'gaan'],
+    });
+    renderPage();
+
+    await user.click(await screen.findByRole('button', { name: 'Easy' }));
+    expect(await db.exerciseTags.get(exercise.id)).toMatchObject({ difficulty: 'easy' });
+
+    await user.click(screen.getByRole('button', { name: 'Practice' }));
+    await user.click(screen.getByRole('radio', { name: 'ga' }));
+    await user.click(screen.getByRole('button', { name: 'Check answer' }));
+    expect(await screen.findByRole('alert')).toHaveTextContent('Correct');
+    await user.click(screen.getByRole('button', { name: 'Choose another exercise' }));
+    expect(await screen.findByText('Last: correct')).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Last result' })).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Difficulty tag' })).toBeInTheDocument();
+  });
 });

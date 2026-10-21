@@ -96,4 +96,25 @@ describe('ReadingPage', () => {
     expect(await db.practiceAttempts.where('exerciseId').equals(first.id).count()).toBe(1);
     expect(await db.practiceAttempts.where('exerciseId').equals(second.id).count()).toBe(1);
   });
+
+  it('tracks the latest reading answer, saves difficulty tags, and filters passages', async () => {
+    const user = userEvent.setup();
+    const { passage, first } = await addPracticePassage();
+    renderReading();
+
+    await user.click(await screen.findByRole('button', { name: 'Read passage' }));
+    await screen.findByRole('heading', { name: first.prompt });
+    await user.click(screen.getByRole('button', { name: 'Difficult' }));
+    expect(await db.exerciseTags.get(first.id)).toMatchObject({ difficulty: 'difficult' });
+    await user.click(screen.getByRole('radio', { name: 'Op zondag' }));
+    await user.click(screen.getByRole('button', { name: 'Check answer' }));
+    expect(await screen.findByText('Last answer: incorrect')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Back to reading' }));
+    expect(screen.getByText(passage.title)).toBeInTheDocument();
+    expect(await screen.findByText('Last: incorrect')).toBeInTheDocument();
+    expect(screen.getByText('Difficult')).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Last result' })).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Difficulty tag' })).toBeInTheDocument();
+  });
 });

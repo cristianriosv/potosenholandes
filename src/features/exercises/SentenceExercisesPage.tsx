@@ -16,15 +16,27 @@ import {
 } from '@mantine/core';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
-import { exercises, practiceAttempts } from '../../db/repositories';
-import type { Category, Exercise } from '../../db/schema';
+import { exerciseTags, exercises, practiceAttempts } from '../../db/repositories';
+import type { Category, Exercise, ExerciseTag, PracticeAttempt } from '../../db/schema';
 import { createWordTokens, getClozeChoices, isAcceptedWordOrder } from './exerciseUtils';
+import {
+  latestAttemptsByExercise,
+  matchesDifficultyFilter,
+  matchesResultFilter,
+  type DifficultyFilter,
+  type ResultFilter,
+} from '../progress/exerciseProgress';
 
 const ALL = 'all';
 const sentenceTypes = ['missing-word', 'word-order', 'matching'] as const;
 type SentenceType = (typeof sentenceTypes)[number];
 type Feedback = { isCorrect: boolean; explanation: string };
-type LibraryResult = { exercises: Exercise[]; categories: Category[] };
+type LibraryResult = {
+  exercises: Exercise[];
+  categories: Category[];
+  attempts: PracticeAttempt[];
+  tags: ExerciseTag[];
+};
 type MatchingPair = Extract<Exercise, { type: 'matching' }>['pairs'][number];
 type WordToken = { id: string; text: string };
 
@@ -53,11 +65,18 @@ function sentenceWithAnswer(prompt: string, answer: string): string {
 
 export function SentenceExercisesPage() {
   const library = useLiveQuery(async (): Promise<LibraryResult> => {
-    const [allExercises, categories] = await Promise.all([exercises.list(), db.categories.orderBy('sortOrder').toArray()]);
-    return { exercises: allExercises, categories };
+    const [allExercises, categories, attempts, tags] = await Promise.all([
+      exercises.list(),
+      db.categories.orderBy('sortOrder').toArray(),
+      practiceAttempts.list(),
+      exerciseTags.list(),
+    ]);
+    return { exercises: allExercises, categories, attempts, tags };
   }, []);
   const [typeFilter, setTypeFilter] = useState<SentenceType | typeof ALL>(ALL);
   const [categoryFilter, setCategoryFilter] = useState(ALL);
+  const [resultFilter, setResultFilter] = useState<ResultFilter>('all');
+  const [difficultyFilter, setDifficultyFilter] = useState<DifficultyFilter>('all');
   const [exerciseId, setExerciseId] = useState<string | null>(null);
   const [sessionId, setSessionId] = useState(() => crypto.randomUUID());
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
@@ -68,6 +87,7 @@ export function SentenceExercisesPage() {
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [matchingFeedback, setMatchingFeedback] = useState<Feedback | null>(null);
   const [saveError, setSaveError] = useState<string | null>(null);
+  const [tagError, setTagError] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [tokens, setTokens] = useState<WordToken[]>([]);
   const [dutchPairs, setDutchPairs] = useState<MatchingPair[]>([]);
@@ -80,9 +100,19 @@ export function SentenceExercisesPage() {
       return sentenceTypes.includes(exercise.type as SentenceType);
     },
   ), [library]);
+  const latestAttempts = useMemo(
+    () => latestAttemptsByExercise(library?.attempts ?? []),
+    [library?.attempts],
+  );
+  const tagsByExercise = useMemo(
+    () => new Map((library?.tags ?? []).map((tag) => [tag.id, tag])),
+    [library?.tags],
+  );
   const filtered = sentenceExercises.filter((exercise) =>
     (typeFilter === ALL || exercise.type === typeFilter)
-    && (categoryFilter === ALL || exercise.categoryIds.includes(categoryFilter)),
+    && (categoryFilter === ALL || exercise.categoryIds.includes(categoryFilter))
+    && matchesResultFilter(latestAttempts.get(exercise.id), resultFilter)
+    && matchesDifficultyFilter(tagsByExercise.get(exercise.id)?.difficulty, difficultyFilter),
   );
   const current = sentenceExercises.find((exercise) => exercise.id === exerciseId);
   const clozeChoices = current?.type === 'missing-word' ? getClozeChoices(current, sentenceExercises) : [];
@@ -92,6 +122,15 @@ export function SentenceExercisesPage() {
   });
   const bankTokens = tokens.filter((token) => !orderedTokenIds.includes(token.id));
   const pairs = current?.type === 'matching' ? current.pairs : [];
+
+  const setDifficulty = async (id: string, difficulty: ExerciseTag['difficulty'] | null) => {
+    setTagError(null);
+    try {
+      await exerciseTags.setDifficulty(id, difficulty);
+    } catch (error) {
+      setTagError(messageFor(error));
+    }
+  };
 
   const resetRound = (id: string | null = exerciseId) => {
     submissionLock.current = false;
@@ -199,6 +238,32 @@ export function SentenceExercisesPage() {
             data={[{ value: ALL, label: 'All categories' }, ...library.categories.map((category) => ({ value: category.id, label: category.name }))]}
           />
         </Group>
+        <Group grow align="end">
+          <Select
+            label="Last result"
+            allowDeselect={false}
+            value={resultFilter}
+            onChange={(value) => setResultFilter((value ?? 'all') as ResultFilter)}
+            data={[
+              { value: 'all', label: 'Any result' },
+              { value: 'correct', label: 'Last answered correctly' },
+              { value: 'incorrect', label: 'Last answered incorrectly' },
+              { value: 'unanswered', label: 'Not answered yet' },
+            ]}
+          />
+          <Select
+            label="Difficulty tag"
+            allowDeselect={false}
+            value={difficultyFilter}
+            onChange={(value) => setDifficultyFilter((value ?? 'all') as DifficultyFilter)}
+            data={[
+              { value: 'all', label: 'Any difficulty' },
+              { value: 'easy', label: 'Tagged easy' },
+              { value: 'difficult', label: 'Tagged difficult' },
+            ]}
+          />
+        </Group>
+        {tagError && <Alert color="red" role="alert">{tagError}</Alert>}
         {filtered.length === 0 ? (
           <Text c="dimmed" role="status">No sentence exercises match these filters.</Text>
         ) : (
@@ -211,9 +276,39 @@ export function SentenceExercisesPage() {
                     <Group gap="xs" mt={4}>
                       <Badge>{typeLabel[exercise.type]}</Badge>
                       <Badge variant="light">{exercise.difficulty}</Badge>
+                      <Badge color={latestAttempts.get(exercise.id)?.isCorrect ? 'green' : latestAttempts.has(exercise.id) ? 'red' : 'gray'}>
+                        {!latestAttempts.has(exercise.id)
+                          ? 'Not answered'
+                          : latestAttempts.get(exercise.id)?.isCorrect
+                            ? 'Last: correct'
+                            : 'Last: incorrect'}
+                      </Badge>
+                      {tagsByExercise.has(exercise.id) && (
+                        <Badge color={tagsByExercise.get(exercise.id)?.difficulty === 'easy' ? 'blue' : 'orange'}>
+                          {tagsByExercise.get(exercise.id)?.difficulty}
+                        </Badge>
+                      )}
                     </Group>
                   </div>
-                  <Button onClick={() => resetRound(exercise.id)}>Practice</Button>
+                  <Stack gap="xs" align="flex-end">
+                    <Button onClick={() => resetRound(exercise.id)}>Practice</Button>
+                    <Group gap={4}>
+                      {(['easy', 'difficult'] as const).map((difficulty) => (
+                        <Button
+                          key={difficulty}
+                          size="xs"
+                          variant={tagsByExercise.get(exercise.id)?.difficulty === difficulty ? 'filled' : 'light'}
+                          aria-pressed={tagsByExercise.get(exercise.id)?.difficulty === difficulty}
+                          onClick={() => void setDifficulty(
+                            exercise.id,
+                            tagsByExercise.get(exercise.id)?.difficulty === difficulty ? null : difficulty,
+                          )}
+                        >
+                          {difficulty === 'easy' ? 'Easy' : 'Difficult'}
+                        </Button>
+                      ))}
+                    </Group>
+                  </Stack>
                 </Group>
               </Paper>
             ))}

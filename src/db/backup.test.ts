@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { db } from './db';
 import { applyBackup, createBackup, parseBackup, previewBackup } from './backup';
-import { categories, exercises, flashcardReviews, legacyProgress, practiceAttempts, readingPassages, vocabularyItems } from './repositories';
+import { categories, exercises, exerciseTags, flashcardReviews, legacyProgress, practiceAttempts, readingPassages, vocabularyItems } from './repositories';
 
 beforeEach(async () => {
   await Promise.all(db.tables.map((table) => table.clear()));
@@ -44,6 +44,7 @@ async function populateData() {
     isCorrect: true,
   });
   const review = await flashcardReviews.record(vocabulary.id, 'hard');
+  await exerciseTags.setDifficulty(exercise.id, 'difficult');
   await legacyProgress.record('question', exercise.id, true);
   await db.meta.put({ key: 'seededIds', value: ['seed-tombstone'] });
   return { category, vocabulary, passage, exercise, attempt, review };
@@ -62,6 +63,7 @@ describe('backup service', () => {
     expect(await db.exercises.get(original.exercise.id)).toEqual(original.exercise);
     expect(await db.practiceAttempts.get(original.attempt.id)).toEqual(original.attempt);
     expect(await db.flashcardReviews.get(original.review.id)).toEqual(original.review);
+    expect(await db.exerciseTags.get(original.exercise.id)).toMatchObject({ difficulty: 'difficult' });
     expect(await db.progress.get(`question:${original.exercise.id}`)).toMatchObject({ attempts: 1, correct: 1 });
     expect((await db.meta.get('seededIds'))?.value).toEqual(['seed-tombstone']);
   });
@@ -111,7 +113,33 @@ describe('backup service', () => {
       ],
       source: 'user', reviewStatus: 'draft', createdAt: 0, updatedAt: 0,
     });
+
     expect(() => parseBackup(broken)).toThrow('references missing passage');
+  });
+
+  it('imports version 2 backups without difficulty tags', async () => {
+    const legacy = JSON.parse(JSON.stringify(await createBackup())) as Record<string, unknown>;
+    delete legacy.exerciseTags;
+    legacy.schemaVersion = 2;
+
+    const parsed = parseBackup(legacy);
+    expect(parsed.schemaVersion).toBe(3);
+    expect(parsed.exerciseTags).toEqual([]);
+  });
+
+  it('merges the more recently updated difficulty tag', async () => {
+    const { exercise } = await populateData();
+    const incoming = await createBackup();
+    incoming.exerciseTags = incoming.exerciseTags.map((tag) => ({
+      ...tag,
+      difficulty: 'easy',
+      updatedAt: tag.updatedAt + 10_000,
+    }));
+
+    const preview = await previewBackup(incoming);
+    expect(preview.collections.exerciseTags.updates).toBe(1);
+    await applyBackup(incoming, 'merge');
+    expect(await db.exerciseTags.get(exercise.id)).toMatchObject({ difficulty: 'easy' });
   });
 
   it('does not partially restore when an IndexedDB write is interrupted', async () => {
